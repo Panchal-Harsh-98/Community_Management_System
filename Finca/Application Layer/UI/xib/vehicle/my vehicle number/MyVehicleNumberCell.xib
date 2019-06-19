@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MyVehicleNumberCell" id="gTV-IL-0wX" customClass="MyVehicleNumberCell" customModule="Finca" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="222" height="45"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="222" height="45"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIS-ge-sRn">
+                        <rect key="frame" x="0.0" y="0.0" width="222" height="45"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GJ 01 DP 1007" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHl-HR-esX">
+                                <rect key="frame" x="4" y="0.0" width="214" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="wHl-HR-esX" secondAttribute="bottom" id="2lM-Mt-dIC"/>
+                            <constraint firstItem="wHl-HR-esX" firstAttribute="leading" secondItem="sIS-ge-sRn" secondAttribute="leading" constant="4" id="RLs-1s-53M"/>
+                            <constraint firstAttribute="trailing" secondItem="wHl-HR-esX" secondAttribute="trailing" constant="4" id="RkT-bs-lbt"/>
+                            <constraint firstItem="wHl-HR-esX" firstAttribute="top" secondItem="sIS-ge-sRn" secondAttribute="top" id="eFs-Bi-bIb"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="sIS-ge-sRn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6fk-Cd-4ai"/>
+                <constraint firstItem="sIS-ge-sRn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="99l-sa-Fr0"/>
+                <constraint firstAttribute="trailing" secondItem="sIS-ge-sRn" secondAttribute="trailing" id="F9n-aH-7zb"/>
+                <constraint firstAttribute="bottom" secondItem="sIS-ge-sRn" secondAttribute="bottom" id="vZk-1f-LvB"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="222" height="45"/>
+            <connections>
+                <outlet property="lbNumber" destination="wHl-HR-esX" id="ZP7-wz-psV"/>
+            </connections>
+            <point key="canvasLocation" x="256.52173913043481" y="136.94196428571428"/>
+        </collectionViewCell>
+    </objects>
+</document>
