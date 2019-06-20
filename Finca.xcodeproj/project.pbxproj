@@ -98,6 +98,9 @@
 		2B284D0722B9FAF800CF1AE0 /* ResourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B284D0322B9FAF800CF1AE0 /* ResourceCell.xib */; };
 		2B284D0B22B9FB1C00CF1AE0 /* ResourceEmployeeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B284D0922B9FB1C00CF1AE0 /* ResourceEmployeeListVC.swift */; };
 		2B284D0C22B9FB1C00CF1AE0 /* ResourcesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B284D0A22B9FB1C00CF1AE0 /* ResourcesVC.swift */; };
+		2B284D1022BA10B300CF1AE0 /* ExpectedVisitorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B284D0E22BA10B300CF1AE0 /* ExpectedVisitorCell.swift */; };
+		2B284D1122BA10B300CF1AE0 /* ExpectedVisitorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B284D0F22BA10B300CF1AE0 /* ExpectedVisitorCell.xib */; };
+		2B284D1322BA738700CF1AE0 /* AddExpMemberDialogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B284D1222BA738700CF1AE0 /* AddExpMemberDialogVC.swift */; };
 		2B4B0455229F919B0031B293 /* NavigationMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4B0453229F919B0031B293 /* NavigationMenuCell.swift */; };
 		2B4B0456229F919B0031B293 /* NavigationMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B4B0454229F919B0031B293 /* NavigationMenuCell.xib */; };
 		2B5208F922AF8107003B6662 /* DailogFamilyMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5208F822AF8107003B6662 /* DailogFamilyMember.swift */; };
@@ -226,6 +229,9 @@
 		2B284D0322B9FAF800CF1AE0 /* ResourceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResourceCell.xib; sourceTree = "<group>"; };
 		2B284D0922B9FB1C00CF1AE0 /* ResourceEmployeeListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceEmployeeListVC.swift; sourceTree = "<group>"; };
 		2B284D0A22B9FB1C00CF1AE0 /* ResourcesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourcesVC.swift; sourceTree = "<group>"; };
+		2B284D0E22BA10B300CF1AE0 /* ExpectedVisitorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectedVisitorCell.swift; sourceTree = "<group>"; };
+		2B284D0F22BA10B300CF1AE0 /* ExpectedVisitorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpectedVisitorCell.xib; sourceTree = "<group>"; };
+		2B284D1222BA738700CF1AE0 /* AddExpMemberDialogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpMemberDialogVC.swift; sourceTree = "<group>"; };
 		2B4B0453229F919B0031B293 /* NavigationMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMenuCell.swift; sourceTree = "<group>"; };
 		2B4B0454229F919B0031B293 /* NavigationMenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationMenuCell.xib; sourceTree = "<group>"; };
 		2B5208F822AF8107003B6662 /* DailogFamilyMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailogFamilyMember.swift; sourceTree = "<group>"; };
@@ -495,6 +501,7 @@
 		25C983B72298205D00F2DF3A /* xib */ = {
 			isa = PBXGroup;
 			children = (
+				2B284D0D22BA107B00CF1AE0 /* expected visitor cell */,
 				2B284CFF22B9FAF800CF1AE0 /* resources */,
 				2B284CEE22B9F79400CF1AE0 /* vehicle */,
 				2B284CDE22B9F13700CF1AE0 /* block member */,
@@ -652,6 +659,15 @@
 			path = resources;
 			sourceTree = "<group>";
 		};
+		2B284D0D22BA107B00CF1AE0 /* expected visitor cell */ = {
+			isa = PBXGroup;
+			children = (
+				2B284D0E22BA10B300CF1AE0 /* ExpectedVisitorCell.swift */,
+				2B284D0F22BA10B300CF1AE0 /* ExpectedVisitorCell.xib */,
+			);
+			path = "expected visitor cell";
+			sourceTree = "<group>";
+		};
 		2B4B0452229F916E0031B293 /* home menu cell  */ = {
 			isa = PBXGroup;
 			children = (
@@ -711,6 +727,7 @@
 				2BBA56BA22B79C060031A0A6 /* VisitorVC.swift */,
 				2BBA56BC22B7B1D30031A0A6 /* ArrivedFragmentVC.swift */,
 				2BBA56BE22B7B1F20031A0A6 /* ExpectedFragmentVC.swift */,
+				2B284D1222BA738700CF1AE0 /* AddExpMemberDialogVC.swift */,
 			);
 			path = visitor;
 			sourceTree = "<group>";
@@ -836,6 +853,7 @@
 				2B52090522AFA4D3003B6662 /* HomeScreenCvCell.xib in Resources */,
 				2B284CE422B9F13700CF1AE0 /* BlockMemberCell.xib in Resources */,
 				2B4B0456229F919B0031B293 /* NavigationMenuCell.xib in Resources */,
+				2B284D1122BA10B300CF1AE0 /* ExpectedVisitorCell.xib in Resources */,
 				2BFC8FD522B0B73300115AD8 /* HomeSliderCell.xib in Resources */,
 				2B284CDC22B9EFC500CF1AE0 /* SendChatCell.xib in Resources */,
 				2BC48F6322B234D4006BF433 /* FundCell.xib in Resources */,
@@ -923,6 +941,7 @@
 				2BBA56C322B7D9410031A0A6 /* VisitorArrivedCell.swift in Sources */,
 				2559F19922A2894B006181A8 /* SelectBlockCell.swift in Sources */,
 				25C9835E2298032400F2DF3A /* LoginVC.swift in Sources */,
+				2B284D1022BA10B300CF1AE0 /* ExpectedVisitorCell.swift in Sources */,
 				2B5208FF22AF817E003B6662 /* InfoFamalyMemberCell.swift in Sources */,
 				25C9839722980CE600F2DF3A /* NVActivityIndicatorAnimationLineScalePulseOut.swift in Sources */,
 				2B284CED22B9F75A00CF1AE0 /* VehicleMainTabVC.swift in Sources */,
@@ -950,6 +969,7 @@
 				25C9839A22980CE600F2DF3A /* NVActivityIndicatorAnimationBallScale.swift in Sources */,
 				2559F19F22A2A561006181A8 /* FloorSelectionCell.swift in Sources */,
 				2B5EAEC522AFE5C40089E068 /* iCarousel.m in Sources */,
+				2B284D1322BA738700CF1AE0 /* AddExpMemberDialogVC.swift in Sources */,
 				2B284D0B22B9FB1C00CF1AE0 /* ResourceEmployeeListVC.swift in Sources */,
 				25C9839322980CE600F2DF3A /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
 				25C983B022980CE600F2DF3A /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift in Sources */,

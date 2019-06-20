@@ -27,9 +27,9 @@ struct StringConstants {
     static let MENU_NOTIFICATION = "Notification"
     static let MENU_CONTACT_US = "Contact Us"
     static let NOTI_UPDATE_CONTENT = "updateContent"
-     static let KEY_NOTIFIATION = "keyNotificatio"
-     static let KEY_DEVICE_TOKEN = "deiveToken"
+    static let KEY_NOTIFIATION = "keyNotificatio"
+    static let KEY_DEVICE_TOKEN = "deiveToken"
     static let RUPEE_SYMBOL = "\u{20B9}"
     static let HOME_NAV_CONTROLLER = "idHomeNavController"
-    
+    static let KEY_NOTIFICATION_VISITOR = "notification_visitor"
 }

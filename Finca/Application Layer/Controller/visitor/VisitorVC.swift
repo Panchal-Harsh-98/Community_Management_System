@@ -8,7 +8,7 @@
 
 import UIKit
 import XLPagerTabStrip
-
+import EzPopup
 class VisitorVC: ButtonBarPagerTabStripViewController,SWRevealViewControllerDelegate {
     
     @IBOutlet weak var bMenu: UIButton!
@@ -32,6 +32,7 @@ class VisitorVC: ButtonBarPagerTabStripViewController,SWRevealViewControllerDele
             oldCell?.label.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
             newCell?.label.textColor = self?.selectedColor
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(loadDialog(_:)), name: Notification.Name(rawValue:StringConstants.KEY_NOTIFICATION_VISITOR), object: nil)
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
@@ -40,5 +41,20 @@ class VisitorVC: ButtonBarPagerTabStripViewController,SWRevealViewControllerDele
         let child_2 = self.storyboard?.instantiateViewController(withIdentifier: "idExpectedFragmentVC")as! ExpectedFragmentVC
         //        child_2.loadView()
         return [child_1, child_2]
+    }
+    @objc func loadDialog(_ notification: Notification) {
+        let screenwidth = UIScreen.main.bounds.width
+        let screenheight = UIScreen.main.bounds.height
+        let destiController = self.storyboard?.instantiateViewController(withIdentifier: "idAddExpMemberDialogVC") as! AddExpMemberDialogVC
+        
+        let popupVC = PopupViewController(contentController: destiController, popupWidth: screenwidth - 50, popupHeight: screenheight-80
+        )
+        
+        popupVC.backgroundAlpha = 0.5
+        popupVC.backgroundColor = .black
+        popupVC.shadowEnabled = true
+        popupVC.canTapOutsideToDismiss = true
+        present(popupVC, animated: true)
+
     }
 }

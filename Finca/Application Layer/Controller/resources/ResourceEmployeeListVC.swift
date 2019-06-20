@@ -15,34 +15,34 @@ struct ResponseEmployeeList : Codable {
     
 }
 struct ModelEmployeeList : Codable {
-   let emp_status : String!//  "emp_status" : "1",
+    let emp_status : String!//  "emp_status" : "1",
     let emp_address : String!// "emp_address" : "Test Addsres",
     let emp_type_id : String!// "emp_type_id" : "74",
     let emp_id : String!// "emp_id" : "131",
     let emp_sallary : String!// "emp_sallary" : "120000",
     let emp_name : String!// "emp_name" : "Test Bhai",
-   let emp_id_proof : String!//  "emp_id_proof" : "",
-   let entry_status : String!//  "entry_status" : "0",
+    let emp_id_proof : String!//  "emp_id_proof" : "",
+    let entry_status : String!//  "entry_status" : "0",
     let emp_date_of_joing : String!// "emp_date_of_joing" : "",
     let emp_mobile : String!// "emp_mobile" : "9823998234",
-   let emp_email : String!//  "emp_email" : "",
-   let society_id : String!//  "society_id" : "48",
+    let emp_email : String!//  "emp_email" : "",
+    let society_id : String!//  "society_id" : "48",
     let emp_profile : String!// "emp_profile" : "http:\/\/www.fincasys.com\/img\/emp\/user.png"
 }
 class ResourceEmployeeListVC: BaseVC {
-
+    
     @IBOutlet weak var cvData: UICollectionView!
     @IBOutlet weak var tfSearch: UITextField!
     
     let itemCell = "EmployeeListCell"
     var emp_type_id:String!
-      var employees = [ModelEmployeeList]()
+    var employees = [ModelEmployeeList]()
     var filteredArray = [ModelEmployeeList]()
     
     @IBOutlet weak var bBack: UIButton!
     var shouldShowSearchResults = false
     
-     override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         cvData.delegate = self
         cvData.dataSource = self
@@ -111,9 +111,9 @@ class ResourceEmployeeListVC: BaseVC {
         }
         
     }
-
-    @objc func onClickOnCall(sender:UIButton) {
     
+    @objc func onClickOnCall(sender:UIButton) {
+        
         let index = sender.tag
         
         print("clcicl" , index)
@@ -127,18 +127,18 @@ class ResourceEmployeeListVC: BaseVC {
             }
         }
     }
-   
+    
     func didChangeSearchText(searchText: String) {
         
         filteredArray = employees.filter({ (modelEmployeeList) -> Bool in
-           // let searchChar = modelEmployeeList.emp_name
+            // let searchChar = modelEmployeeList.emp_name
             
             return modelEmployeeList.emp_name.lowercased().contains(searchText.lowercased())
             
         })
         cvData.reloadData()
     }
-   
+    
 }
 extension  ResourceEmployeeListVC :   UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -192,9 +192,9 @@ extension  ResourceEmployeeListVC :   UICollectionViewDelegate , UICollectionVie
         if shouldShowSearchResults {
             return filteredArray.count
         } else {
-             return employees.count
+            return employees.count
         }
-       
+        
     }
     
     
