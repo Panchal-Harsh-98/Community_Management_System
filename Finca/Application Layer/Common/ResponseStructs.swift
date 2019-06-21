@@ -164,3 +164,51 @@ struct Visitor_Model: Codable {
         case exitDate = "exit_date"
     }
 }
+struct ExpectedVisitorResponse: Codable {
+    let status: String!
+    let visitor: [Exp_Visitor_Model]!
+    let message: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case status = "status"
+        case visitor = "visitor"
+        case message = "message"
+    }
+}
+
+// MARK: - Visitor
+struct Exp_Visitor_Model: Codable {
+    let visitorType: String!
+    let exitTime: String!
+    let exitDate: String!
+    let visitDate: String!
+    let visitorStatus: String!
+    let societyID: String!
+    let vistorNumber: String!
+    let visitorID: String!
+    let visitorProfile: String!
+    let userID: String!
+    let visitorName: String!
+    let unitID: String!
+    let visitingReason: String!
+    let visitorMobile: String!
+    let visitTime: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case visitorType = "visitor_type"
+        case exitTime = "exit_time"
+        case exitDate = "exit_date"
+        case visitDate = "visit_date"
+        case visitorStatus = "visitor_status"
+        case societyID = "society_id"
+        case vistorNumber = "vistor_number"
+        case visitorID = "visitor_id"
+        case visitorProfile = "visitor_profile"
+        case userID = "user_id"
+        case visitorName = "visitor_name"
+        case unitID = "unit_id"
+        case visitingReason = "visiting_reason"
+        case visitorMobile = "visitor_mobile"
+        case visitTime = "visit_time"
+    }
+}
