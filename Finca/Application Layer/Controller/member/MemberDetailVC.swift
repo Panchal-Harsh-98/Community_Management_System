@@ -49,6 +49,7 @@ class MemberDetailVC: BaseVC {
     @IBAction func onClickChat(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "idChatVC") as! ChatVC
         vc.unitModelMember =  unitModelMember
+         vc.isGateKeeper = false
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

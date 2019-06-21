@@ -14,6 +14,7 @@ struct NetworkAPI {
     static let blockList = "block_list_controller.php"
     static let residentRegisterController = "resident_register_controller.php"
     static let blockListController = "block_list_controller.php"
+    public static let chatListController = "chat_list_controller.php"
     
     
     

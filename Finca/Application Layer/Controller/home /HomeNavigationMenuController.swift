@@ -13,18 +13,25 @@ struct menuCell {
     var isSelectd : Bool!
 }
 
-class HomeNavigationMenuController: UIViewController {
+class HomeNavigationMenuController: BaseVC {
     @IBOutlet weak var tbvMenuListHeighConstrint: NSLayoutConstraint!
     @IBOutlet weak var tbvMenuList: UITableView!
     @IBOutlet weak var imgProfile: UIImageView!
     var itemCell = "NavigationMenuCell"
     var menuData = [menuCell]()
+    
+    @IBOutlet weak var lbUserName: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        imgProfile.layer.borderWidth = 2
-        imgProfile.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        imgProfile.layer.cornerRadius = imgProfile.frame.height/2
+    //    imgProfile.layer.borderWidth = 2
+    //    imgProfile.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    //    imgProfile.layer.cornerRadius = imgProfile.frame.height/2
         
+        Utils.setRoundImageWithBorder(imageView: imgProfile, color: UIColor.white)
+        Utils.setImageFromUrl(imageView: imgProfile, urlString: doGetLocalDataUser().user_profile_pic)
+        
+        lbUserName.text = doGetLocalDataUser().user_full_name
         let inb = UINib(nibName: itemCell, bundle: nil)
         tbvMenuList.register(inb, forCellReuseIdentifier: itemCell)
         tbvMenuList.delegate = self
@@ -58,14 +65,17 @@ class HomeNavigationMenuController: UIViewController {
     
     func doSelectMenu(index:Int) {
         print("select menu" , index)
-        let storyBoard = HomeNavigationMenuController.getStoryboard()
+     //   let storyBoard = HomeNavigationMenuController.getStoryboard()
         
         if menuData[index].title == StringConstants.MENU_DASHBOARD {
-            let destiController = storyBoard.instantiateViewController(withIdentifier: "idHomeVC") as! HomeVC
+            
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idHomeVC") as! HomeVC
             let newFrontViewController = UINavigationController.init(rootViewController: destiController)
             newFrontViewController.isNavigationBarHidden = true
-            self.navigationController?.pushViewController(destiController, animated: true)
+          //  self.navigationController?.pushViewController(destiController, animated: true)
+           revealViewController().pushFrontViewController(newFrontViewController, animated: true)
         }
+        
 //        else if menuData[index].title == ConstantStrings.MENU_CATEGORIES {
 //            let destiController = storyBoard.instantiateViewController(withIdentifier: "idCategoriesVC") as! CategoriesVC
 //            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
@@ -152,8 +162,12 @@ extension HomeNavigationMenuController : UITableViewDelegate,UITableViewDataSour
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        doSelectMenu(index: indexPath.row)
+        
+    }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        self.viewWillLayoutSubviews()
+         self.viewWillLayoutSubviews()
     }
     
 }

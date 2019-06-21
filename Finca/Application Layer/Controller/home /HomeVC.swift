@@ -8,7 +8,31 @@
 
 import UIKit
 
-class HomeVC: BaseVC,SWRevealViewControllerDelegate {
+
+struct ResponseNotification : Codable {
+    let read_status:String!// "read_status" : "9",
+    let status:String!//"status" : "200",
+    let message:String!// "message" : "Get Notification success.",
+    let chat_status:String!// "chat_status" : "0"
+    let notification : [NotificationModel]!
+    
+}
+struct NotificationModel : Codable {
+ let notification_title:String!   //"notification_title" : "Parking Allocated",
+  let notification_action:String!  //"notification_action" : "myparking",
+  let read_status:String! // "read_status" : "0",
+  let notification_date:String!  //"notification_date" : "2019-06-12 01:03:00",
+  let user_id:String! // "user_id" : "410",
+  let notification_status:String! // "notification_status" : "0",
+  let user_notification_id:String! // "user_notification_id" : "1435",
+  let notification_desc:String!  // "notification_desc" : "by Admin"
+    
+    
+}
+
+
+
+class HomeVC: BaseVC {
     struct menuData {
         var itemId : Int!
         var itemName : String!
@@ -23,14 +47,18 @@ class HomeVC: BaseVC,SWRevealViewControllerDelegate {
     var itemCell = "HomeScreenCvCell"
     var homeCellData = [menuData]()
     
+    @IBOutlet weak var viewChatCount: UIView!
+    @IBOutlet weak var lbChatCount: UILabel!
+    @IBOutlet weak var viewNotiCount: UIView!
+    @IBOutlet weak var lbNotiCount: UILabel!
+    
+    
     @IBOutlet weak var pager: iCarousel!
     var  slider = [Slider]()
     
-     let overlyView = UIView ()
-    override func viewDidLoad() {
+     override func viewDidLoad() {
         super.viewDidLoad()
-        loadSlideMenu()
-        loadMenuData()
+         loadMenuData()
         doLoadSliderData()
         let nib = UINib(nibName: itemCell, bundle: nil)
         cvHomeMenu.register(nib, forCellWithReuseIdentifier: itemCell)
@@ -38,6 +66,9 @@ class HomeVC: BaseVC,SWRevealViewControllerDelegate {
         cvHomeMenu.dataSource = self
         cvHomeMenu.alwaysBounceVertical = false
         Timer.scheduledTimer(timeInterval: 6.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
+         self.viewChatCount.isHidden =  true
+        self.viewNotiCount.isHidden =  true
+        
         pager.isPagingEnabled = true
         pager.isScrollEnabled = true
         pager.bounces = true
@@ -45,6 +76,65 @@ class HomeVC: BaseVC,SWRevealViewControllerDelegate {
         pager.dataSource = self
         pager.reloadData()
         // Do any additional setup after loading the view.
+        doInintialRevelController(bMenu: bMenu)
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getNotificationCount()
+    }
+    
+   func getNotificationCount() {
+    // "read":"0" mean is unread massage
+    let params = ["key":ServiceNameConstants.API_KEY,
+                  "getNotification":"getNotification",
+                  "society_id":doGetLocalDataUser().society_id!,
+                  "read":"0",
+                  "user_id" : doGetLocalDataUser().user_id!]
+    
+    print("param" , params)
+    
+    let request = AlamofireSingleTon.sharedInstance
+    
+    request.requestPost(serviceName: ServiceNameConstants.userNotificationController, parameters: params) { (json, error) in
+        
+        if json != nil {
+            
+            do {
+                let response = try JSONDecoder().decode(ResponseNotification.self, from:json!)
+                if response.status == "200" {
+                    
+                    
+                    
+                    UserDefaults.standard.set(response.chat_status, forKey: StringConstants.CHAT_STATUS)
+                    UserDefaults.standard.set(response.read_status, forKey: StringConstants.READ_STATUS)
+                    
+                    
+                    if response.chat_status !=  "0" {
+                        self.viewChatCount.isHidden =  false
+                        self.lbChatCount.text = response.chat_status
+                        
+                    } else {
+                        self.viewChatCount.isHidden =  true
+                    }
+                    if response.read_status !=  "0" {
+                        self.viewNotiCount.isHidden =  false
+                        self.lbNotiCount.text = response.read_status
+                        
+                    } else {
+                        self.viewNotiCount.isHidden =  true
+                    }
+                    
+                }else {
+                    
+                }
+                print(json as Any)
+            } catch {
+                print("parse error")
+            }
+        }
+    }
     }
     override func viewWillLayoutSubviews() {
         cvHeighConstraint.constant = cvHomeMenu.contentSize.height
@@ -59,6 +149,11 @@ class HomeVC: BaseVC,SWRevealViewControllerDelegate {
         }
     }
     
+    @IBAction func onClickConversion(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "idTabCarversionVC") as! TabCarversionVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
     func loadMenuData() {
         homeCellData.append(menuData(itemId: 0, itemName: "Funds & Bills", itemImage: "cash"))
         homeCellData.append(menuData(itemId: 1, itemName: "Members", itemImage: "network"))
@@ -91,7 +186,7 @@ class HomeVC: BaseVC,SWRevealViewControllerDelegate {
         
         let params = ["key":ServiceNameConstants.API_KEY,
                       "getSlider":"getSlider",
-                      "society_id":"1"]
+                      "society_id":doGetLocalDataUser().society_id!]
         
         print("param" , params)
         
@@ -119,28 +214,7 @@ class HomeVC: BaseVC,SWRevealViewControllerDelegate {
         }
     }
     
-    func  loadSlideMenu() {
-        self.revealViewController().delegate = self
-        if self.revealViewController() != nil {
-            bMenu.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-            
-        }
-    }
-    
-    func revealController(_ revealController: SWRevealViewController!, willMoveTo position: FrontViewPosition) {
-        
-        if revealController.frontViewPosition == FrontViewPosition.left
-        {
-            overlyView.frame = CGRect(x: 0, y: 20, width: self.view.frame.size.width, height: self.view.frame.size.height)
-            self.view.addSubview(overlyView)
-        }
-        else
-        {
-            overlyView.removeFromSuperview()
-        }
-    }
+   
     
 }
 
@@ -207,7 +281,12 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollect
             break;
         case 2:
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idVehicleMainTabVC")as! VehicleMainTabVC
-            self.present(nextVC, animated: true, completion: nil)
+           // self.present(nextVC, animated: true, completion: nil)
+            
+            let newFrontViewController = UINavigationController.init(rootViewController: nextVC)
+            newFrontViewController.isNavigationBarHidden = true
+            revealViewController().pushFrontViewController(nextVC, animated: true)
+            
             break;
         case 3:
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idVisitorVC")as! VisitorVC
@@ -218,10 +297,16 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollect
             self.navigationController?.pushViewController(nextVC, animated: true )
             break;
         case 5:
+            
+           
             break;
         case 6:
             break;
         case 7:
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idNoticeVC")as! NoticeVC
+            self.navigationController?.pushViewController(nextVC, animated: true )
+            
+            // NoticeVC
             break;
         case 8:
             break;
@@ -236,6 +321,10 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollect
         case 13:
             break;
         case 14:
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idProfileVC")as! ProfileVC
+            self.navigationController?.pushViewController(nextVC, animated: true )
+            
+            
             break;
         case 15:
             break;

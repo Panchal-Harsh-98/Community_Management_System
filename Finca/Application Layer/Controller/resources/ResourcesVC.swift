@@ -27,6 +27,7 @@ class ResourcesVC: BaseVC {
     @IBOutlet weak var cvData: UICollectionView!
     let itemCell = "ResourceCell"
       var employee_Types = [ModelEmployeeType]()
+    @IBOutlet weak var bMenu: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,6 +39,7 @@ class ResourcesVC: BaseVC {
         
         // Do any additional setup after loading the view.
         doGetEmployes()
+        doInintialRevelController(bMenu: bMenu)
     }
     
     func doGetEmployes() {

@@ -17,6 +17,11 @@
 		2559F19C22A28AA4006181A8 /* SelectBlockAndRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2559F19B22A28AA4006181A8 /* SelectBlockAndRoomVC.swift */; };
 		2559F19F22A2A561006181A8 /* FloorSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2559F19D22A2A561006181A8 /* FloorSelectionCell.swift */; };
 		2559F1A022A2A561006181A8 /* FloorSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2559F19E22A2A561006181A8 /* FloorSelectionCell.xib */; };
+		2562474622BA21DA0032DB4B /* TabCarversionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2562474522BA21DA0032DB4B /* TabCarversionVC.swift */; };
+		2562474A22BA38B90032DB4B /* TabMemberConversionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2562474922BA38B90032DB4B /* TabMemberConversionVC.swift */; };
+		2562474C22BA392A0032DB4B /* TabGateKeeperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2562474B22BA392A0032DB4B /* TabGateKeeperVC.swift */; };
+		2562475022BA54870032DB4B /* GateKeeperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2562474E22BA54870032DB4B /* GateKeeperCell.swift */; };
+		2562475122BA54870032DB4B /* GateKeeperCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2562474F22BA54870032DB4B /* GateKeeperCell.xib */; };
 		258CD01A2297D43B00AAB8E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258CD0192297D43B00AAB8E6 /* AppDelegate.swift */; };
 		258CD01F2297D43B00AAB8E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 258CD01D2297D43B00AAB8E6 /* Main.storyboard */; };
 		258CD0212297D43F00AAB8E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 258CD0202297D43F00AAB8E6 /* Assets.xcassets */; };
@@ -26,6 +31,8 @@
 		258CD0382297E9DE00AAB8E6 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 258CD0372297E9DE00AAB8E6 /* Color.xcassets */; };
 		258CD03A2297EBCA00AAB8E6 /* ColorConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258CD0392297EBCA00AAB8E6 /* ColorConstant.swift */; };
 		258CD03C2297F62A00AAB8E6 /* ButtonWithShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258CD03B2297F62A00AAB8E6 /* ButtonWithShadow.swift */; };
+		25AF673922BB623300637C1C /* NoticeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AF673822BB623300637C1C /* NoticeVC.swift */; };
+		25AF673C22BB883B00637C1C /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AF673B22BB883B00637C1C /* ProfileVC.swift */; };
 		25C9835E2298032400F2DF3A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9835D2298032400F2DF3A /* LoginVC.swift */; };
 		25C983602298054F00F2DF3A /* AlamofireSingleTon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9835F2298054F00F2DF3A /* AlamofireSingleTon.swift */; };
 		25C9838C22980CE600F2DF3A /* NVActivityIndicatorAnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9836222980CE600F2DF3A /* NVActivityIndicatorAnimationDelegate.swift */; };
@@ -140,6 +147,11 @@
 		2559F19B22A28AA4006181A8 /* SelectBlockAndRoomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBlockAndRoomVC.swift; sourceTree = "<group>"; };
 		2559F19D22A2A561006181A8 /* FloorSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorSelectionCell.swift; sourceTree = "<group>"; };
 		2559F19E22A2A561006181A8 /* FloorSelectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloorSelectionCell.xib; sourceTree = "<group>"; };
+		2562474522BA21DA0032DB4B /* TabCarversionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCarversionVC.swift; sourceTree = "<group>"; };
+		2562474922BA38B90032DB4B /* TabMemberConversionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabMemberConversionVC.swift; sourceTree = "<group>"; };
+		2562474B22BA392A0032DB4B /* TabGateKeeperVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabGateKeeperVC.swift; sourceTree = "<group>"; };
+		2562474E22BA54870032DB4B /* GateKeeperCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GateKeeperCell.swift; sourceTree = "<group>"; };
+		2562474F22BA54870032DB4B /* GateKeeperCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GateKeeperCell.xib; sourceTree = "<group>"; };
 		258CD0162297D43B00AAB8E6 /* Finca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		258CD0192297D43B00AAB8E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		258CD01E2297D43B00AAB8E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -151,6 +163,8 @@
 		258CD0372297E9DE00AAB8E6 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		258CD0392297EBCA00AAB8E6 /* ColorConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstant.swift; sourceTree = "<group>"; };
 		258CD03B2297F62A00AAB8E6 /* ButtonWithShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithShadow.swift; sourceTree = "<group>"; };
+		25AF673822BB623300637C1C /* NoticeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeVC.swift; sourceTree = "<group>"; };
+		25AF673B22BB883B00637C1C /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		25C9835D2298032400F2DF3A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		25C9835F2298054F00F2DF3A /* AlamofireSingleTon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireSingleTon.swift; sourceTree = "<group>"; };
 		25C9836222980CE600F2DF3A /* NVActivityIndicatorAnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationDelegate.swift; sourceTree = "<group>"; };
@@ -296,6 +310,25 @@
 			path = registration;
 			sourceTree = "<group>";
 		};
+		2562474422BA21A10032DB4B /* conversion */ = {
+			isa = PBXGroup;
+			children = (
+				2562474522BA21DA0032DB4B /* TabCarversionVC.swift */,
+				2562474922BA38B90032DB4B /* TabMemberConversionVC.swift */,
+				2562474B22BA392A0032DB4B /* TabGateKeeperVC.swift */,
+			);
+			path = conversion;
+			sourceTree = "<group>";
+		};
+		2562474D22BA545B0032DB4B /* gatekeeper */ = {
+			isa = PBXGroup;
+			children = (
+				2562474E22BA54870032DB4B /* GateKeeperCell.swift */,
+				2562474F22BA54870032DB4B /* GateKeeperCell.xib */,
+			);
+			path = gatekeeper;
+			sourceTree = "<group>";
+		};
 		258CD00D2297D43B00AAB8E6 = {
 			isa = PBXGroup;
 			children = (
@@ -397,6 +430,9 @@
 		258CD0312297D5C900AAB8E6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				25AF673A22BB881C00637C1C /* profile */,
+				25AF673722BB620800637C1C /* notice board */,
+				2562474422BA21A10032DB4B /* conversion */,
 				2B284D0822B9FB1C00CF1AE0 /* resources */,
 				2B284CE722B9F75A00CF1AE0 /* vehicles */,
 				2B284CCB22B9EF8F00CF1AE0 /* chat */,
@@ -428,6 +464,22 @@
 				25C9835D2298032400F2DF3A /* LoginVC.swift */,
 			);
 			path = login;
+			sourceTree = "<group>";
+		};
+		25AF673722BB620800637C1C /* notice board */ = {
+			isa = PBXGroup;
+			children = (
+				25AF673822BB623300637C1C /* NoticeVC.swift */,
+			);
+			path = "notice board";
+			sourceTree = "<group>";
+		};
+		25AF673A22BB881C00637C1C /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				25AF673B22BB883B00637C1C /* ProfileVC.swift */,
+			);
+			path = profile;
 			sourceTree = "<group>";
 		};
 		25C9836122980CE600F2DF3A /* NVActivityIndicatorView */ = {
@@ -495,6 +547,7 @@
 		25C983B72298205D00F2DF3A /* xib */ = {
 			isa = PBXGroup;
 			children = (
+				2562474D22BA545B0032DB4B /* gatekeeper */,
 				2B284CFF22B9FAF800CF1AE0 /* resources */,
 				2B284CEE22B9F79400CF1AE0 /* vehicle */,
 				2B284CDE22B9F13700CF1AE0 /* block member */,
@@ -512,7 +565,6 @@
 			isa = PBXGroup;
 			children = (
 				2B5208F722AF8107003B6662 /* dailogs */,
-				2B9B0E6F229EA07200734FCA /* HomeNavigationMenuController.swift */,
 				25C983BD2298232A00F2DF3A /* SocietyVC.swift */,
 				2520F5B4229FB3EC0023F90A /* OTPVerificationVC.swift */,
 				2559F19022A23A01006181A8 /* SelectUserTypeVC.swift */,
@@ -607,8 +659,8 @@
 			isa = PBXGroup;
 			children = (
 				2B284CEF22B9F79400CF1AE0 /* my vehicle number */,
-				2B284CF222B9F79400CF1AE0 /* ParkingSlotCell.xib */,
 				2B284CF322B9F79400CF1AE0 /* member parking */,
+				2B284CF222B9F79400CF1AE0 /* ParkingSlotCell.xib */,
 				2B284CF622B9F79400CF1AE0 /* ParkingSlotCell.swift */,
 			);
 			path = vehicle;
@@ -700,6 +752,7 @@
 		2B9B0E6E229EA04E00734FCA /* home  */ = {
 			isa = PBXGroup;
 			children = (
+				2B9B0E6F229EA07200734FCA /* HomeNavigationMenuController.swift */,
 				2B9B0E71229EB69800734FCA /* HomeVC.swift */,
 			);
 			path = "home ";
@@ -834,6 +887,7 @@
 				2BBA56C422B7D9410031A0A6 /* VisitorArrivedCell.xib in Resources */,
 				2B5208FE22AF817E003B6662 /* InfoFamalyMemberCell.xib in Resources */,
 				2B52090522AFA4D3003B6662 /* HomeScreenCvCell.xib in Resources */,
+				2562475122BA54870032DB4B /* GateKeeperCell.xib in Resources */,
 				2B284CE422B9F13700CF1AE0 /* BlockMemberCell.xib in Resources */,
 				2B4B0456229F919B0031B293 /* NavigationMenuCell.xib in Resources */,
 				2BFC8FD522B0B73300115AD8 /* HomeSliderCell.xib in Resources */,
@@ -940,6 +994,7 @@
 				2BBCBC2B22B11BDC000EB023 /* BillsAndFundsVC.swift in Sources */,
 				25C9839E22980CE600F2DF3A /* NVActivityIndicatorAnimationBallScaleRipple.swift in Sources */,
 				2559F19122A23A01006181A8 /* SelectUserTypeVC.swift in Sources */,
+				2562474C22BA392A0032DB4B /* TabGateKeeperVC.swift in Sources */,
 				25C983AF22980CE600F2DF3A /* NVActivityIndicatorAnimationLineScaleParty.swift in Sources */,
 				25C983A722980CE600F2DF3A /* NVActivityIndicatorAnimationBallGridBeat.swift in Sources */,
 				2BC48F6222B234D4006BF433 /* FundCell.swift in Sources */,
@@ -955,10 +1010,12 @@
 				25C983B022980CE600F2DF3A /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift in Sources */,
 				25C983BE2298232A00F2DF3A /* SocietyVC.swift in Sources */,
 				25C9838E22980CE600F2DF3A /* NVActivityIndicatorViewable.swift in Sources */,
+				2562474A22BA38B90032DB4B /* TabMemberConversionVC.swift in Sources */,
 				2559F19522A248CE006181A8 /* Utils.swift in Sources */,
 				25C983A022980CE600F2DF3A /* NVActivityIndicatorAnimationSquareSpin.swift in Sources */,
 				25C983AC22980CE600F2DF3A /* NVActivityIndicatorAnimationBallPulseSync.swift in Sources */,
 				258CD0342297E90500AAB8E6 /* BaseVC.swift in Sources */,
+				25AF673922BB623300637C1C /* NoticeVC.swift in Sources */,
 				25C9839C22980CE600F2DF3A /* NVActivityIndicatorAnimationBallBeat.swift in Sources */,
 				258CD01A2297D43B00AAB8E6 /* AppDelegate.swift in Sources */,
 				2B284D0422B9FAF800CF1AE0 /* ResourceCell.swift in Sources */,
@@ -985,14 +1042,17 @@
 				25C9838F22980CE600F2DF3A /* NVActivityIndicatorShape.swift in Sources */,
 				2559F19322A2423C006181A8 /* OwnedDataSelectVC.swift in Sources */,
 				25C983B222980CE600F2DF3A /* NVActivityIndicatorAnimationOrbit.swift in Sources */,
+				25AF673C22BB883B00637C1C /* ProfileVC.swift in Sources */,
 				2B4B0455229F919B0031B293 /* NavigationMenuCell.swift in Sources */,
 				25C983B422980DFD00F2DF3A /* NetworkAPI.swift in Sources */,
 				2BFC8FD422B0B73300115AD8 /* HomeSliderCell.swift in Sources */,
 				25C983A522980CE600F2DF3A /* NVActivityIndicatorAnimationAudioEqualizer.swift in Sources */,
 				25C9839522980CE600F2DF3A /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift in Sources */,
+				2562475022BA54870032DB4B /* GateKeeperCell.swift in Sources */,
 				25C9839822980CE600F2DF3A /* NVActivityIndicatorAnimationLineSpinFadeLoader.swift in Sources */,
 				25C983B122980CE600F2DF3A /* NVActivityIndicatorAnimationBallPulseRise.swift in Sources */,
 				2BBA56BF22B7B1F20031A0A6 /* ExpectedFragmentVC.swift in Sources */,
+				2562474622BA21DA0032DB4B /* TabCarversionVC.swift in Sources */,
 				2BBCBC2F22B13AF5000EB023 /* BillFragmentVC.swift in Sources */,
 				2B284CFB22B9F79400CF1AE0 /* MemberParkingCell.swift in Sources */,
 				2B284CDD22B9EFC500CF1AE0 /* SendChatCell.swift in Sources */,

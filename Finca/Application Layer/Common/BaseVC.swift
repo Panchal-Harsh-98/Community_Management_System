@@ -8,9 +8,10 @@
 
 import UIKit
 
-class BaseVC: UIViewController , UITextFieldDelegate{
+class BaseVC: UIViewController , UITextFieldDelegate , SWRevealViewControllerDelegate{
     var PView : NVActivityIndicatorView!
     var viewSub : UIView!
+    var overlyView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,32 @@ class BaseVC: UIViewController , UITextFieldDelegate{
 //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
 //        self.view.addGestureRecognizer(tapGesture)
     }
+    
+    
+    func doInintialRevelController(bMenu:UIButton) {
+        revealViewController().delegate = self
+        if self.revealViewController() != nil {
+            bMenu.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+    }
+    
+    func revealController(_ revealController: SWRevealViewController!, willMoveTo position: FrontViewPosition) {
+        
+        if revealController.frontViewPosition == FrontViewPosition.left     // if it not statisfy try this --> if
+        {
+            overlyView.frame = CGRect(x: 0, y: 60, width: self.view.frame.size.width, height: self.view.frame.size.height)
+            //overlyView.backgroundColor = UIColor.red
+            self.view.addSubview(overlyView)
+            //self.view.isUserInteractionEnabled = false
+        }
+        else
+        {
+            overlyView.removeFromSuperview()
+            //self.view.isUserInteractionEnabled = true
+        }
+    }
+    
     func hideKeyBoardHideOutSideTouch() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
@@ -146,4 +173,11 @@ class BaseVC: UIViewController , UITextFieldDelegate{
     }
     
    
+    
+    func getChatCount() -> String{
+        return UserDefaults.standard.string(forKey: StringConstants.CHAT_STATUS)!
+    }
+    func getNotiCount() -> String{
+        return UserDefaults.standard.string(forKey: StringConstants.READ_STATUS)!
+    }
 }

@@ -49,6 +49,14 @@ class ChatVC: BaseVC {
      var isFirsttime = true
     var refreshControl = UIRefreshControl()
     
+    var isGateKeeper:Bool!
+    var userid:String!
+    var name:String!
+    var profile:String!
+    var  params = [String:String]()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -66,10 +74,9 @@ class ChatVC: BaseVC {
         tbvData.register(inb, forCellReuseIdentifier: itemCellSend)
         let inbRecieved = UINib(nibName: itemCellRecieved, bundle: nil)
         tbvData.register(inbRecieved, forCellReuseIdentifier: itemCellRecieved)
-        
-        Utils.setImageFromUrl(imageView: ivProfile, urlString: unitModelMember.user_profile_pic)
         Utils.setRoundImage(imageView: ivProfile)
-        lbUserName.text = unitModelMember.user_full_name
+        
+       
         doGetChat(isRefresh: false)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -85,10 +92,30 @@ class ChatVC: BaseVC {
         refreshControl.addTarget(self, action: #selector(self.refresh(sender:)), for: UIControl.Event.valueChanged)
         tbvData.addSubview(refreshControl)
         
+        
+        initUI()
+     
+        
+    }
+   func initUI() {
+    if isGateKeeper {
+        Utils.setImageFromUrl(imageView: ivProfile, urlString: profile)
+        lbUserName.text = name
+        
+        
+    } else {
+      
+        Utils.setImageFromUrl(imageView: ivProfile, urlString: unitModelMember.user_profile_pic)
+        Utils.setRoundImage(imageView: ivProfile)
+        lbUserName.text = unitModelMember.user_full_name
+    }
+    
+    
+    
     }
     
     @objc func refresh(sender:AnyObject) {
-           self.doGetChat(isRefresh: true)
+        self.doGetChat(isRefresh: true)
     }
     
     @IBAction func onClickSendMesage(_ sender: Any) {
@@ -99,17 +126,29 @@ class ChatVC: BaseVC {
         
     }
     
-    func doGetChat(isRefresh:Bool) {
+    func doGetChat(isRefresh:Bool ) {
         if isFirsttime {
             showProgress()
         }
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
-        let params = ["key":AlamofireSingleTon.sharedInstance.key,
+        if isGateKeeper {
+            params = ["key":AlamofireSingleTon.sharedInstance.key,
+                      "getPrvChat":"getPrvChat",
+                      "user_id":doGetLocalDataUser().user_id!,
+                      "userId":userid,
+                      "society_id":doGetLocalDataUser().society_id!,
+                      "sentTo":"1"]
+        } else {
+            params = ["key":AlamofireSingleTon.sharedInstance.key,
                       "getPrvChat":"getPrvChat",
                       "user_id":doGetLocalDataUser().user_id!,
                       "userId":unitModelMember.user_id!,
                       "society_id":unitModelMember.society_id!,
                       "sentTo":"0"]
+        }
+        
+        
+        
         
         
         print("param" , params)
@@ -153,19 +192,34 @@ class ChatVC: BaseVC {
     func doSendMessage() {
         
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
-        let params = ["key":AlamofireSingleTon.sharedInstance.key,
-                      "addChat":"addChat",
-                      "msg_by":doGetLocalDataUser().user_id!,
-                      "msg_for":unitModelMember.user_id!,
-                      "msg_data":tfMessage.text!,
-                      "unit_name":doGetLocalDataUser().unit_name!,
-                      "society_id":unitModelMember.society_id!,
-                      "sentTo":"0"]
+        var   paramsSend  =  [String:String]()
+        
+        if isGateKeeper {
+           print("is gate keeper")
+            paramsSend = ["key":AlamofireSingleTon.sharedInstance.key,
+                          "addChat":"addChat",
+                          "msg_by":doGetLocalDataUser().user_id!,
+                          "msg_for":userid,
+                          "msg_data":tfMessage.text!,
+                          "unit_name":doGetLocalDataUser().unit_name!,
+                          "society_id":doGetLocalDataUser().society_id!,
+                          "sent_to":"1"]
+        }else {
+             print("is member")
+            paramsSend = ["key":AlamofireSingleTon.sharedInstance.key,
+                          "addChat":"addChat",
+                          "msg_by":doGetLocalDataUser().user_id!,
+                          "msg_for":unitModelMember.user_id!,
+                          "msg_data":tfMessage.text!,
+                          "unit_name":doGetLocalDataUser().unit_name!,
+                          "society_id":unitModelMember.society_id!,
+                          "sent_to":"0"]
+        }
         
         
-        print("param" , params)
+        print("param" , paramsSend)
         let requrest = AlamofireSingleTon.sharedInstance
-        requrest.requestPost(serviceName: ServiceNameConstants.chatController, parameters: params) { (json, error) in
+        requrest.requestPost(serviceName: ServiceNameConstants.chatController, parameters: paramsSend) { (json, error) in
             
             if json != nil {
                 self.hideProgress()
@@ -219,8 +273,7 @@ class ChatVC: BaseVC {
     @objc func keyboardWillHide(sender: NSNotification) {
         self.view.frame.origin.y = 0 // Move view to original position
     }
-    
-
+  
 }
 extension ChatVC:UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

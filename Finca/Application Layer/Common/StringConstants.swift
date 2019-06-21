@@ -31,5 +31,9 @@ struct StringConstants {
      static let KEY_DEVICE_TOKEN = "deiveToken"
     static let RUPEE_SYMBOL = "\u{20B9}"
     static let HOME_NAV_CONTROLLER = "idHomeNavController"
+    static let CHAT_STATUS = "chat_status"
+    static let READ_STATUS = "read_status"
+    
+    
     
 }

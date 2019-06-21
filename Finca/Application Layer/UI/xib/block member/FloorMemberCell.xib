@@ -39,13 +39,49 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4SI-Ds-bmY">
+                                <rect key="frame" x="203" y="1" width="16" height="16"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOg-XQ-3su">
+                                        <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="GOg-XQ-3su" firstAttribute="leading" secondItem="4SI-Ds-bmY" secondAttribute="leading" id="2Zg-oh-8nb"/>
+                                    <constraint firstAttribute="bottom" secondItem="GOg-XQ-3su" secondAttribute="bottom" id="PDe-Hg-LWE"/>
+                                    <constraint firstAttribute="height" constant="16" id="gsV-OB-NOP"/>
+                                    <constraint firstItem="GOg-XQ-3su" firstAttribute="top" secondItem="4SI-Ds-bmY" secondAttribute="top" id="kTP-2s-k6o"/>
+                                    <constraint firstAttribute="width" constant="16" id="nNx-jR-ggj"/>
+                                    <constraint firstAttribute="trailing" secondItem="GOg-XQ-3su" secondAttribute="trailing" id="t8X-Wl-Sgy"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="1" height="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Aze-vg-OTc" secondAttribute="bottom" id="6Ow-Vr-QiT"/>
                             <constraint firstItem="l3L-nT-IUy" firstAttribute="top" secondItem="PFr-mK-zbp" secondAttribute="top" id="8Ts-Pb-YO6"/>
                             <constraint firstItem="Aze-vg-OTc" firstAttribute="top" secondItem="l3L-nT-IUy" secondAttribute="bottom" id="M87-Hc-1Ar"/>
+                            <constraint firstItem="4SI-Ds-bmY" firstAttribute="top" secondItem="PFr-mK-zbp" secondAttribute="top" constant="1" id="MUb-bg-zQU"/>
                             <constraint firstAttribute="trailing" secondItem="Aze-vg-OTc" secondAttribute="trailing" id="MeG-Wb-QxL"/>
+                            <constraint firstAttribute="trailing" secondItem="4SI-Ds-bmY" secondAttribute="trailing" constant="1" id="TCb-rf-5cb"/>
                             <constraint firstItem="Aze-vg-OTc" firstAttribute="leading" secondItem="PFr-mK-zbp" secondAttribute="leading" id="xhg-CO-Oxn"/>
                             <constraint firstAttribute="trailing" secondItem="l3L-nT-IUy" secondAttribute="trailing" id="yb6-ej-6nO"/>
                             <constraint firstItem="l3L-nT-IUy" firstAttribute="leading" secondItem="PFr-mK-zbp" secondAttribute="leading" id="zbu-mu-6Ve"/>
@@ -62,9 +98,11 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="220" height="159"/>
             <connections>
+                <outlet property="lbCountNoti" destination="GOg-XQ-3su" id="nAh-8V-Lk7"/>
                 <outlet property="lbName" destination="Aze-vg-OTc" id="8Fr-rL-X60"/>
                 <outlet property="lbTitle" destination="l3L-nT-IUy" id="ueo-Mo-crQ"/>
                 <outlet property="viewMain" destination="PFr-mK-zbp" id="S6J-s3-lOL"/>
+                <outlet property="viewNotification" destination="4SI-Ds-bmY" id="hoO-ss-64M"/>
             </connections>
             <point key="canvasLocation" x="255.07246376811597" y="181.13839285714286"/>
         </collectionViewCell>

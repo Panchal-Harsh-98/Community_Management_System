@@ -11,20 +11,27 @@ import UIKit
 class FloorSelectionCell: UICollectionViewCell {
     @IBOutlet weak var cvData: UICollectionView!
     @IBOutlet weak var lbTitle: UILabel!
-  //  var units = [Unini]
-      let itemCell = "SelectBlockCell"
-     var units = [UnitModel]()
+    //  var units = [Unini]
+    let itemCell = "SelectBlockCell"
+    let itemCell2 = "FloorMemberCell"
+    var units = [UnitModel]()
     var unitsMember = [UnitModelMember]()
     var isMember:Bool!
+    
+    var isConversoin = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         cvData.delegate = self
         cvData.dataSource = self
-    cvData.alwaysBounceHorizontal = false
+        cvData.alwaysBounceHorizontal = false
         let inb = UINib(nibName: itemCell, bundle: nil)
         cvData.register(inb, forCellWithReuseIdentifier: itemCell)
+        
+        
+        let inb2 = UINib(nibName: itemCell2, bundle: nil)
+        cvData.register(inb2, forCellWithReuseIdentifier: itemCell2)
         
     }
     
@@ -35,19 +42,29 @@ class FloorSelectionCell: UICollectionViewCell {
     }
     
     func doSetDataMember(units:[UnitModelMember],isMember:Bool) {
+        if unitsMember.count > 0 {
+            unitsMember.removeAll()
+            cvData.reloadData()
+        }
+        
         self.unitsMember.append(contentsOf: units)
-         self.isMember = isMember
+        self.isMember = isMember
         cvData.reloadData()
     }
-
+    
+    func setConversion(isConversoin:Bool) {
+        self.isConversoin = isConversoin
+        cvData.reloadData()
+    }
+    
 }
 
 extension FloorSelectionCell : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if isMember {
-        return unitsMember.count
+            return unitsMember.count
         }
-      return units.count
+        return units.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -56,7 +73,7 @@ extension FloorSelectionCell : UICollectionViewDelegate , UICollectionViewDataSo
         
         if isMember {
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: itemCell, for: indexPath) as! SelectBlockCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: itemCell2, for: indexPath) as! FloorMemberCell
             
             
             cell.viewMain.layer.cornerRadius = 0.0
@@ -85,6 +102,17 @@ extension FloorSelectionCell : UICollectionViewDelegate , UICollectionViewDataSo
             
             
             cell.lbTitle.text = unitsMember[indexPath.row].unit_name
+            cell.lbName.text = unitsMember[indexPath.row].user_first_name
+            
+            
+           if isConversoin {
+            if unitsMember[indexPath.row].chat_status != "0" {
+                cell.viewNotification.isHidden = false
+                cell.lbCountNoti.text = unitsMember[indexPath.row].chat_status
+            }
+            }
+         
+            
             
             return cell
             
@@ -98,14 +126,14 @@ extension FloorSelectionCell : UICollectionViewDelegate , UICollectionViewDataSo
         
         if units[indexPath.row].unit_status == "0" {
             //avilable
-              cell.viewMain.layer.backgroundColor = ColorConstant.colorAvilable.cgColor
+            cell.viewMain.layer.backgroundColor = ColorConstant.colorAvilable.cgColor
             
         } else if units[indexPath.row].unit_status == "1" {
             // onwer
-             cell.viewMain.layer.backgroundColor = ColorConstant.colorOwner.cgColor
+            cell.viewMain.layer.backgroundColor = ColorConstant.colorOwner.cgColor
         } else if units[indexPath.row].unit_status == "2" {
             // defaulter
-             cell.viewMain.layer.backgroundColor = ColorConstant.colorDefaulter.cgColor
+            cell.viewMain.layer.backgroundColor = ColorConstant.colorDefaulter.cgColor
         }else if units[indexPath.row].unit_status == "3" {
             // rent
             cell.viewMain.layer.backgroundColor = ColorConstant.colorRent.cgColor
@@ -126,22 +154,36 @@ extension FloorSelectionCell : UICollectionViewDelegate , UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let yourWidth = 120 / 2
+        
+        if isMember {
+            return CGSize(width: yourWidth , height: 57)
+        }
         return CGSize(width: yourWidth, height: 40)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        
         return 0
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        NotificationCenter.default.post(
-            name: Notification.Name(rawValue: "clickFloor"),
-            object: nil,
-            userInfo: ["data": units[indexPath.row]])
+        
+        if isMember {
+            NotificationCenter.default.post(
+                name: Notification.Name(rawValue: "clickFloor"),
+                object: nil,
+                userInfo: ["data": unitsMember[indexPath.row]])
+        } else {
+            NotificationCenter.default.post(
+                name: Notification.Name(rawValue: "clickFloor"),
+                object: nil,
+                userInfo: ["data": units[indexPath.row]])
+        }
+        
         
         
     }

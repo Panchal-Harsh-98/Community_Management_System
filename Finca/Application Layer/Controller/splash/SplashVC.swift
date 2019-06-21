@@ -34,7 +34,11 @@ class SplashVC: BaseVC {
             
         } else {
             let homeVC = self.storyboard?.instantiateViewController(withIdentifier: StringConstants.HOME_NAV_CONTROLLER)as! SWRevealViewController
+             //  let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "idNavMain")as! UINavigationController
+            
             self.present(homeVC, animated: true, completion: nil)
+            
+           // self.self.navigationController?.pushViewController(homeVC, animated: true)
         }
         
     }
