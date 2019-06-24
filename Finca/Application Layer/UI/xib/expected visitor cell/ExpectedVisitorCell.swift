@@ -19,6 +19,8 @@ class ExpectedVisitorCell: UITableViewCell {
     @IBOutlet weak var imgVisitorProfile: UIImageView!
     @IBOutlet weak var lblExitTime: UILabel!
     @IBOutlet weak var lblExitDate: UILabel!
+    @IBOutlet weak var btnDelete: UIButton!
+    @IBOutlet weak var btnEditVisitorDetail: UIButton!
     
     
     override func awakeFromNib() {

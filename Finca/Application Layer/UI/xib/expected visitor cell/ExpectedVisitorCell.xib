@@ -232,6 +232,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnDelete" destination="ElQ-Cd-zdI" id="Ffc-y1-EUf"/>
+                <outlet property="btnEditVisitorDetail" destination="ROE-DO-QFG" id="HbT-mA-Jhx"/>
                 <outlet property="imgVisitorProfile" destination="F5c-ws-ZT3" id="7ON-qd-Q56"/>
                 <outlet property="lblExitDate" destination="6g6-U6-WFB" id="bb6-8S-V17"/>
                 <outlet property="lblExitTime" destination="Dln-Hs-Avi" id="rBX-EX-WY1"/>

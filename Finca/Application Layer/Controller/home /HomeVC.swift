@@ -213,9 +213,6 @@ class HomeVC: BaseVC {
             }
         }
     }
-    
-   
-    
 }
 
 extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{

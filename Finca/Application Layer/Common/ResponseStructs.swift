@@ -175,7 +175,15 @@ struct ExpectedVisitorResponse: Codable {
         case message = "message"
     }
 }
-
+struct CommonResponse: Codable {
+    let status: String?
+    let message: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case status = "status"
+        case message = "message"
+    }
+}
 // MARK: - Visitor
 struct Exp_Visitor_Model: Codable {
     let visitorType: String!
