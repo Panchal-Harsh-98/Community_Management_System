@@ -23,6 +23,9 @@ public struct ServiceNameConstants {
     public static let employeeTypeController = "employee_type_controller.php"
     public static let employeeListController = "employee_list_controller.php"
     public static let userNotificationController = "user_notification_controller.php"
+    public static let maintenanceController = "maintenance_controller.php"
+    public static let getUserPaymentData = "get_user_payment_data.php"
+    
     
    
 };

@@ -27,6 +27,12 @@ class DailogFamilyMember: BaseVC {
     
     var isEmergancy:Bool!
       var ownedDataSelectVC:OwnedDataSelectVC!
+    
+    var profileVC:ProfileVC!
+    
+    var isProfile:Bool!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

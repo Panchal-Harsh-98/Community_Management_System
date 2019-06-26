@@ -76,6 +76,7 @@ class HomeNavigationMenuController: BaseVC {
            revealViewController().pushFrontViewController(newFrontViewController, animated: true)
         }
         
+        
 //        else if menuData[index].title == ConstantStrings.MENU_CATEGORIES {
 //            let destiController = storyBoard.instantiateViewController(withIdentifier: "idCategoriesVC") as! CategoriesVC
 //            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
