@@ -220,6 +220,7 @@ class OwnedDataSelectVC: BaseVC,UIImagePickerControllerDelegate,UINavigationCont
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "idDailogFamilyMember") as! DailogFamilyMember
         vc.isEmergancy = false
         vc.ownedDataSelectVC = self
+        vc.isProfile = false
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         self.addChild(vc)
         self.view.addSubview(vc.view)
@@ -229,6 +230,7 @@ class OwnedDataSelectVC: BaseVC,UIImagePickerControllerDelegate,UINavigationCont
     @IBAction func onClickEmergancy(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "idDailogFamilyMember") as! DailogFamilyMember
         vc.isEmergancy = true
+        vc.isProfile = false
          vc.ownedDataSelectVC = self
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         self.addChild(vc)
