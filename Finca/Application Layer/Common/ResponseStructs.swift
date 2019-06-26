@@ -176,8 +176,8 @@ struct ExpectedVisitorResponse: Codable {
     }
 }
 struct CommonResponse: Codable {
-    let status: String?
-    let message: String?
+    let status: String!
+    let message: String!
     
     enum CodingKeys: String, CodingKey {
         case status = "status"
@@ -218,5 +218,106 @@ struct Exp_Visitor_Model: Codable {
         case visitingReason = "visiting_reason"
         case visitorMobile = "visitor_mobile"
         case visitTime = "visit_time"
+    }
+}
+struct GalleryResponse: Codable {
+    let status: String!
+    let event: [EventModel]!
+    let message: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case status = "status"
+        case event = "event"
+        case message = "message"
+    }
+}
+
+// MARK: - Event
+struct EventModel: Codable {
+    let eventTitle: String!
+    let gallery: [GalleryModel]!
+    
+    enum CodingKeys: String, CodingKey {
+        case eventTitle = "event_title"
+        case gallery = "gallery"
+    }
+}
+
+// MARK: - Gallery
+struct GalleryModel: Codable {
+    let galleryID: String!
+    let galleryPhoto: String!
+    let galleryTitle: String!
+    let uploadDateTime: String!
+    let societyID: String!
+    let eventID: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case galleryID = "gallery_id"
+        case galleryPhoto = "gallery_photo"
+        case galleryTitle = "gallery_title"
+        case uploadDateTime = "upload_date_time"
+        case societyID = "society_id"
+        case eventID = "event_id"
+    }
+}
+struct DocumentResponse: Codable {
+    let list: [DocumentModel]!
+    let message: String!
+    let status: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case list = "list"
+        case message = "message"
+        case status = "status"
+    }
+}
+
+// MARK: - List
+struct DocumentModel: Codable {
+    let shareWith: String!
+    let documentID: String!
+    let ducumentName: String!
+    let documentTypeID: String!
+    let ducumentDescription: String!
+    let uploadeDate: String!
+    let documentFile: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case shareWith = "share_with"
+        case documentID = "document_id"
+        case ducumentName = "ducument_name"
+        case documentTypeID = "document_type_id"
+        case ducumentDescription = "ducument_description"
+        case uploadeDate = "uploade_date"
+        case documentFile = "document_file"
+    }
+}
+struct ElectionResponse: Codable {
+    let election: [ElectionModel]!
+    let status: String!
+    let message: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case election = "election"
+        case status = "status"
+        case message = "message"
+    }
+}
+
+// MARK: - Election
+struct ElectionModel: Codable {
+    let electionDate: String!
+    let electionName: String!
+    let electionID: String!
+    let electionStatus: String!
+    let electionDescription: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case electionDate = "election_date"
+        case electionName = "election_name"
+        case electionID = "election_id"
+        case electionStatus = "election_status"
+        case electionDescription = "election_description"
     }
 }

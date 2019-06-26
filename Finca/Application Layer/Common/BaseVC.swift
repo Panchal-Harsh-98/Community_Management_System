@@ -7,15 +7,21 @@
 //
 
 import UIKit
-
+import Toast_Swift
 class BaseVC: UIViewController , UITextFieldDelegate , SWRevealViewControllerDelegate{
     var PView : NVActivityIndicatorView!
     var viewSub : UIView!
     var overlyView = UIView()
-    
+    var successStyle = ToastStyle()
+    var failureStyle = ToastStyle()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        successStyle.messageColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        successStyle.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+        
+        failureStyle.messageColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        failureStyle.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
         // Do any additional setup after loading the view.
 //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
 //        self.view.addGestureRecognizer(tapGesture)
