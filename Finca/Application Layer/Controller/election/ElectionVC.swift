@@ -13,16 +13,27 @@ class ElectionVC: BaseVC {
     @IBOutlet weak var tbvElection: UITableView!
     let itemCell = "ElectionCell"
     var election_list = [ElectionModel]()
+    var viewWillAppearFlag = false
+    
+    @IBOutlet weak var bMenu: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: itemCell, bundle: nil)
         tbvElection.register(nib, forCellReuseIdentifier: itemCell)
         tbvElection.delegate = self
         tbvElection.dataSource = self
-        deGetElectionData()
+        doGetElectionData()
+        doInintialRevelController(bMenu: bMenu)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        if viewWillAppearFlag == true{
+            election_list.removeAll()
+            doGetElectionData()
+        }
     }
     
-    func deGetElectionData(){
+    func doGetElectionData(){
         showProgress()
         let params = ["key":ServiceNameConstants.API_KEY,
                       "getElectionList":"getElectionList",
@@ -84,9 +95,19 @@ extension ElectionVC : UITableViewDelegate,UITableViewDataSource{
         default:
             break;
         }
+        
         cell.lblElectionName.text = election_list[indexPath.row].electionName
+        cell.selectionStyle = .none
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idElectionDetailsVC")as! ElectionDetailsVC
+        nextVC.electionDetails = election_list[indexPath.row]
+        viewWillAppearFlag = true
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 }

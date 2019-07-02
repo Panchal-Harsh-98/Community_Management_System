@@ -321,3 +321,52 @@ struct ElectionModel: Codable {
         case electionDescription = "election_description"
     }
 }
+struct ElectionResultResponse: Codable {
+    let result: [ResultModel]!
+    let message: String!
+    let status: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case result = "result"
+        case message = "message"
+        case status = "status"
+    }
+}
+struct ResultModel: Codable {
+    let optionName: String!
+    let givenVote: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case optionName = "option_name"
+        case givenVote = "given_vote"
+    }
+}
+// MARK: - VotingOptionResponse
+struct VotingOptionResponse: Codable {
+    let message: String!
+    let votingSubmitted: String!
+    let status: String!
+    let option: [OptionModel]!
+    
+    enum CodingKeys: String, CodingKey {
+        case message = "message"
+        case votingSubmitted = "voting_submitted"
+        case status = "status"
+        case option = "option"
+    }
+}
+
+// MARK: - Option
+struct OptionModel: Codable {
+    let votingID: String!
+    let optionName: String!
+    let votingOptionID: String!
+    let societyID: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case votingID = "voting_id"
+        case optionName = "option_name"
+        case votingOptionID = "voting_option_id"
+        case societyID = "society_id"
+    }
+}

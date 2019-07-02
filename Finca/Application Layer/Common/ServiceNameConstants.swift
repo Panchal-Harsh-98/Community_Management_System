@@ -26,11 +26,10 @@ public struct ServiceNameConstants {
     public static let galleryController = "get_event_gallery_controller.php"
     public static let documentController = "document_controller.php"
     public static let electionController = "get_election_controller.php"
-    
+    public static let complainController = "user_complain_controller.php"
     
     public static let maintenanceController = "maintenance_controller.php"
     public static let getUserPaymentData = "get_user_payment_data.php"
-    
     
    
 };
