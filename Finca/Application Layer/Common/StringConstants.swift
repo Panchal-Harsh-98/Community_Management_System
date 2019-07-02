@@ -34,6 +34,7 @@ struct StringConstants {
     static let KEY_NOTIFICATION_VISITOR = "notification_visitor"
     static let CHAT_STATUS = "chat_status"
     static let READ_STATUS = "read_status"
+    static let KEY_PASSWORD = "keyPaasword"
     
     
     

@@ -98,8 +98,24 @@ class DailogFamilyMember: BaseVC {
         
         
         if isValidate() {
-            let data = ModelInfoMember(name: tfNAme.text!,number: tfAge.text!,relation: lbDropDown.text!,isEmergancy: isEmergancy)
-            ownedDataSelectVC.modelInfoMember = data
+            if (isProfile) {
+              ///  let data = ModelInfoMember(name: tfNAme.text!,number: tfAge.text!,relation: lbDropDown.text!,isEmergancy: isEmergancy)
+                
+               
+                if isEmergancy {
+                    let data = Emergency(relation: lbDropDown.text!,emergencyContact_id: "",person_name: tfNAme.text!,relation_id: "",person_mobile: tfAge.text!)
+                    profileVC.emergencyModel = data
+                } else {
+                    let data = Member(user_family_id: "",member_relation_name: lbDropDown.text!,member_name: tfNAme.text!,member_relation_id: "",member_age: tfAge.text!)
+                    profileVC.memberModel = data
+                }
+                
+                
+            } else {
+                let data = ModelInfoMember(name: tfNAme.text!,number: tfAge.text!,relation: lbDropDown.text!,isEmergancy: isEmergancy)
+               ownedDataSelectVC.modelInfoMember = data
+                
+            }
             
             self.removeFromParent()
             self.view.removeFromSuperview()

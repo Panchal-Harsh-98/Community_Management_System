@@ -23,35 +23,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="334" height="60"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="HaI-Wq-57E">
-                                <rect key="frame" x="0.0" y="0.0" width="334" height="60"/>
+                                <rect key="frame" x="0.0" y="0.0" width="304" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ufx-wo-duv">
-                                        <rect key="frame" x="0.0" y="0.0" width="110" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Peb-bi-XEY">
-                                        <rect key="frame" x="112" y="0.0" width="110" height="60"/>
+                                        <rect key="frame" x="102" y="0.0" width="100" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mj-ig-nf3">
-                                        <rect key="frame" x="224" y="0.0" width="110" height="60"/>
+                                        <rect key="frame" x="204" y="0.0" width="100" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3B-NF-Pab">
+                                <rect key="frame" x="309" y="17" width="25" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="akF-uI-vS1"/>
+                                    <constraint firstAttribute="width" constant="25" id="yWx-uR-Yd2"/>
+                                </constraints>
+                                <state key="normal" image="delete_button"/>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HaI-Wq-57E" firstAttribute="leading" secondItem="vom-BF-oFx" secondAttribute="leading" id="K9C-6f-Qz5"/>
                             <constraint firstAttribute="bottom" secondItem="HaI-Wq-57E" secondAttribute="bottom" id="Lda-D3-2mF"/>
                             <constraint firstItem="HaI-Wq-57E" firstAttribute="top" secondItem="vom-BF-oFx" secondAttribute="top" id="Oa1-lX-Tw1"/>
-                            <constraint firstAttribute="trailing" secondItem="HaI-Wq-57E" secondAttribute="trailing" id="yzU-Tv-W2R"/>
+                            <constraint firstItem="N3B-NF-Pab" firstAttribute="centerY" secondItem="vom-BF-oFx" secondAttribute="centerY" id="Zxl-U7-H9V"/>
+                            <constraint firstAttribute="trailing" secondItem="N3B-NF-Pab" secondAttribute="trailing" id="vCv-kM-3eh"/>
+                            <constraint firstAttribute="trailing" secondItem="HaI-Wq-57E" secondAttribute="trailing" constant="30" id="yzU-Tv-W2R"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -65,11 +75,16 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="334" height="60"/>
             <connections>
+                <outlet property="bDelete" destination="N3B-NF-Pab" id="LKw-Su-Oww"/>
                 <outlet property="lbMobile" destination="Peb-bi-XEY" id="DNs-I7-ZB2"/>
                 <outlet property="lbName" destination="Ufx-wo-duv" id="oWV-VR-4mu"/>
                 <outlet property="lbReletion" destination="3mj-ig-nf3" id="nPw-9a-gfK"/>
+                <outlet property="rightCon" destination="yzU-Tv-W2R" id="O0q-Qe-i4l"/>
             </connections>
             <point key="canvasLocation" x="337.68115942028987" y="147.99107142857142"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="delete_button" width="32" height="32"/>
+    </resources>
 </document>

@@ -50,6 +50,7 @@ class BaseVC: UIViewController , UITextFieldDelegate , SWRevealViewControllerDel
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
     }
+    
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
