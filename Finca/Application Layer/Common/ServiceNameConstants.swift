@@ -30,7 +30,9 @@ public struct ServiceNameConstants {
     
     public static let maintenanceController = "maintenance_controller.php"
     public static let getUserPaymentData = "get_user_payment_data.php"
-    
+     public static let residentDataUpdateController = "resident_data_update_controller.php"
+    public static let switchController = "switch_controller.php"
+    public static let switchUserController = "switch_user_controller.php"
     
    
 };

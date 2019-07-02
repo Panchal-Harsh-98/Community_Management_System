@@ -33,6 +33,7 @@
 		258CD03C2297F62A00AAB8E6 /* ButtonWithShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258CD03B2297F62A00AAB8E6 /* ButtonWithShadow.swift */; };
 		25AF673922BB623300637C1C /* NoticeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AF673822BB623300637C1C /* NoticeVC.swift */; };
 		25AF673C22BB883B00637C1C /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AF673B22BB883B00637C1C /* ProfileVC.swift */; };
+		25C2AF5022CA2B67007AAC12 /* DailogSwitchToRenterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C2AF4F22CA2B67007AAC12 /* DailogSwitchToRenterVC.swift */; };
 		25C9835E2298032400F2DF3A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9835D2298032400F2DF3A /* LoginVC.swift */; };
 		25C983602298054F00F2DF3A /* AlamofireSingleTon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9835F2298054F00F2DF3A /* AlamofireSingleTon.swift */; };
 		25C9838C22980CE600F2DF3A /* NVActivityIndicatorAnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9836222980CE600F2DF3A /* NVActivityIndicatorAnimationDelegate.swift */; };
@@ -182,6 +183,7 @@
 		258CD03B2297F62A00AAB8E6 /* ButtonWithShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithShadow.swift; sourceTree = "<group>"; };
 		25AF673822BB623300637C1C /* NoticeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeVC.swift; sourceTree = "<group>"; };
 		25AF673B22BB883B00637C1C /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		25C2AF4F22CA2B67007AAC12 /* DailogSwitchToRenterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailogSwitchToRenterVC.swift; sourceTree = "<group>"; };
 		25C9835D2298032400F2DF3A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		25C9835F2298054F00F2DF3A /* AlamofireSingleTon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireSingleTon.swift; sourceTree = "<group>"; };
 		25C9836222980CE600F2DF3A /* NVActivityIndicatorAnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationDelegate.swift; sourceTree = "<group>"; };
@@ -515,6 +517,7 @@
 			isa = PBXGroup;
 			children = (
 				25AF673B22BB883B00637C1C /* ProfileVC.swift */,
+				25C2AF4F22CA2B67007AAC12 /* DailogSwitchToRenterVC.swift */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -1073,6 +1076,7 @@
 				25C9838D22980CE600F2DF3A /* NVActivityIndicatorPresenter.swift in Sources */,
 				2BFC8FD722B0C35C00115AD8 /* ServiceNameConstants.swift in Sources */,
 				25C9839022980CE600F2DF3A /* NVActivityIndicatorView.swift in Sources */,
+				25C2AF5022CA2B67007AAC12 /* DailogSwitchToRenterVC.swift in Sources */,
 				25C983A322980CE600F2DF3A /* NVActivityIndicatorAnimationBlank.swift in Sources */,
 				25C9839B22980CE600F2DF3A /* NVActivityIndicatorAnimationBallZigZag.swift in Sources */,
 				2B0EB4B222C21AAF00C752C5 /* DocumentsVC.swift in Sources */,

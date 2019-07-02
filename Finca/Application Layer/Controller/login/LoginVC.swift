@@ -32,6 +32,8 @@ struct LoginResponse : Codable {
     let floor_id:String! //"floor_id" : "446",
     let user_type:String! //"user_type" : "1",
     let user_email:String! //"user_email" : "ankitrana.r56@gmail.com"
+    let unit_status:String! //"user_type" : "1",
+    
     let emergency:[Emergency]!
     let member:[Member]!
 }
@@ -68,6 +70,7 @@ class LoginVC: BaseVC {
         tfMobile.text = "8401565883"
          tfPassword.text = "123456"
         
+        hideKeyBoardHideOutSideTouch()
     }
     
     @IBAction func onClickLogin(_ sender: Any) {
@@ -78,8 +81,9 @@ class LoginVC: BaseVC {
     }
     
     @IBAction func onClickRegister(_ sender: Any) {
-      //  let vc = storyboard?.instantiateViewController(withIdentifier: "idSocietyVC") as! SocietyVC
-      
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "idSocietyVC") as! SocietyVC
+      self.navigationController?.pushViewController(vc, animated: true)
         
     }
     func validate() -> Bool {
@@ -120,9 +124,11 @@ class LoginVC: BaseVC {
                     
                     
                     if loginResponse.status == "200" {
+                        UserDefaults.standard.set(self.tfPassword.text!, forKey: StringConstants.KEY_PASSWORD)
                         if let encoded = try? JSONEncoder().encode(loginResponse) {
                             UserDefaults.standard.set(encoded, forKey: StringConstants.KEY_LOGIN_DATA)
                         }
+                        
                         UserDefaults.standard.set("1", forKey: StringConstants.KEY_LOGIN)
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "idHomeNavController") as! SWRevealViewController
                         self.present(vc, animated: true, completion: nil)
@@ -135,5 +141,17 @@ class LoginVC: BaseVC {
                 }
             }
         }
+    }
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == tfMobile {
+            let maxLength = 10
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =
+                currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+        }
+       return true
     }
 }

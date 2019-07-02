@@ -299,10 +299,6 @@ class OwnedDataSelectVC: BaseVC,UIImagePickerControllerDelegate,UINavigationCont
         var member_relation = ""
         
         
-       
-        
-        
-        
         if dataFamelyMember.count > 0 {
             
             for data in dataFamelyMember {
@@ -539,7 +535,7 @@ extension OwnedDataSelectVC : UICollectionViewDelegate , UICollectionViewDataSou
             cell.lbName.text = dataEmergancy[indexPath.row].name
             cell.lbMobile.text = dataEmergancy[indexPath.row].number
             cell.lbReletion.text = dataEmergancy[indexPath.row].relation
-        
+        cell.rightCon.constant = 0.0
             return cell
         }
         
@@ -547,6 +543,7 @@ extension OwnedDataSelectVC : UICollectionViewDelegate , UICollectionViewDataSou
         cell.lbName.text = dataFamelyMember[indexPath.row].name
         cell.lbMobile.text = dataFamelyMember[indexPath.row].number
         cell.lbReletion.text = dataFamelyMember[indexPath.row].relation
+         cell.rightCon.constant = 0.0
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

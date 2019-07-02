@@ -92,7 +92,7 @@ class SocietyVC: BaseVC {
     }
     
     @IBAction func onClickContinew(_ sender: Any) {
-       
+       print("onclick")
         let vc = storyboard?.instantiateViewController(withIdentifier: "idOTPVerificationVC") as! OTPVerificationVC
         vc.selectedSociety = selectedSociety
         self.navigationController?.pushViewController(vc, animated: true)
