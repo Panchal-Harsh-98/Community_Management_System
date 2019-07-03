@@ -300,16 +300,12 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollect
             self.navigationController?.pushViewController(nextVC, animated: true )
             break;
         case 5:
-            
-           
             break;
         case 6:
             break;
         case 7:
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idNoticeVC")as! NoticeVC
             self.navigationController?.pushViewController(nextVC, animated: true )
-            
-            // NoticeVC
             break;
         case 8:
             break;
@@ -318,6 +314,8 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollect
             self.navigationController?.pushViewController(nextvc, animated: true)
             break;
         case 10:
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idPollingVc")as! PollingVc
+            self.navigationController?.pushViewController(nextVC, animated: true)
             break;
         case 11:
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idElectionVC")as! ElectionVC

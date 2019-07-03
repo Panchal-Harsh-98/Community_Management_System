@@ -370,3 +370,38 @@ struct OptionModel: Codable {
         case societyID = "society_id"
     }
 }
+struct ComplainResponse: Codable {
+    let message: String!
+    let status: String!
+    let complain: [ComplainModel]!
+    
+    enum CodingKeys: String, CodingKey {
+        case message = "message"
+        case status = "status"
+        case complain = "complain"
+    }
+}
+// MARK: - Complain
+struct ComplainModel: Codable {
+    let complainReviewMsg: String!
+    let complainStatus: String!
+    let societyID: String!
+    let complainDate: String!
+    let complainAssingTo: String!
+    let compalainTitle: String!
+    let complainDescription: String!
+    let complainID: String!
+    let complainPhoto: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case complainReviewMsg = "complain_review_msg"
+        case complainStatus = "complain_status"
+        case societyID = "society_id"
+        case complainDate = "complain_date"
+        case complainAssingTo = "complain_assing_to"
+        case compalainTitle = "compalain_title"
+        case complainDescription = "complain_description"
+        case complainID = "complain_id"
+        case complainPhoto = "complain_photo"
+    }
+}

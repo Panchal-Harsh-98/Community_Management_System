@@ -153,6 +153,11 @@
 		2BBCBC3122B13B0B000EB023 /* FundFragmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBCBC3022B13B0B000EB023 /* FundFragmentVC.swift */; };
 		2BC48F6222B234D4006BF433 /* FundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC48F6022B234D4006BF433 /* FundCell.swift */; };
 		2BC48F6322B234D4006BF433 /* FundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BC48F6122B234D4006BF433 /* FundCell.xib */; };
+		2BE4C32322CB230D008E0CA5 /* ComplainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4C32122CB230D008E0CA5 /* ComplainCell.swift */; };
+		2BE4C32422CB230D008E0CA5 /* ComplainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BE4C32222CB230D008E0CA5 /* ComplainCell.xib */; };
+		2BE4C32722CB8747008E0CA5 /* PollingVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4C32622CB8747008E0CA5 /* PollingVc.swift */; };
+		2BE4C32D22CB95AF008E0CA5 /* PollingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4C32B22CB95AF008E0CA5 /* PollingCell.swift */; };
+		2BE4C32E22CB95AF008E0CA5 /* PollingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BE4C32C22CB95AF008E0CA5 /* PollingCell.xib */; };
 		2BFC8FD422B0B73300115AD8 /* HomeSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC8FD222B0B73300115AD8 /* HomeSliderCell.swift */; };
 		2BFC8FD522B0B73300115AD8 /* HomeSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BFC8FD322B0B73300115AD8 /* HomeSliderCell.xib */; };
 		2BFC8FD722B0C35C00115AD8 /* ServiceNameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC8FD622B0C35C00115AD8 /* ServiceNameConstants.swift */; };
@@ -317,6 +322,11 @@
 		2BBCBC3022B13B0B000EB023 /* FundFragmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundFragmentVC.swift; sourceTree = "<group>"; };
 		2BC48F6022B234D4006BF433 /* FundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundCell.swift; sourceTree = "<group>"; };
 		2BC48F6122B234D4006BF433 /* FundCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FundCell.xib; sourceTree = "<group>"; };
+		2BE4C32122CB230D008E0CA5 /* ComplainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplainCell.swift; sourceTree = "<group>"; };
+		2BE4C32222CB230D008E0CA5 /* ComplainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComplainCell.xib; sourceTree = "<group>"; };
+		2BE4C32622CB8747008E0CA5 /* PollingVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingVc.swift; sourceTree = "<group>"; };
+		2BE4C32B22CB95AF008E0CA5 /* PollingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingCell.swift; sourceTree = "<group>"; };
+		2BE4C32C22CB95AF008E0CA5 /* PollingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PollingCell.xib; sourceTree = "<group>"; };
 		2BFC8FD222B0B73300115AD8 /* HomeSliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSliderCell.swift; sourceTree = "<group>"; };
 		2BFC8FD322B0B73300115AD8 /* HomeSliderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeSliderCell.xib; sourceTree = "<group>"; };
 		2BFC8FD622B0C35C00115AD8 /* ServiceNameConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceNameConstants.swift; sourceTree = "<group>"; };
@@ -480,6 +490,7 @@
 		258CD0312297D5C900AAB8E6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2BE4C32522CB865D008E0CA5 /* polling */,
 				2B25CE1A22CA101C005EDC50 /* complaints */,
 				2B401E4222C3746B005E1A16 /* election */,
 				2B0EB4B022C21A5C00C752C5 /* documents */,
@@ -602,6 +613,8 @@
 		25C983B72298205D00F2DF3A /* xib */ = {
 			isa = PBXGroup;
 			children = (
+				2BE4C32822CB956B008E0CA5 /* poll */,
+				2BE4C32022CB22DC008E0CA5 /* complain */,
 				2B401E4522C3756B005E1A16 /* election */,
 				2B0EB4B322C2348200C752C5 /* documents */,
 				2B62121722C0B75E00FE8AF9 /* gallery */,
@@ -935,6 +948,32 @@
 			path = "fund cell";
 			sourceTree = "<group>";
 		};
+		2BE4C32022CB22DC008E0CA5 /* complain */ = {
+			isa = PBXGroup;
+			children = (
+				2BE4C32122CB230D008E0CA5 /* ComplainCell.swift */,
+				2BE4C32222CB230D008E0CA5 /* ComplainCell.xib */,
+			);
+			path = complain;
+			sourceTree = "<group>";
+		};
+		2BE4C32522CB865D008E0CA5 /* polling */ = {
+			isa = PBXGroup;
+			children = (
+				2BE4C32622CB8747008E0CA5 /* PollingVc.swift */,
+			);
+			path = polling;
+			sourceTree = "<group>";
+		};
+		2BE4C32822CB956B008E0CA5 /* poll */ = {
+			isa = PBXGroup;
+			children = (
+				2BE4C32B22CB95AF008E0CA5 /* PollingCell.swift */,
+				2BE4C32C22CB95AF008E0CA5 /* PollingCell.xib */,
+			);
+			path = poll;
+			sourceTree = "<group>";
+		};
 		2BFC8FD122B0B73300115AD8 /* home slider */ = {
 			isa = PBXGroup;
 			children = (
@@ -1035,6 +1074,7 @@
 				2B4B0456229F919B0031B293 /* NavigationMenuCell.xib in Resources */,
 				2B284D1122BA10B300CF1AE0 /* ExpectedVisitorCell.xib in Resources */,
 				2B47EB6A22C4E29F00F1D559 /* ElectionWinnerCell.xib in Resources */,
+				2BE4C32422CB230D008E0CA5 /* ComplainCell.xib in Resources */,
 				2BFC8FD522B0B73300115AD8 /* HomeSliderCell.xib in Resources */,
 				2B284CDC22B9EFC500CF1AE0 /* SendChatCell.xib in Resources */,
 				2B0EB4B722C234AD00C752C5 /* DocumentCell.xib in Resources */,
@@ -1044,6 +1084,7 @@
 				258CD0242297D43F00AAB8E6 /* LaunchScreen.storyboard in Resources */,
 				2B52090022AF817E003B6662 /* SocietyRegistrationCell.xib in Resources */,
 				2559F19A22A2894B006181A8 /* SelectBlockCell.xib in Resources */,
+				2BE4C32E22CB95AF008E0CA5 /* PollingCell.xib in Resources */,
 				258CD0382297E9DE00AAB8E6 /* Color.xcassets in Resources */,
 				2B284D0622B9FAF800CF1AE0 /* EmployeeListCell.xib in Resources */,
 				2B284CFA22B9F79400CF1AE0 /* MemberParkingCell.xib in Resources */,
@@ -1139,9 +1180,11 @@
 				25C9839922980CE600F2DF3A /* NVActivityIndicatorAnimationBallZigZagDeflect.swift in Sources */,
 				2B47EB6622C492A000F1D559 /* ElectionDetailsVC.swift in Sources */,
 				25C9839622980CE600F2DF3A /* NVActivityIndicatorAnimationBallTrianglePath.swift in Sources */,
+				2BE4C32D22CB95AF008E0CA5 /* PollingCell.swift in Sources */,
 				25C983A222980CE600F2DF3A /* NVActivityIndicatorAnimationBallPulse.swift in Sources */,
 				2B284CF722B9F79400CF1AE0 /* MyVehicleNumberCell.swift in Sources */,
 				2B27588C22B3671800E0DC2E /* BillAndFundDetailsVC.swift in Sources */,
+				2BE4C32722CB8747008E0CA5 /* PollingVc.swift in Sources */,
 				2B52090122AF817E003B6662 /* SocietyRegistrationCell.swift in Sources */,
 				2B52090422AFA4D3003B6662 /* HomeScreenCvCell.swift in Sources */,
 				25C983A822980CE600F2DF3A /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
@@ -1219,6 +1262,7 @@
 				2562474622BA21DA0032DB4B /* TabCarversionVC.swift in Sources */,
 				2BBCBC2F22B13AF5000EB023 /* BillFragmentVC.swift in Sources */,
 				2B284CFB22B9F79400CF1AE0 /* MemberParkingCell.swift in Sources */,
+				2BE4C32322CB230D008E0CA5 /* ComplainCell.swift in Sources */,
 				2B284CDD22B9EFC500CF1AE0 /* SendChatCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
