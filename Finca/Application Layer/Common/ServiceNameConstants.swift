@@ -8,6 +8,9 @@
 
 import Foundation
 public struct ServiceNameConstants {
+    
+     public static let LOCATION_CONTROLLER = "location_controller.php"
+    
     public static let SLIDER_CONTROLLER = "get_slider_controller.php"
     public static let BILL_CONTROLLER = "bill_controller.php"
     public static let MAINTAINANCE_CONTROLLER = "maintenance_controller.php"

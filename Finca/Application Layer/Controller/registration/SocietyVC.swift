@@ -15,25 +15,24 @@ struct ResponseSociety : Codable{
 }
 
 struct ModelSociety:Codable {
-    let societyUserId:String! //"societyUserId" : "",
-    let society_id:String! //"society_id" : "34",
-    let secretary_mobile:String! //"secretary_mobile" : "1111111101",
-    let builder_mobile:String! //"builder_mobile" : "0",
-    let society_name:String! //"society_name" : "Demo Society",
-    let builder_name:String! //"builder_name" : "",
-    let socieaty_logo:String! //"socieaty_logo" : "default.png",
-    let society_address:String!//"society_address" : "Patna",
-    let builder_address:String! //"builder_address" : "",
-    let socieaty_status:String! //"" : null,
-    let secretary_email:String! //"secretary_email" : "demo@gmail.com"
-  
-    
+    let api_key:String!//" : "bmsapikey",
+    let societyUserId:String!//" : "",
+    let builder_name:String!//" : "Akki",
+    let society_name:String!//" : "Silverwing Society",
+    let builder_mobile:String!//" : "9157146041",
+    let sub_domain:String!//" : "https:\/\/www.fincasys.com\/",
+    let secretary_mobile:String!//" : "9157146041",
+    let society_id:String!//" : "48",
+    let builder_address:String!//" : "Naroda",
+    let secretary_email:String!//" : "ankitrana1056@gmail.com",
+    let society_address:String!//" : "1st Floor, Parshwa Tower,\r\nAbove Kotak Mahindra Bank,\r\nS.G
+    let socieaty_status:String!//" : null,
+    let socieaty_logo:String!//" : "1562061152.png"
 }
 
 class SocietyVC: BaseVC {
     
     @IBOutlet weak var cvData: UICollectionView!
-    
     @IBOutlet weak var bBack: UIButton!
     @IBOutlet weak var bLogin: UIButton!
     
@@ -41,6 +40,10 @@ class SocietyVC: BaseVC {
     var selectedSociety : ModelSociety!
     
     let itemCell = "SocietyRegistrationCell"
+    var city_id : String! // = ""
+    var state_id : String! // = ""
+    var country_id : String! // = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -60,7 +63,10 @@ class SocietyVC: BaseVC {
         showProgress()
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
         let params = ["key":AlamofireSingleTon.sharedInstance.key,
-                      "getSociety":"getSociety"]
+                      "getSociety":"getSociety",
+                      "country_id":country_id!,
+                      "state_id":state_id!,
+                      "city_id":city_id!]
         
         
         print("param" , params)
@@ -68,7 +74,7 @@ class SocietyVC: BaseVC {
         let requrest = AlamofireSingleTon.sharedInstance
         
        
-        requrest.requestPost(serviceName: ServiceNameConstants.societyList, parameters: params) { (json, error) in
+        requrest.requestPostMain(serviceName: ServiceNameConstants.societyList, parameters: params) { (json, error) in
             
             if json != nil {
                 self.hideProgress()
@@ -93,8 +99,10 @@ class SocietyVC: BaseVC {
     
     @IBAction func onClickContinew(_ sender: Any) {
        print("onclick")
-        let vc = storyboard?.instantiateViewController(withIdentifier: "idOTPVerificationVC") as! OTPVerificationVC
-        vc.selectedSociety = selectedSociety
+    //    let vc = storyboard?.instantiateViewController(withIdentifier: "idOTPVerificationVC") as! OTPVerificationVC
+       // vc.selectedSociety = selectedSociety
+        let vc = storyboard?.instantiateViewController(withIdentifier: "idLoginVC") as! LoginVC
+       vc.society_id = selectedSociety.society_id
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -138,6 +146,9 @@ extension  SocietyVC :   UICollectionViewDelegate , UICollectionViewDataSource ,
         bLogin.backgroundColor = ColorConstant.colorSelectRow
         bLogin.isEnabled = true
         selectedSociety = societyArray[indexPath.row]
+        UserDefaults.standard.set(societyArray[indexPath.row].sub_domain, forKey: StringConstants.KEY_BASE_URL)
+        UserDefaults.standard.set(societyArray[indexPath.row].api_key, forKey: StringConstants.KEY_API_KEY)
+        
         
     }
     

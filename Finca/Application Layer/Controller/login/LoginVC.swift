@@ -55,11 +55,12 @@ struct Emergency : Codable {
 
 class LoginVC: BaseVC {
 
+    @IBOutlet weak var ivLogo: UIImageView!
     
     @IBOutlet weak var tfMobile: ACFloatingTextfield!
     @IBOutlet weak var tfPassword: ACFloatingTextfield!
     
-    
+    var society_id:String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +71,7 @@ class LoginVC: BaseVC {
         tfMobile.text = "9096693518"
          tfPassword.text = "123456"
         
+        ivLogo.setImageColor(color: UIColor.white)
         hideKeyBoardHideOutSideTouch()
     }
     
@@ -82,8 +84,14 @@ class LoginVC: BaseVC {
     
     @IBAction func onClickRegister(_ sender: Any) {
         
-        let vc = storyboard?.instantiateViewController(withIdentifier: "idSocietyVC") as! SocietyVC
-      self.navigationController?.pushViewController(vc, animated: true)
+      ///  let vc = storyboard?.instantiateViewController(withIdentifier: "idSocietyVC") as! SocietyVC
+     /// self.navigationController?.pushViewController(vc, animated: true)
+        
+        let vc  = storyboard?.instantiateViewController(withIdentifier: "idSelectUserTypeVC") as! SelectUserTypeVC
+        vc.society_id = society_id
+       
+        self.navigationController?.pushViewController(vc, animated: true)
+        
         
     }
     func validate() -> Bool {

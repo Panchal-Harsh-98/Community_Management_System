@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2520F5B3229F8F620023F90A /* Extentios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2520F5B2229F8F620023F90A /* Extentios.swift */; };
 		2520F5B5229FB3EC0023F90A /* OTPVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2520F5B4229FB3EC0023F90A /* OTPVerificationVC.swift */; };
+		253CAD9E22CB5C8800E7C904 /* SelectLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253CAD9D22CB5C8800E7C904 /* SelectLocationVC.swift */; };
 		2559F19122A23A01006181A8 /* SelectUserTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2559F19022A23A01006181A8 /* SelectUserTypeVC.swift */; };
 		2559F19322A2423C006181A8 /* OwnedDataSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2559F19222A2423C006181A8 /* OwnedDataSelectVC.swift */; };
 		2559F19522A248CE006181A8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2559F19422A248CE006181A8 /* Utils.swift */; };
@@ -143,6 +144,7 @@
 		2506D75922A52C96008F956E /* DailogFamilyMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailogFamilyMember.swift; sourceTree = "<group>"; };
 		2520F5B2229F8F620023F90A /* Extentios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentios.swift; sourceTree = "<group>"; };
 		2520F5B4229FB3EC0023F90A /* OTPVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationVC.swift; sourceTree = "<group>"; };
+		253CAD9D22CB5C8800E7C904 /* SelectLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationVC.swift; sourceTree = "<group>"; };
 		2559F19022A23A01006181A8 /* SelectUserTypeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserTypeVC.swift; sourceTree = "<group>"; };
 		2559F19222A2423C006181A8 /* OwnedDataSelectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedDataSelectVC.swift; sourceTree = "<group>"; };
 		2559F19422A248CE006181A8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -303,6 +305,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		253CAD9C22CB5C6900E7C904 /* select location */ = {
+			isa = PBXGroup;
+			children = (
+				253CAD9D22CB5C8800E7C904 /* SelectLocationVC.swift */,
+			);
+			path = "select location";
+			sourceTree = "<group>";
+		};
 		2559F19622A2891C006181A8 /* registration */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,6 +448,7 @@
 		258CD0312297D5C900AAB8E6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				253CAD9C22CB5C6900E7C904 /* select location */,
 				25AF673A22BB881C00637C1C /* profile */,
 				25AF673722BB620800637C1C /* notice board */,
 				2562474422BA21A10032DB4B /* conversion */,
@@ -1066,6 +1077,7 @@
 				25C9838F22980CE600F2DF3A /* NVActivityIndicatorShape.swift in Sources */,
 				2559F19322A2423C006181A8 /* OwnedDataSelectVC.swift in Sources */,
 				25C983B222980CE600F2DF3A /* NVActivityIndicatorAnimationOrbit.swift in Sources */,
+				253CAD9E22CB5C8800E7C904 /* SelectLocationVC.swift in Sources */,
 				25AF673C22BB883B00637C1C /* ProfileVC.swift in Sources */,
 				2B4B0455229F919B0031B293 /* NavigationMenuCell.swift in Sources */,
 				25C983B422980DFD00F2DF3A /* NetworkAPI.swift in Sources */,

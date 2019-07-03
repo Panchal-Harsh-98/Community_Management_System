@@ -36,6 +36,9 @@ struct StringConstants {
     static let READ_STATUS = "read_status"
     static let KEY_PASSWORD = "keyPaasword"
     
+    static let KEY_BASE_URL = "baseURl"
+    static let KEY_API_KEY = "apikey"
+    
     
     
 }

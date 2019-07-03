@@ -29,7 +29,9 @@ class SplashVC: BaseVC {
     
     @objc func callback() {
         if !isKeyPresentInUserDefaults(key: StringConstants.KEY_LOGIN) {
-            let loginVc = self.storyboard?.instantiateViewController(withIdentifier: "idLoginVC")as! LoginVC
+            
+           // let loginVc = self.storyboard?.instantiateViewController(withIdentifier: "idLoginVC")as! LoginVC
+            let loginVc = self.storyboard?.instantiateViewController(withIdentifier: "idNavLocation")as! UINavigationController
             self.present(loginVc, animated: true, completion: nil)
             
         } else {
