@@ -10,5 +10,5 @@
 #define Bridging_header_file_h
 
 #import "iCarousel.h"
-
+#import "Toast_Swift"
 #endif /* Bridging_header_file_h */

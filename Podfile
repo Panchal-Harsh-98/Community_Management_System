@@ -18,7 +18,7 @@ target 'Finca' do
  pod 'XLPagerTabStrip', '~> 9.0'
  #firebase
  pod 'Firebase/Core'
- pod 'Firebase/Mesrsaging'
+ pod 'Firebase/Messaging'
  pod 'Toast-Swift', '~> 5.0.0'
  
 end

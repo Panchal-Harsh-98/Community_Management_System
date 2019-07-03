@@ -65,7 +65,7 @@ class HomeNavigationMenuController: BaseVC {
     
     func doSelectMenu(index:Int) {
         print("select menu" , index)
-     //   let storyBoard = HomeNavigationMenuController.getStoryboard()
+//        let storyBoard = HomeNavigationMenuController.getStoryboard()
         
         if menuData[index].title == StringConstants.MENU_DASHBOARD {
             
@@ -75,26 +75,27 @@ class HomeNavigationMenuController: BaseVC {
           //  self.navigationController?.pushViewController(destiController, animated: true)
            revealViewController().pushFrontViewController(newFrontViewController, animated: true)
         }
+        else if menuData[index].title == StringConstants.MENU_VISITORS {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idVisitorVC") as! VisitorVC
+            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
+            newFrontViewController.isNavigationBarHidden = true
+            revealViewController().pushFrontViewController(destiController, animated: true)
+
+        }
+        else if menuData[index].title == StringConstants.MENU_FUNDBILL {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idBillsAndFundsVC") as! BillsAndFundsVC
+            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
+            newFrontViewController.isNavigationBarHidden = true
+            revealViewController().pushFrontViewController(destiController, animated: true)
         
-        
-//        else if menuData[index].title == ConstantStrings.MENU_CATEGORIES {
-//            let destiController = storyBoard.instantiateViewController(withIdentifier: "idCategoriesVC") as! CategoriesVC
-//            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
-//            newFrontViewController.isNavigationBarHidden = true
-//            self.navigationController?.pushViewController(destiController, animated: true)
-//
-//        }
-//        else if menuData[index].title == ConstantStrings.MENU_MY_SAMPLE_PRODUCTS {
-//            let destiController = storyBoard.instantiateViewController(withIdentifier: "idSampleProductsVC") as! SampleProductsVC
-//            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
-//            newFrontViewController.isNavigationBarHidden = true
-//            self.navigationController?.pushViewController(destiController, animated: true)
-//        }  else if menuData[index].title == ConstantStrings.MENU_MY_ORDERS {
+        }
+//        else if menuData[index].title == StringConstants. {
 //            let destiController = storyBoard.instantiateViewController(withIdentifier: "idMyOrdersVC") as! MyOrdersVC
 //            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
 //            newFrontViewController.isNavigationBarHidden = true
 //            self.navigationController?.pushViewController(destiController, animated: true)
-//        } else if menuData[index].title == ConstantStrings.REQUEST_QUOTATION {
+//        }
+//        else if menuData[index].title == ConstantStrings.REQUEST_QUOTATION {
 //            let destiController = storyBoard.instantiateViewController(withIdentifier: "idCartVC") as! CartVC
 //            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
 //            newFrontViewController.isNavigationBarHidden = true

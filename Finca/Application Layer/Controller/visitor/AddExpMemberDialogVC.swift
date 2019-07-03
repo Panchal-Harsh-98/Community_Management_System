@@ -20,8 +20,10 @@ class AddExpMemberDialogVC: BaseVC {
     @IBOutlet weak var viewChooseImage: UIView!
     @IBOutlet weak var imgVisitor: UIImageView!
     let toolBar = UIToolbar()
-    
-    
+    let datePicker = UIDatePicker()
+    var dateFormatter = DateFormatter()
+    var visitorData : Exp_Visitor_Model!
+    var isEditVisitorCalled =  false
     override func viewDidLoad() {
         super.viewDidLoad()
         lblMainView.layer.cornerRadius = 10
@@ -30,53 +32,54 @@ class AddExpMemberDialogVC: BaseVC {
         imgVisitor.layer.borderWidth = 2
         viewChooseImage.layer.borderWidth = 0.5
         viewChooseImage.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        
-        dp(tfVisitingDate)
-        dp(tfVisitingTime)
+        tfVisitingDate.inputView = datePicker
+        tfVisitingTime.inputView = datePicker
+        tfVisitingTime.delegate = self
+        tfVisitingDate.delegate = self
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
+        toolBar.setItems([doneButton], animated: true)
+        tfVisitingDate.inputAccessoryView   = toolBar
+        tfVisitingTime.inputAccessoryView     = toolBar
+        doneButtonOnKeyboard(textField: tfName)
+        doneButtonOnKeyboard(textField: tfMobileNo)
+        doneButtonOnKeyboard(textField: tfNoOfVisitor)
+        doneButtonOnKeyboard(textField: tfVisitingReason)
+        if isEditVisitorCalled{
+            tfName.text = visitorData.visitorName!
+            tfMobileNo.text = visitorData.visitorMobile!
+            tfNoOfVisitor.text = visitorData.vistorNumber!
+            tfVisitingDate.text = visitorData.visitDate!
+            tfVisitingTime.text = visitorData.visitTime!
+            tfVisitingReason.text = visitorData.visitingReason!
+        }
     }
     
+    @IBAction func btnCancelTapped(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @objc func doneButtonTapped() {
+        if tfVisitingDate.isFirstResponder {
+            dateFormatter.dateFormat = "dd/MM/yyyy"
+            tfVisitingDate.text = dateFormatter.string(from: datePicker.date)
+        }
+        
+        if tfVisitingTime.isFirstResponder {
+            dateFormatter.dateStyle = .none
+            dateFormatter.timeStyle = .short
+            tfVisitingTime.text = dateFormatter.string(from: datePicker.date)
+        }
+        
+        self.view.endEditing(true)
+    }
     func dp(_ sender: UITextField) {
         switch sender {
         case tfVisitingDate:
-            let datePickerView = UIDatePicker()
-            datePickerView.datePickerMode = .date
-            toolBar.barStyle = UIBarStyle.default
-            toolBar.isTranslucent = true
-            toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
-            toolBar.sizeToFit()
             
-            let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donePicker(sender: )))
-            doneButton.tag = 1
-            let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-            let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donePicker(sender: )))
-            
-            toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
-            toolBar.isUserInteractionEnabled = true
-            tfVisitingDate.inputAccessoryView = toolBar
-            sender.inputView = datePickerView
-            
-            datePickerView.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .valueChanged)
             break;
             
         case tfVisitingTime:
-            let timePickerView = UIDatePicker()
-            timePickerView.datePickerMode = .time
-            toolBar.barStyle = UIBarStyle.default
-            toolBar.isTranslucent = true
-            toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
-            toolBar.sizeToFit()
-             
-            let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donePicker(sender: )))
-            let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-            let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donePicker(sender: )))
             
-            toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
-            toolBar.isUserInteractionEnabled = true
-            tfVisitingTime.inputAccessoryView = toolBar
-            
-            sender.inputView = timePickerView
-           
-            timePickerView.addTarget(self, action: #selector(handleTimePicker(sender:)), for: .valueChanged)
             break;
             
         default:
@@ -95,8 +98,8 @@ class AddExpMemberDialogVC: BaseVC {
         default:
             break;
         }
-//        toolBar.removeFromSuperview()
-//        datePickerView.removeFromSuperview()
+        //        toolBar.removeFromSuperview()
+        //        datePickerView.removeFromSuperview()
     }
     
     
@@ -128,54 +131,124 @@ class AddExpMemberDialogVC: BaseVC {
         
         self.present(alert, animated: true, completion: nil)
     }
-    
     @IBAction func btnSubmit(_ sender: UIButton) {
+        doCallExpVisitorDetailsApi()
         
-        //        let params = ["key":ServiceNameConstants.API_KEY,
-        //                      "addExVisitor":"addExVisitor",
-        //                      "society_id":doGetLocalDataUser().society_id!,
-        //                      "floor_id":doGetLocalDataUser().floor_id!,
-        //                      "block_id":doGetLocalDataUser().block_id!,
-        //                      "unit_id":doGetLocalDataUser().unit_id!,
-        //                      "user_id":doGetLocalDataUser().user_id!,
-        //                      "visitor_name":,
-        //                      "visitor_mobile":"",
-        //                      "number_of_visitor":"",
-        //                      "visiting_reason":"",
-        //                      "visitor_profile_photo":"",
-        //                      "visit_date":"",
-        //                      "visit_time":"",
-        //                      "user_name":"",
-        //                      "update":"",
-        //                      "visitor_id":""]
-        //
-        //        print("param" , params)
-        //
-        //        let request = AlamofireSingleTon.sharedInstance
-        //
-        //        request.requestPost(serviceName: ServiceNameConstants.VISITOR_CONTROLLER, parameters: params) { (json, error) in
-        //            self.hideProgress()
-        //
-        //            if json != nil {
-        //
-        //                do {
-        //
-        //                    let response = try JSONDecoder().decode(ExpectedVisitorResponse.self, from:json!)
-        //                    if response.status == "200" {
-        //                        self.exp_visitor_list.append(contentsOf: response.visitor)
-        //                        self.tbvExpectedVisitor.reloadData()
-        //
-        //
-        //                    }else {
-        //
-        //                    }
-        //                    print(json as Any)
-        //                } catch {
-        //                    print("parse error")
-        //                }
-        //            }
-        //        }
     }
+    func doCallExpVisitorDetailsApi() {
+        
+        if isEditVisitorCalled {
+            self.showProgress()
+//            if imgVisitor.image  == UIImage(named:"no-image-available"){
+//            }
+            let params = ["key":ServiceNameConstants.API_KEY,
+                          "addExVisitor":"addExVisitor",
+                          "society_id":doGetLocalDataUser().society_id!,
+                          "floor_id":doGetLocalDataUser().floor_id!,
+                          "block_id":doGetLocalDataUser().block_id!,
+                          "unit_id":doGetLocalDataUser().unit_id!,
+                          "user_id":doGetLocalDataUser().user_id!,
+                          "visitor_name":tfName.text!,
+                          "visitor_mobile":tfMobileNo.text!,
+                          "number_of_visitor":tfNoOfVisitor.text!,
+                          "visiting_reason":tfVisitingReason.text!,
+                          "visitor_profile_photo":convertImageTobase64(imageView: imgVisitor),
+                          "visit_date":tfVisitingDate.text!,
+                          "visit_time":tfVisitingTime.text!,
+                          "user_name":doGetLocalDataUser().user_full_name!,
+                          "update":"1",
+                          "visitor_id":visitorData.visitorID!]
+            
+            print("param" , params)
+            
+            let request = AlamofireSingleTon.sharedInstance
+            
+            request.requestPost(serviceName: ServiceNameConstants.VISITOR_CONTROLLER, parameters: params) { (json, error) in
+                self.hideProgress()
+                
+                if json != nil {
+                    
+                    do {
+                        
+                        let response = try JSONDecoder().decode(CommonResponse.self, from:json!)
+                        if response.status == "200" {
+                            
+                            NotificationCenter.default.post(name: NSNotification.Name(StringConstants.KEY_NOTIFICATION_VISITOR), object: nil)
+                            self.dismiss(animated: true, completion: nil)
+                            
+                        }else {
+                            
+                        }
+                        print(json as Any)
+                    } catch {
+                        print("parse error")
+                    }
+                }
+            }
+      
+        }else{
+            self.showProgress()
+            if imgVisitor.image  == UIImage(named:"no-image-available"){
+            }
+            let params = ["key":ServiceNameConstants.API_KEY,
+                          "addExVisitor":"addExVisitor",
+                          "society_id":doGetLocalDataUser().society_id!,
+                          "floor_id":doGetLocalDataUser().floor_id!,
+                          "block_id":doGetLocalDataUser().block_id!,
+                          "unit_id":doGetLocalDataUser().unit_id!,
+                          "user_id":doGetLocalDataUser().user_id!,
+                          "visitor_name":tfName.text!,
+                          "visitor_mobile":tfMobileNo.text!,
+                          "number_of_visitor":tfNoOfVisitor.text!,
+                          "visiting_reason":tfVisitingReason.text!,
+                          "visitor_profile_photo":convertImageTobase64(imageView: imgVisitor),
+                          "visit_date":tfVisitingDate.text!,
+                          "visit_time":tfVisitingTime.text!,
+                          "user_name":doGetLocalDataUser().user_full_name!,
+                          "update":"0",
+                          "visitor_id":"0"]
+            
+            print("param" , params)
+            
+            let request = AlamofireSingleTon.sharedInstance
+            
+            request.requestPost(serviceName: ServiceNameConstants.VISITOR_CONTROLLER, parameters: params) { (json, error) in
+                self.hideProgress()
+                
+                if json != nil {
+                    
+                    do {
+                        
+                        let response = try JSONDecoder().decode(CommonResponse.self, from:json!)
+                        if response.status == "200" {
+                            
+                            NotificationCenter.default.post(name: NSNotification.Name(StringConstants.KEY_NOTIFICATION_VISITOR), object: nil)
+                            self.dismiss(animated: true, completion: nil)
+                            
+                        }else {
+                            
+                        }
+                        print(json as Any)
+                    } catch {
+                        print("parse error")
+                    }
+                }
+            }
+            
+        }
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch (textField) {
+        case tfVisitingDate:
+            datePicker.datePickerMode = .date
+            break;
+        case tfVisitingTime:
+            datePicker.datePickerMode = .time
+        default:
+            break;
+        }
+    }
+    
     func openCamera()
     {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
@@ -210,7 +283,6 @@ class AddExpMemberDialogVC: BaseVC {
     }
 }
 extension AddExpMemberDialogVC : UIImagePickerControllerDelegate,UINavigationControllerDelegate{
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
         picker.dismiss(animated: true, completion: nil)
         guard let selectedImage = info[.originalImage] as? UIImage else {

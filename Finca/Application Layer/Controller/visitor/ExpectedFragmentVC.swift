@@ -8,6 +8,7 @@
 
 import UIKit
 import XLPagerTabStrip
+import EzPopup
 class ExpectedFragmentVC: BaseVC {
     var exp_visitor_list = [Exp_Visitor_Model]()
     var itemCell = "ExpectedVisitorCell"
@@ -20,10 +21,18 @@ class ExpectedFragmentVC: BaseVC {
         tbvExpectedVisitor.register(nib, forCellReuseIdentifier: itemCell)
         tbvExpectedVisitor.delegate = self
         tbvExpectedVisitor.dataSource = self
-        
+         NotificationCenter.default.addObserver(self, selector: #selector(callRefreshData(_:)), name: Notification.Name(rawValue:StringConstants.KEY_NOTIFICATION_VISITOR), object: nil)
     }
     @IBAction func btnAddExpectedVisitor(_ sender: UIButton) {
         NotificationCenter.default.post(name: NSNotification.Name(StringConstants.KEY_NOTIFICATION_VISITOR), object: nil)
+    }
+    @objc func callRefreshData(_ notification: Notification){
+        refreshTbv()
+       
+    }
+    func refreshTbv(){
+        exp_visitor_list.removeAll()
+        doGetExpectedVisitorList()
     }
     func doGetExpectedVisitorList()  {
         showProgress()
@@ -48,8 +57,6 @@ class ExpectedFragmentVC: BaseVC {
                     if response.status == "200" {
                         self.exp_visitor_list.append(contentsOf: response.visitor)
                         self.tbvExpectedVisitor.reloadData()
-                        
-
                     }else {
                         
                     }
@@ -59,6 +66,62 @@ class ExpectedFragmentVC: BaseVC {
                 }
             }
         }
+    }
+    func doCallDeleteApi(id:String,name:String) {
+        showProgress()
+        
+        let params = ["key":ServiceNameConstants.API_KEY,
+                      "deleteVisitor":"deleteVisitor",
+                      "visitor_id":id,
+                      "user_id":doGetLocalDataUser().user_id!,
+                      "user_name":doGetLocalDataUser().user_full_name!,
+                      "visitor_name":name,
+                      "society_id":doGetLocalDataUser().society_id!]
+        
+        print("param" , params)
+        
+        let request = AlamofireSingleTon.sharedInstance
+        
+        request.requestPost(serviceName: ServiceNameConstants.VISITOR_CONTROLLER, parameters: params) { (json, error) in
+            self.hideProgress()
+            
+            if json != nil {
+                
+                do {
+                    
+                    
+                    let response = try JSONDecoder().decode(CommonResponse.self, from:json!)
+                    if response.status == "200" {
+                        self.refreshTbv()
+                    }else {
+
+                    }
+                    print(json as Any)
+                } catch {
+                    print("parse error")
+                }
+            }
+        }
+    }
+    @objc func buttonDeleteClicked(sender:UIButton) {
+        doCallDeleteApi(id:exp_visitor_list[sender.tag].visitorID,name:exp_visitor_list[sender.tag].visitorName )
+    }
+    @objc func buttonEditClicked(sender:UIButton){
+//        NotificationCenter.default.post(name: NSNotification.Name(StringConstants.KEY_NOTIFICATION_VISITOR), object: nil)
+        
+        let screenwidth = UIScreen.main.bounds.width
+        let screenheight = UIScreen.main.bounds.height
+        let destiController = self.storyboard?.instantiateViewController(withIdentifier: "idAddExpMemberDialogVC") as! AddExpMemberDialogVC
+        destiController.visitorData = exp_visitor_list[sender.tag]
+        destiController.isEditVisitorCalled = true
+        let popupVC = PopupViewController(contentController: destiController, popupWidth: screenwidth - 50, popupHeight: screenheight-80
+        )
+        
+        popupVC.backgroundAlpha = 0.5
+        popupVC.backgroundColor = .black
+        popupVC.shadowEnabled = true
+        popupVC.canTapOutsideToDismiss = true
+        present(popupVC, animated: true)
     }
 }
 extension ExpectedFragmentVC : IndicatorInfoProvider{
@@ -80,6 +143,10 @@ extension ExpectedFragmentVC : UITableViewDelegate,UITableViewDataSource{
         cell.visitTime(time: exp_visitor_list[indexPath.row].visitTime)
         cell.lblVisitDate.text = exp_visitor_list[indexPath.row].visitDate
         cell.lblVisitorName.text = exp_visitor_list[indexPath.row].visitorName
+        cell.btnDelete.tag = indexPath.row
+        cell.btnDelete.addTarget(self, action: #selector(buttonDeleteClicked(sender:)), for: .touchUpInside)
+        cell.btnEditVisitorDetail.tag = indexPath.row
+        cell.btnEditVisitorDetail.addTarget(self, action: #selector(buttonEditClicked(sender:)), for: .touchUpInside)
         Utils.setImageFromUrl(imageView: cell.imgVisitorProfile, urlString: exp_visitor_list[indexPath.row].visitorProfile)
         switch exp_visitor_list[indexPath.row].visitorStatus {
         case "0":
@@ -104,6 +171,7 @@ extension ExpectedFragmentVC : UITableViewDelegate,UITableViewDataSource{
         default:
             break
         }
+        cell.selectionStyle = .none
         return cell
     }
 }

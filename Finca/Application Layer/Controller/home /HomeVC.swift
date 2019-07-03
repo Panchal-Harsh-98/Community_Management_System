@@ -168,14 +168,14 @@ class HomeVC: BaseVC {
         homeCellData.append(menuData(itemId: 9, itemName: "Complains", itemImage: "error"))
         
         homeCellData.append(menuData(itemId: 10, itemName: "Poll", itemImage: "vote"))
-        homeCellData.append(menuData(itemId: 11, itemName: "Election", itemImage: "gavel"))
+        homeCellData.append(menuData(itemId: 11, itemName: "Election", itemImage: "election"))
         homeCellData.append(menuData(itemId: 12, itemName: "Building Details", itemImage: "buildings"))
         
         homeCellData.append(menuData(itemId: 13, itemName: "Emergency Number", itemImage: "ambulance"))
         homeCellData.append(menuData(itemId: 14, itemName: "Profile", itemImage: "bussinessman"))
-        homeCellData.append(menuData(itemId: 15, itemName: "SOS", itemImage: "graphic"))
+        homeCellData.append(menuData(itemId: 15, itemName: "SOS", itemImage: "SOS"))
         
-        homeCellData.append(menuData(itemId: 16, itemName: "Gallery", itemImage: "gallery"))
+        homeCellData.append(menuData(itemId: 16, itemName: "Gallery", itemImage: "graphic"))
         homeCellData.append(menuData(itemId: 17, itemName: "Documents", itemImage: "assignment"))
         homeCellData.append(menuData(itemId: 18, itemName: "Balance Sheet", itemImage: "wallet"))
         cvHomeMenu.reloadData()
@@ -213,9 +213,6 @@ class HomeVC: BaseVC {
             }
         }
     }
-    
-   
-    
 }
 
 extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
@@ -257,6 +254,12 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollect
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        let cell = collectionView.cellForItem(at: indexPath) as! HomeScreenCvCell
+        UIView.animate(withDuration: 0.2, delay: 0.4, options: .curveEaseInOut, animations: {
+            cell.backgroundColor = UIColor.red
+        }, completion: { _ in
+            // here the animation is done
+        })
         doActionOnSelectedItem(SelectedItemId: homeCellData[indexPath.row].itemId)
     }
     
@@ -311,10 +314,14 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollect
         case 8:
             break;
         case 9:
+            let nextvc = self.storyboard?.instantiateViewController(withIdentifier: "idComplaintsVC")as! ComplaintsVC
+            self.navigationController?.pushViewController(nextvc, animated: true)
             break;
         case 10:
             break;
         case 11:
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idElectionVC")as! ElectionVC
+            self.navigationController?.pushViewController(nextVC, animated: true)
             break;
         case 12:
             break;
@@ -323,14 +330,16 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollect
         case 14:
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idProfileVC")as! ProfileVC
             self.navigationController?.pushViewController(nextVC, animated: true )
-            
-            
             break;
         case 15:
             break;
         case 16:
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idGalleryVC")as! GalleryVC
+            self.navigationController?.pushViewController(nextVC, animated: true)
             break;
         case 17:
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idDocumentsVC")as! DocumentsVC
+            self.navigationController?.pushViewController(nextVC, animated: true)
             break;
         case 18:
             break;

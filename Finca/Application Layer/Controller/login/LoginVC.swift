@@ -68,7 +68,7 @@ class LoginVC: BaseVC {
         // Do any additional setup after loading the view.
     
         doneButtonOnKeyboard(textField: tfMobile)
-        tfMobile.text = "9096693518"
+        tfMobile.text = "8401565883"
          tfPassword.text = "123456"
         
         ivLogo.setImageColor(color: UIColor.white)
