@@ -199,4 +199,17 @@ class BaseVC: UIViewController , UITextFieldDelegate , SWRevealViewControllerDel
     func getNotiCount() -> String{
         return UserDefaults.standard.string(forKey: StringConstants.READ_STATUS)!
     }
+    
+    func toast(message:String!,type:Int!){
+        switch (type) {
+        case 0: //success toast
+             self.view.makeToast(message,duration:2,position:.bottom,style:self.successStyle)
+            break;
+        case 1: //faliure toast
+             self.view.makeToast(message,duration:2,position:.bottom,style:self.failureStyle)
+             break;
+        default:
+            break;
+        }
+    }
 }
