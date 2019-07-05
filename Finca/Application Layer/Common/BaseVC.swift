@@ -212,4 +212,24 @@ class BaseVC: UIViewController , UITextFieldDelegate , SWRevealViewControllerDel
             break;
         }
     }
+    
+    
+    func baseUrl() -> String {
+    var url = ""
+        
+        if isKeyPresentInUserDefaults(key:  StringConstants.KEY_BASE_URL) {
+            url = UserDefaults.standard.string(forKey: StringConstants.KEY_BASE_URL)! + "resident_api/"
+        }
+        
+        return url
+    }
+    func apiKey() -> String {
+        var url = ""
+        
+         if isKeyPresentInUserDefaults(key:  StringConstants.KEY_API_KEY) {
+            url = UserDefaults.standard.string(forKey: StringConstants.KEY_API_KEY)!
+        }
+        
+        return url
+    }
 }

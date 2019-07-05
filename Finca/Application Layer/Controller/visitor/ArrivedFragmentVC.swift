@@ -24,7 +24,7 @@ class ArrivedFragmentVC:BaseVC {
     func doCallVisitorApi() {
         showProgress()
 
-        let params = ["key":ServiceNameConstants.API_KEY,
+        let params = ["key":apiKey(),
                       "getNewVisitorList":"getNewVisitorList",
                       "society_id":doGetLocalDataUser().society_id!,
                       "user_id":doGetLocalDataUser().user_id!]

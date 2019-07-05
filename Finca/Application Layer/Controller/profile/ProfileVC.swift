@@ -222,7 +222,7 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
     func doMaintence() {
         showProgress()
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
-        let params = ["key":AlamofireSingleTon.sharedInstance.key,
+        let params = ["key":apiKey(),
                       "userDetail":"userDetail",
                       "unit_id":doGetLocalDataUser().unit_id!,
                       "society_id":doGetLocalDataUser().society_id!]
@@ -461,7 +461,7 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
         }
         
         let fullname = tfName.text! + " " + tfLastName.text!
-        let params = ["key":AlamofireSingleTon.sharedInstance.key,
+        let params = ["key":apiKey(),
                       "addUser":"update",
                       "user_id":doGetLocalDataUser().user_id!,
                       "society_id":doGetLocalDataUser().society_id!,
@@ -525,7 +525,7 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
     func doGetProfileData() {
        /// showProgress()
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
-        let params = ["key":AlamofireSingleTon.sharedInstance.key,
+        let params = ["key":apiKey(),
                       "getProfileData":"getProfileData",
                       "user_id":doGetLocalDataUser().user_id!,
                       "society_id":doGetLocalDataUser().society_id!]
@@ -613,7 +613,7 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
     func doDeletrMember(user_family_id:String,index:Int) {
        // showProgress()
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
-        let params = ["key":AlamofireSingleTon.sharedInstance.key,
+        let params = ["key":apiKey(),
                       "deleteFamilyMember":"deleteFamilyMember",
                       "user_family_id":user_family_id]
         
@@ -649,7 +649,7 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
     func doDeletrNumber(emergencyContact_id:String,index:Int) {
         // showProgress()
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
-        let params = ["key":AlamofireSingleTon.sharedInstance.key,
+        let params = ["key":apiKey(),
                       "deleteEmergencyContact":"deleteEmergencyContact",
                       "emergencyContact_id":emergencyContact_id]
         
@@ -688,7 +688,7 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
     func doCallSwichApartment(unit_status:String) {
         // showProgress()
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
-        let params = ["key":AlamofireSingleTon.sharedInstance.key,
+        let params = ["key":apiKey(),
                       "switchClose":"switchClose",
                       "unit_status":unit_status,
                       "unit_id":doGetLocalDataUser().unit_id!]
@@ -729,7 +729,7 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
       
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
     
-          let  params = ["key":AlamofireSingleTon.sharedInstance.key,
+          let  params = ["key":apiKey(),
                       "switchUser":"switchUser",
                       "society_id":doGetLocalDataUser().society_id!,
                       "owner_name":doGetLocalDataUser().owner_name!,

@@ -69,7 +69,7 @@ class TabMyVC: BaseVC {
     func doGetParking() {
         showProgress()
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
-        let params = ["key":AlamofireSingleTon.sharedInstance.key,
+        let params = ["key":apiKey(),
                       "getMyParking":"getMyParking",
                       "unit_id":doGetLocalDataUser().unit_id!,
                       "society_id":doGetLocalDataUser().society_id!]

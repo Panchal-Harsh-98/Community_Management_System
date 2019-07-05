@@ -99,7 +99,7 @@ class SelectBlockAndRoomVC: BaseVC {
     func doGetBlock() {
         showProgress()
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
-        let params = ["key":AlamofireSingleTon.sharedInstance.key,
+        let params = ["key":apiKey(),
                       "getBlocks":"getBlocks",
                       "society_id":society_id!]
         
@@ -135,7 +135,7 @@ class SelectBlockAndRoomVC: BaseVC {
     func doGetFlorUnit(block_id:String) {
         showProgress()
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
-        let params = ["key":AlamofireSingleTon.sharedInstance.key,
+        let params = ["key":apiKey(),
                       "getFloorandUnit":"getFloorandUnit",
                       "society_id":society_id!,
                       "block_id":block_id]
@@ -175,8 +175,9 @@ class SelectBlockAndRoomVC: BaseVC {
     
     
     @IBAction func onClickBack(_ sender: Any) {
-        doGetBlock()
+       // doGetBlock()
       //  dismiss(animated: true, completion: nil)
+    doPopBAck()
     }
     
 }

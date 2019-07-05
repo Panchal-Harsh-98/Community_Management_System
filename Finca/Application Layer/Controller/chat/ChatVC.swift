@@ -132,14 +132,14 @@ class ChatVC: BaseVC {
         }
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
         if isGateKeeper {
-            params = ["key":AlamofireSingleTon.sharedInstance.key,
+            params = ["key":apiKey(),
                       "getPrvChat":"getPrvChat",
                       "user_id":doGetLocalDataUser().user_id!,
                       "userId":userid,
                       "society_id":doGetLocalDataUser().society_id!,
                       "sentTo":"1"]
         } else {
-            params = ["key":AlamofireSingleTon.sharedInstance.key,
+            params = ["key":apiKey(),
                       "getPrvChat":"getPrvChat",
                       "user_id":doGetLocalDataUser().user_id!,
                       "userId":unitModelMember.user_id!,
@@ -196,7 +196,7 @@ class ChatVC: BaseVC {
         
         if isGateKeeper {
            print("is gate keeper")
-            paramsSend = ["key":AlamofireSingleTon.sharedInstance.key,
+            paramsSend = ["key":apiKey(),
                           "addChat":"addChat",
                           "msg_by":doGetLocalDataUser().user_id!,
                           "msg_for":userid,
@@ -206,7 +206,7 @@ class ChatVC: BaseVC {
                           "sent_to":"1"]
         }else {
              print("is member")
-            paramsSend = ["key":AlamofireSingleTon.sharedInstance.key,
+            paramsSend = ["key":apiKey(),
                           "addChat":"addChat",
                           "msg_by":doGetLocalDataUser().user_id!,
                           "msg_for":unitModelMember.user_id!,

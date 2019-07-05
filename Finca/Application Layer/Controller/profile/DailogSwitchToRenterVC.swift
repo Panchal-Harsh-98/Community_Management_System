@@ -132,7 +132,7 @@ class DailogSwitchToRenterVC: BaseVC ,UIImagePickerControllerDelegate,UINavigati
         let params : [String:String]
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
         if isOnwer{
-            params = ["key":AlamofireSingleTon.sharedInstance.key,
+            params = ["key":apiKey(),
                       "switchUser":"switchUser",
                       "society_id":doGetLocalDataUser().society_id,
                       "user_profile_pic":user_profile_pic,
@@ -147,7 +147,7 @@ class DailogSwitchToRenterVC: BaseVC ,UIImagePickerControllerDelegate,UINavigati
                       "user_id":doGetLocalDataUser().user_id!,
                       "unit_id":doGetLocalDataUser().unit_id!]
         } else {
-            params = ["key":AlamofireSingleTon.sharedInstance.key,
+            params = ["key":apiKey(),
                       "switchUser":"switchUser",
                       "society_id":doGetLocalDataUser().society_id,
                       "owner_name":doGetLocalDataUser().owner_name,

@@ -13,6 +13,7 @@ class VehicleMainTabVC: ButtonBarPagerTabStripViewController , SWRevealViewContr
     var overlyView = UIView()
 
     @IBOutlet weak var bMenu: UIButton!
+    
      override func viewDidLoad() {
         loadDesing()
         super.viewDidLoad()

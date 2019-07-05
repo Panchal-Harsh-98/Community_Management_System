@@ -57,24 +57,32 @@ class LoginVC: BaseVC {
 
     @IBOutlet weak var ivLogo: UIImageView!
     
+    @IBOutlet weak var ivPassword: UIImageView!
     @IBOutlet weak var tfMobile: ACFloatingTextfield!
     @IBOutlet weak var tfPassword: ACFloatingTextfield!
     
     var society_id:String!
-
+    var iconClick = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     
         doneButtonOnKeyboard(textField: tfMobile)
-        tfMobile.text = "8401565883"
-         tfPassword.text = "123456"
-        
+        tfMobile.text = "9096693518"
+         tfPassword.text = "12345"
+        tfMobile.delegate = self
+         tfPassword.delegate = self
         ivLogo.setImageColor(color: UIColor.white)
+        ivPassword.setImageColor(color: UIColor.white)
+        
         hideKeyBoardHideOutSideTouch()
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return view.endEditing(true)
+    }
     @IBAction func onClickLogin(_ sender: Any) {
         
         if validate() {
@@ -82,6 +90,22 @@ class LoginVC: BaseVC {
         }
     }
     
+    @IBAction func onClickPasswordShow(_ sender: Any) {
+        
+        if(iconClick == true) {
+            tfPassword.isSecureTextEntry = false
+            ivPassword.image = UIImage(named: "visibility_black")
+            ivPassword.setImageColor(color: UIColor.white)
+            
+        } else {
+            tfPassword.isSecureTextEntry = true
+            ivPassword.image = UIImage(named: "visibility_off")
+            ivPassword.setImageColor(color: UIColor.white)
+            
+        }
+        
+        iconClick = !iconClick
+    }
     @IBAction func onClickRegister(_ sender: Any) {
         
       ///  let vc = storyboard?.instantiateViewController(withIdentifier: "idSocietyVC") as! SocietyVC
@@ -94,6 +118,57 @@ class LoginVC: BaseVC {
         
         
     }
+   
+    
+    @IBAction func onClickForgot(_ sender: Any) {
+        if tfMobile.text!.count > 9 {
+            doForgotPassword()
+        } else {
+            showAlertMessage(title: "", msg: "Enter Valid Mobile number")
+        }
+        
+        
+    }
+    
+    func doForgotPassword() {
+      
+        showProgress()
+        //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
+        let params = ["key":apiKey(),
+                      "user_login":"user_login",
+                      "user_mobile":tfMobile.text!]
+        
+        
+        print("param" , params)
+        
+        let requrest = AlamofireSingleTon.sharedInstance
+        
+        requrest.requestPost(serviceName: ServiceNameConstants.forgotPassword, parameters: params) { (json, error) in
+            
+            if json != nil {
+                self.hideProgress()
+                do {
+                    let response = try JSONDecoder().decode(CommonResponse.self, from:json!)
+                    
+                    
+                    if response.status == "200" {
+                         self.showAlertMessage(title: "", msg: response.message)
+                    }else {
+                        //                        UserDefaults.standard.set("0", forKey: StringConstants.KEY_LOGIN)
+                        self.showAlertMessage(title: "Alert", msg: response.message)
+                    }
+                } catch {
+                    print("parse error")
+                }
+            }
+        }
+    }
+    @IBAction func onClickTerms(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "idTermsAndConditionVC") as! TermsAndConditionVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
     func validate() -> Bool {
         var validate = true
         print("validate")
@@ -112,7 +187,7 @@ class LoginVC: BaseVC {
     func doLogin() {
         showProgress()
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
-        let params = ["key":AlamofireSingleTon.sharedInstance.key,
+        let params = ["key":apiKey(),
                       "user_login":"user_login",
                       "user_mobile":tfMobile.text!,
                       "user_password":tfPassword.text!,

@@ -13,14 +13,23 @@ import SwiftyJSON
 class AlamofireSingleTon: NSObject {
     // let baseUer = "https://www.silverwingtechnologies.com/products/bms/resident_api/"
     
-    let baseUer = "https://www.fincasys.com/resident_api/"
+  //  let baseUer = "https://www.fincasys.com/resident_api/"
+    
+
+    
+    
+  //  let baseUer = UserDefaults.standard.string(forKey: StringConstants.KEY_BASE_URL)! + "resident_api/"
+    
+   
    let mainUrl = "https://www.fincasys.com/main_api/"
     
-     let key = "bmsapikey"
+    
+    
      static let sharedInstance = AlamofireSingleTon()
 
     func requestPost(serviceName:String,parameters: [String:Any]?, completionHandler: @escaping (Data?, NSError?) -> ()) {
-        
+        let baseUer = BaseVC().baseUrl()
+       
         Alamofire.request(baseUer+serviceName, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { (response:DataResponse<Any>) in
             
             switch(response.result) {

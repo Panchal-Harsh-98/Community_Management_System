@@ -112,7 +112,7 @@ class SelectLocationVC: BaseVC {
     func doLocation() {
         showProgress()
        
-        let params = ["key":AlamofireSingleTon.sharedInstance.key,
+        let params = ["key":apiKey(),
                       "getCountries":"getCountries"]
         
         

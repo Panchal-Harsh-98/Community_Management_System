@@ -23,6 +23,8 @@ class SplashVC: BaseVC {
         progressBar.color = UIColor.white
         progressBar.startAnimating()
         
+       
+        
         Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(callback), userInfo: nil, repeats: false)
         
     }

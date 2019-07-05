@@ -45,7 +45,7 @@ class ResourcesVC: BaseVC {
     func doGetEmployes() {
         showProgress()
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
-        let params = ["key":AlamofireSingleTon.sharedInstance.key,
+        let params = ["key":apiKey(),
                       "getEmployeeType":"getEmployeeType",
                       "society_id":doGetLocalDataUser().society_id!]
         

@@ -104,13 +104,11 @@ class OwnedDataSelectVC: BaseVC,UIImagePickerControllerDelegate,UINavigationCont
          tfPassword.delegate = self
          tfPermanentAddress.delegate = self
         
-        tfMobile.isEnabled = false
-        tfMobile.text = mobileNumber
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden), name: UIResponder.keyboardDidHideNotification, object: nil)
         
-           addInputAccessoryForTextFields(textFields: [tfOwnerName,tfOwnerEmail,tfOwnerMobile,tfFirstName,tfLastName,tfEmail,tfPassword,tfPermanentAddress], dismissable: true, previousNextable: true)
+           addInputAccessoryForTextFields(textFields: [tfOwnerName,tfOwnerEmail,tfOwnerMobile,tfFirstName,tfLastName,tfEmail,tfMobile,tfPassword,tfPermanentAddress], dismissable: true, previousNextable: true)
 
         
         
@@ -155,6 +153,10 @@ class OwnedDataSelectVC: BaseVC,UIImagePickerControllerDelegate,UINavigationCont
                 isValidate = false
                 tfEmail.showErrorWithText(errorText: "Enter Valid Email Address")
             }
+        }
+        if  tfMobile.text!.count != 10{
+            isValidate = false
+            tfMobile.showErrorWithText(errorText: "Enter valid Mobile Number")
         }
         if tfPassword.text == "" {
             isValidate = false
@@ -381,7 +383,7 @@ class OwnedDataSelectVC: BaseVC,UIImagePickerControllerDelegate,UINavigationCont
         
         
         let fullname = tfFirstName.text! + " " + tfLastName.text!
-        let params = ["key":AlamofireSingleTon.sharedInstance.key,
+        let params = ["key":apiKey(),
                       "addUser":"insert",
                       "user_id":"0",
                       "society_id":society_id!,
@@ -401,7 +403,7 @@ class OwnedDataSelectVC: BaseVC,UIImagePickerControllerDelegate,UINavigationCont
                       "member_relation":member_relation,
                       "emergencyContact_id":emergencyContact_id,
                       "person_name":person_name,
-                      "person_mobile":person_mobile,
+                      "person_mobile":tfMobile.text!,
                       "relation":relation,
                       "user_profile_pic":user_profile_pic,
                       "owner_name":tfOwnerName.text!,
@@ -515,7 +517,18 @@ class OwnedDataSelectVC: BaseVC,UIImagePickerControllerDelegate,UINavigationCont
             }
         }
     }
-
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField == tfMobile {
+            let maxLength = 10
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =
+                currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+        }
+        return true
+        
+    }
 }
 
 extension OwnedDataSelectVC : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {

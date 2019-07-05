@@ -62,7 +62,7 @@ class SocietyVC: BaseVC {
     func doGetSocietes() {
         showProgress()
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
-        let params = ["key":AlamofireSingleTon.sharedInstance.key,
+        let params = ["key":apiKey(),
                       "getSociety":"getSociety",
                       "country_id":country_id!,
                       "state_id":state_id!,
@@ -146,8 +146,10 @@ extension  SocietyVC :   UICollectionViewDelegate , UICollectionViewDataSource ,
         bLogin.backgroundColor = ColorConstant.colorSelectRow
         bLogin.isEnabled = true
         selectedSociety = societyArray[indexPath.row]
-        UserDefaults.standard.set(societyArray[indexPath.row].sub_domain, forKey: StringConstants.KEY_BASE_URL)
-        UserDefaults.standard.set(societyArray[indexPath.row].api_key, forKey: StringConstants.KEY_API_KEY)
+        
+            UserDefaults.standard.set(self.societyArray[indexPath.row].sub_domain, forKey: StringConstants.KEY_BASE_URL)
+            UserDefaults.standard.set(self.societyArray[indexPath.row].api_key, forKey: StringConstants.KEY_API_KEY)
+       
         
         
     }

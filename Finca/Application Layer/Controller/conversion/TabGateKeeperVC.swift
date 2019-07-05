@@ -45,7 +45,7 @@ class TabGateKeeperVC: BaseVC {
     func doGetSecurity() {
         showProgress()
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
-        let params = ["key":AlamofireSingleTon.sharedInstance.key,
+        let params = ["key":apiKey(),
                       "getekeeperList":"getekeeperList",
                       "society_id":doGetLocalDataUser().society_id!,
                       "user_id":doGetLocalDataUser().user_id!]
