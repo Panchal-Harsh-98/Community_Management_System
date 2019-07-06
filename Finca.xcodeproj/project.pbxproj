@@ -643,6 +643,7 @@
 		25C983B72298205D00F2DF3A /* xib */ = {
 			isa = PBXGroup;
 			children = (
+				25E039F222D061E5006BE961 /* facility */,
 				25F5756D22CCBBA7000389E4 /* event */,
 				2BE4C32822CB956B008E0CA5 /* poll */,
 				2BE4C32022CB22DC008E0CA5 /* complain */,
@@ -683,6 +684,13 @@
 				25E039EC22D055FE006BE961 /* FacilityMainTabVC.swift */,
 				25E039EE22D0565B006BE961 /* TabMyFacilityVC.swift */,
 				25E039F022D0567F006BE961 /* TabAllFacilityVC.swift */,
+			);
+			path = facility;
+			sourceTree = "<group>";
+		};
+		25E039F222D061E5006BE961 /* facility */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = facility;
 			sourceTree = "<group>";

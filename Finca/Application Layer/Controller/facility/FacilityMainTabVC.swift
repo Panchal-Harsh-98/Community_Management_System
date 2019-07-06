@@ -9,13 +9,74 @@
 import UIKit
 import XLPagerTabStrip
 class FacilityMainTabVC: ButtonBarPagerTabStripViewController , SWRevealViewControllerDelegate {
-
+ var overlyView = UIView()
+    @IBOutlet weak var bMenu: UIButton!
+    
     override func viewDidLoad() {
+         loadDesing()
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        revealViewController().delegate = self
+        if self.revealViewController() != nil {
+            bMenu.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
     }
     
 
-
+    func revealController(_ revealController: SWRevealViewController!, willMoveTo position: FrontViewPosition) {
+        
+        if revealController.frontViewPosition == FrontViewPosition.left     // if it not statisfy try this --> if
+        {
+            overlyView.frame = CGRect(x: 0, y: 60, width: self.view.frame.size.width, height: self.view.frame.size.height)
+            //overlyView.backgroundColor = UIColor.red
+            self.view.addSubview(overlyView)
+            //self.view.isUserInteractionEnabled = false
+        }
+        else
+        {
+            overlyView.removeFromSuperview()
+            //self.view.isUserInteractionEnabled = true
+        }
+    }
+    func loadDesing () {
+        settings.style.selectedBarHeight=1
+        //   settings.style.buttonBarBackgroundColor = UIColor(red: 50/255.0, green: 81/255.0, blue: 101/255.0, alpha: 1.0)
+        settings.style.buttonBarBackgroundColor = UIColor(named: "ColorPrimary")
+        settings.style.buttonBarItemBackgroundColor = .clear
+        settings.style.selectedBarBackgroundColor = UIColor.white
+        settings.style.selectedBarHeight = 2.0
+        settings.style.buttonBarMinimumLineSpacing = 0
+        settings.style.buttonBarItemTitleColor = UIColor.blue
+        settings.style.buttonBarItemsShouldFillAvailableWidth = true
+        settings.style.buttonBarLeftContentInset = 0
+        settings.style.buttonBarRightContentInset = 0
+        settings.style.buttonBarHeight = 20
+        
+        
+        
+        changeCurrentIndexProgressive = {(oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
+            guard changeCurrentIndex == true else { return }
+            oldCell?.label.textColor =  ColorConstant.colorGray10
+            newCell?.label.textColor = UIColor.white
+            
+        }
+        
+    }
+    
+    override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+        
+        
+        let child_1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "idTabMyFacilityVC")
+        
+        let child_2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "idTabAllFacilityVC")
+        
+        return [child_1, child_2]
+        
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent // .default
+    }
 }

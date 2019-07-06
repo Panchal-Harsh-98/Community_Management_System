@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import XLPagerTabStrip
 
-class TabMyFacilityVC: UIViewController {
+class TabMyFacilityVC: BaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,4 +20,11 @@ class TabMyFacilityVC: UIViewController {
 
 
 
+}
+extension TabMyFacilityVC : IndicatorInfoProvider {
+    
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        return IndicatorInfo(title: "MY FACILITY")
+    }
+    
 }
