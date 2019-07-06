@@ -208,6 +208,9 @@ class BaseVC: UIViewController , UITextFieldDelegate , SWRevealViewControllerDel
         case 1: //faliure toast
              self.view.makeToast(message,duration:2,position:.bottom,style:self.failureStyle)
              break;
+        case 2: //faliure toast
+            self.view.makeToast(message,duration:2,position:.bottom,style:self.warningStyle)
+            break;
         default:
             break;
         }

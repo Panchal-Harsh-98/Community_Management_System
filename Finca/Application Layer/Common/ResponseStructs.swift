@@ -405,3 +405,84 @@ struct ComplainModel: Codable {
         case complainPhoto = "complain_photo"
     }
 }
+struct PollingResponse: Codable {
+    let message: String!
+    let voting: [PollingModel]!
+    let status: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case message = "message"
+        case voting = "voting"
+        case status = "status"
+    }
+}
+
+// MARK: - Voting
+struct PollingModel: Codable {
+    let votingStatus: String!
+    let votingQuestion: String!
+    let votingStartDate: String!
+    let votingEndDate: String!
+    let societyID: String!
+    let votingDescription: String!
+    let votingID: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case votingStatus = "voting_status"
+        case votingQuestion = "voting_question"
+        case votingStartDate = "voting_start_date"
+        case votingEndDate = "voting_end_date"
+        case societyID = "society_id"
+        case votingDescription = "voting_description"
+        case votingID = "voting_id"
+    }
+}
+struct PollingOptionResponse: Codable {
+    let option: [PollingOptionModel]!
+    let status: String!
+    let votingSubmitted: String!
+    let message: String!
+    enum CodingKeys: String, CodingKey {
+        case option = "option"
+        case status = "status"
+        case votingSubmitted = "voting_submitted"
+        case message = "message"
+    }
+}
+struct PollingOptionModel: Codable {
+    let votingOptionID: String!
+    let societyID: String!
+    let optionName: String!
+    let votingPer: String!
+    let votingID: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case votingOptionID = "voting_option_id"
+        case societyID = "society_id"
+        case optionName = "option_name"
+        case votingPer = "votingPer"
+        case votingID = "voting_id"
+    }
+}
+struct PollingResultResponse: Codable {
+    let status: String!
+    let message: String!
+    let votingSubmitted: String!
+    let result: [PollingResultModel]!
+    
+    enum CodingKeys: String, CodingKey {
+        case status = "status"
+        case message = "message"
+        case votingSubmitted = "voting_submitted"
+        case result = "result"
+    }
+}
+struct PollingResultModel: Codable {
+    let optionName: String!
+    let givenVote: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case optionName = "option_name"
+        case givenVote = "given_vote"
+    }
+}

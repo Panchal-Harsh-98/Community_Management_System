@@ -6,37 +6,48 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="130" id="KGk-i7-Jjw" customClass="PollingCell" customModule="Finca" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="482" height="130"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="61" id="KGk-i7-Jjw" customClass="PollingCell" customModule="Finca" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="482" height="61"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="482" height="129.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="482" height="60.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B68-S0-bpy">
-                        <rect key="frame" x="20" y="54.5" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="20" y="22" width="37" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                        <color key="textColor" name="grey_60"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5c-sh-gik">
-                        <rect key="frame" x="400" y="54.5" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="406.5" y="22" width="35.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mYU-fc-g85">
+                        <rect key="frame" x="0.0" y="60" width="482" height="0.5"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="nEC-BT-2d4"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="B68-S0-bpy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="3cw-ap-OcR"/>
                     <constraint firstItem="B68-S0-bpy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="DW6-cj-j14"/>
                     <constraint firstAttribute="trailingMargin" secondItem="r5c-sh-gik" secondAttribute="trailing" constant="20" id="Q2O-gs-n1w"/>
+                    <constraint firstItem="mYU-fc-g85" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="YfS-Fb-Oeq"/>
                     <constraint firstItem="r5c-sh-gik" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pSa-RE-8fN"/>
+                    <constraint firstAttribute="trailing" secondItem="mYU-fc-g85" secondAttribute="trailing" id="wkL-mn-j9v"/>
+                    <constraint firstAttribute="bottom" secondItem="mYU-fc-g85" secondAttribute="bottom" id="xqU-AG-61d"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -44,7 +55,12 @@
                 <outlet property="lblPollingQues" destination="B68-S0-bpy" id="hv0-Ja-Ra2"/>
                 <outlet property="lblPollingStatus" destination="r5c-sh-gik" id="bmm-ZG-RZO"/>
             </connections>
-            <point key="canvasLocation" x="249.27536231884059" y="168.75"/>
+            <point key="canvasLocation" x="249.27536231884059" y="145.64732142857142"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <namedColor name="grey_60">
+            <color red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

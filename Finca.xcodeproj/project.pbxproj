@@ -114,6 +114,8 @@
 		2B284D1022BA10B300CF1AE0 /* ExpectedVisitorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B284D0E22BA10B300CF1AE0 /* ExpectedVisitorCell.swift */; };
 		2B284D1122BA10B300CF1AE0 /* ExpectedVisitorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B284D0F22BA10B300CF1AE0 /* ExpectedVisitorCell.xib */; };
 		2B284D1322BA738700CF1AE0 /* AddExpMemberDialogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B284D1222BA738700CF1AE0 /* AddExpMemberDialogVC.swift */; };
+		2B2D14D322CF4C900029B2C4 /* PollingProgressbarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2D14D122CF4C900029B2C4 /* PollingProgressbarCell.swift */; };
+		2B2D14D422CF4C900029B2C4 /* PollingProgressbarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B2D14D222CF4C900029B2C4 /* PollingProgressbarCell.xib */; };
 		2B401E4422C374CD005E1A16 /* ElectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B401E4322C374CD005E1A16 /* ElectionVC.swift */; };
 		2B401E4822C3758D005E1A16 /* ElectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B401E4622C3758D005E1A16 /* ElectionCell.swift */; };
 		2B401E4922C3758D005E1A16 /* ElectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B401E4722C3758D005E1A16 /* ElectionCell.xib */; };
@@ -158,6 +160,7 @@
 		2BE4C32722CB8747008E0CA5 /* PollingVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4C32622CB8747008E0CA5 /* PollingVc.swift */; };
 		2BE4C32D22CB95AF008E0CA5 /* PollingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4C32B22CB95AF008E0CA5 /* PollingCell.swift */; };
 		2BE4C32E22CB95AF008E0CA5 /* PollingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BE4C32C22CB95AF008E0CA5 /* PollingCell.xib */; };
+		2BEF8F9022CCDE0500A572C8 /* PollingDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEF8F8F22CCDE0500A572C8 /* PollingDetailsVC.swift */; };
 		2BFC8FD422B0B73300115AD8 /* HomeSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC8FD222B0B73300115AD8 /* HomeSliderCell.swift */; };
 		2BFC8FD522B0B73300115AD8 /* HomeSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BFC8FD322B0B73300115AD8 /* HomeSliderCell.xib */; };
 		2BFC8FD722B0C35C00115AD8 /* ServiceNameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC8FD622B0C35C00115AD8 /* ServiceNameConstants.swift */; };
@@ -279,6 +282,8 @@
 		2B284D0E22BA10B300CF1AE0 /* ExpectedVisitorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectedVisitorCell.swift; sourceTree = "<group>"; };
 		2B284D0F22BA10B300CF1AE0 /* ExpectedVisitorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpectedVisitorCell.xib; sourceTree = "<group>"; };
 		2B284D1222BA738700CF1AE0 /* AddExpMemberDialogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpMemberDialogVC.swift; sourceTree = "<group>"; };
+		2B2D14D122CF4C900029B2C4 /* PollingProgressbarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingProgressbarCell.swift; sourceTree = "<group>"; };
+		2B2D14D222CF4C900029B2C4 /* PollingProgressbarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PollingProgressbarCell.xib; sourceTree = "<group>"; };
 		2B401E4322C374CD005E1A16 /* ElectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectionVC.swift; sourceTree = "<group>"; };
 		2B401E4622C3758D005E1A16 /* ElectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectionCell.swift; sourceTree = "<group>"; };
 		2B401E4722C3758D005E1A16 /* ElectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ElectionCell.xib; sourceTree = "<group>"; };
@@ -327,6 +332,7 @@
 		2BE4C32622CB8747008E0CA5 /* PollingVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingVc.swift; sourceTree = "<group>"; };
 		2BE4C32B22CB95AF008E0CA5 /* PollingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingCell.swift; sourceTree = "<group>"; };
 		2BE4C32C22CB95AF008E0CA5 /* PollingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PollingCell.xib; sourceTree = "<group>"; };
+		2BEF8F8F22CCDE0500A572C8 /* PollingDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingDetailsVC.swift; sourceTree = "<group>"; };
 		2BFC8FD222B0B73300115AD8 /* HomeSliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSliderCell.swift; sourceTree = "<group>"; };
 		2BFC8FD322B0B73300115AD8 /* HomeSliderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeSliderCell.xib; sourceTree = "<group>"; };
 		2BFC8FD622B0C35C00115AD8 /* ServiceNameConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceNameConstants.swift; sourceTree = "<group>"; };
@@ -961,6 +967,7 @@
 			isa = PBXGroup;
 			children = (
 				2BE4C32622CB8747008E0CA5 /* PollingVc.swift */,
+				2BEF8F8F22CCDE0500A572C8 /* PollingDetailsVC.swift */,
 			);
 			path = polling;
 			sourceTree = "<group>";
@@ -970,6 +977,8 @@
 			children = (
 				2BE4C32B22CB95AF008E0CA5 /* PollingCell.swift */,
 				2BE4C32C22CB95AF008E0CA5 /* PollingCell.xib */,
+				2B2D14D122CF4C900029B2C4 /* PollingProgressbarCell.swift */,
+				2B2D14D222CF4C900029B2C4 /* PollingProgressbarCell.xib */,
 			);
 			path = poll;
 			sourceTree = "<group>";
@@ -1057,6 +1066,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B2D14D422CF4C900029B2C4 /* PollingProgressbarCell.xib in Resources */,
 				2B62121B22C0B77A00FE8AF9 /* GalleryCell.xib in Resources */,
 				2BB68D7A22C0F01C00D846AD /* GallerySlider.xib in Resources */,
 				2B284CE322B9F13700CF1AE0 /* FloorMemberCell.xib in Resources */,
@@ -1158,6 +1168,8 @@
 				258CD03C2297F62A00AAB8E6 /* ButtonWithShadow.swift in Sources */,
 				2B5208F922AF8107003B6662 /* DailogFamilyMember.swift in Sources */,
 				25C983602298054F00F2DF3A /* AlamofireSingleTon.swift in Sources */,
+				2B2D14D322CF4C900029B2C4 /* PollingProgressbarCell.swift in Sources */,
+				2BEF8F9022CCDE0500A572C8 /* PollingDetailsVC.swift in Sources */,
 				2B284CEB22B9F75A00CF1AE0 /* TabMemberVC.swift in Sources */,
 				2B284D0C22B9FB1C00CF1AE0 /* ResourcesVC.swift in Sources */,
 				2B284D0522B9FAF800CF1AE0 /* EmployeeListCell.swift in Sources */,

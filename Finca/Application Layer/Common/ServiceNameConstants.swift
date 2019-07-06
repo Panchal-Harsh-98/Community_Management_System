@@ -27,7 +27,7 @@ public struct ServiceNameConstants {
     public static let documentController = "document_controller.php"
     public static let electionController = "get_election_controller.php"
     public static let complainController = "user_complain_controller.php"
-    
+    public static let pollingController = "voting_list_controller.php"
     public static let maintenanceController = "maintenance_controller.php"
     public static let getUserPaymentData = "get_user_payment_data.php"
      public static let residentDataUpdateController = "resident_data_update_controller.php"
