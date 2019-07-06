@@ -25,6 +25,7 @@ class ElectionDetailsVC: BaseVC {
     @IBOutlet weak var viewThankYou: UIView!
     @IBOutlet weak var viewThanksHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var lblTbvheading: UILabel!
+    @IBOutlet weak var viewThankYouHeightConstraint: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
@@ -314,6 +315,7 @@ extension ElectionDetailsVC : UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
+        
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         self.viewWillLayoutSubviews()
