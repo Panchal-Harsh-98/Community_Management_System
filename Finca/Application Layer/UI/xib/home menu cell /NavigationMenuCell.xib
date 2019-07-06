@@ -19,15 +19,19 @@
                 <rect key="frame" x="0.0" y="0.0" width="355" height="52.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tn6-lE-os4">
+                        <rect key="frame" x="0.0" y="0.0" width="355" height="52.5"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="0.57007170376712324" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3vT-FN-i6q">
-                        <rect key="frame" x="30" y="11.5" width="30" height="30"/>
+                        <rect key="frame" x="16" y="11.5" width="30" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="Phb-gk-OOX"/>
                             <constraint firstAttribute="width" constant="30" id="qPJ-Et-Qct"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lfe-ua-bia">
-                        <rect key="frame" x="110" y="16" width="235" height="21"/>
+                        <rect key="frame" x="62" y="16" width="283" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -35,16 +39,21 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="3vT-FN-i6q" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="18k-Zh-mgx"/>
-                    <constraint firstItem="Lfe-ua-bia" firstAttribute="leading" secondItem="3vT-FN-i6q" secondAttribute="trailing" constant="50" id="LGn-Ws-BkQ"/>
-                    <constraint firstItem="3vT-FN-i6q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="PCi-8C-TsP"/>
+                    <constraint firstAttribute="trailing" secondItem="tn6-lE-os4" secondAttribute="trailing" id="I3h-Cb-3uk"/>
+                    <constraint firstItem="Lfe-ua-bia" firstAttribute="leading" secondItem="3vT-FN-i6q" secondAttribute="trailing" constant="16" id="LGn-Ws-BkQ"/>
+                    <constraint firstItem="3vT-FN-i6q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="PCi-8C-TsP"/>
                     <constraint firstItem="Lfe-ua-bia" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="R8H-Nh-IH6"/>
+                    <constraint firstAttribute="bottom" secondItem="tn6-lE-os4" secondAttribute="bottom" id="SlD-lP-xkv"/>
+                    <constraint firstItem="tn6-lE-os4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Uz5-rW-bjW"/>
                     <constraint firstAttribute="trailing" secondItem="Lfe-ua-bia" secondAttribute="trailing" constant="10" id="Vxv-Qj-a2q"/>
+                    <constraint firstItem="tn6-lE-os4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="m9E-MV-6dY"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="imgMenuItem" destination="3vT-FN-i6q" id="WBb-4i-hfQ"/>
                 <outlet property="lblMenuItemName" destination="Lfe-ua-bia" id="cCL-kC-7GE"/>
+                <outlet property="viewSelect" destination="tn6-lE-os4" id="bgt-rw-krc"/>
             </connections>
             <point key="canvasLocation" x="-121.0144927536232" y="155.69196428571428"/>
         </tableViewCell>

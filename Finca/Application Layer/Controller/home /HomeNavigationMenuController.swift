@@ -36,6 +36,7 @@ class HomeNavigationMenuController: BaseVC {
         tbvMenuList.register(inb, forCellReuseIdentifier: itemCell)
         tbvMenuList.delegate = self
         tbvMenuList.dataSource = self
+        tbvMenuList.separatorStyle = .none
         loadMenuData()
         
     }
@@ -44,23 +45,31 @@ class HomeNavigationMenuController: BaseVC {
          self.tbvMenuListHeighConstrint?.constant = self.tbvMenuList.contentSize.height
     }
     func loadMenuData() {
-        menuData.append(menuCell(title: StringConstants.MENU_DASHBOARD,image: "profile",isSelectd: true))
-        menuData.append(menuCell(title: StringConstants.MENU_FUNDBILL,image: "Categories",isSelectd: false))
-        menuData.append(menuCell(title: StringConstants.MENU_MEMBERS,image: "sampleProduct",isSelectd: false))
-        menuData.append(menuCell(title: StringConstants.MENU_VEHICALS,image: "sampleProduct",isSelectd: false))
-        menuData.append(menuCell(title: StringConstants.MENU_VISITORS,image: "sampleProduct",isSelectd: false))
-        menuData.append(menuCell(title: StringConstants.MENU_STAFF,image: "sampleProduct",isSelectd: false))
-        menuData.append(menuCell(title: StringConstants.MENU_EVENT,image: "sampleProduct",isSelectd: false))
-        menuData.append(menuCell(title: StringConstants.MENU_NOTICE_BOARD,image: "sampleProduct",isSelectd: false))
-        menuData.append(menuCell(title: StringConstants.MENU_FACILITY,image: "sampleProduct",isSelectd: false))
-        menuData.append(menuCell(title: StringConstants.MENU_COMPLAINTS,image: "sampleProduct",isSelectd: false))
-        menuData.append(menuCell(title: StringConstants.MENU_POLL,image: "sampleProduct",isSelectd: false))
-        menuData.append(menuCell(title: StringConstants.MENU_ELECTION,image: "sampleProduct",isSelectd: false))
-        menuData.append(menuCell(title: StringConstants.MENU_BUILDING_DETAILS,image: "sampleProduct",isSelectd: false))
-        menuData.append(menuCell(title: StringConstants.MENU_PROFILE,image: "sampleProduct",isSelectd: false))
-        menuData.append(menuCell(title: StringConstants.MENU_NOTIFICATION,image: "sampleProduct",isSelectd: false))
-        menuData.append(menuCell(title: StringConstants.MENU_CONTACT_US,image: "sampleProduct",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_DASHBOARD,image: "dashboard",isSelectd: true))
+        menuData.append(menuCell(title: StringConstants.MENU_FUNDBILL,image: "paper-bill",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_MEMBERS,image: "multiple-users-silhouette",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_VEHICALS,image: "car-front",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_VISITORS,image: "visitors",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_STAFF,image: "staff",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_EVENT,image: "planning",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_NOTICE_BOARD,image: "megaphone-1",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_FACILITY,image: "fitness-facilities",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_COMPLAINTS,image: "complaint",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_POLL,image: "checklist",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_ELECTION,image: "vote",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_BUILDING_DETAILS,image: "building",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_PROFILE,image: "user",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_EMERGANCY,image: "ambulance-1",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_SOS,image: "sos-menu",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_GALLRY,image: "gallery-2",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_DOCUMENT,image: "documnet",isSelectd: false))
+        
+        menuData.append(menuCell(title: StringConstants.MENU_BALANCE_SHEET,image: "wallet",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_CHANGE_PASSWORD,image: "lock",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_LOGUT,image: "logout",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_CONTACT_US,image: "mail",isSelectd: false))
         tbvMenuList.reloadData()
+        
     }
     
     func doSelectMenu(index:Int) {
@@ -89,6 +98,55 @@ class HomeNavigationMenuController: BaseVC {
             revealViewController().pushFrontViewController(destiController, animated: true)
         
         }
+        else if menuData[index].title == StringConstants.MENU_EVENT {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idEventsVC") as! EventsVC
+            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
+            newFrontViewController.isNavigationBarHidden = true
+            revealViewController().pushFrontViewController(destiController, animated: true)
+            
+        }
+        else if menuData[index].title == StringConstants.MENU_NOTICE_BOARD {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idNoticeVC") as! NoticeVC
+            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
+            newFrontViewController.isNavigationBarHidden = true
+            revealViewController().pushFrontViewController(destiController, animated: true)
+            
+        }  else if menuData[index].title == StringConstants.MENU_COMPLAINTS {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idComplaintsVC") as! ComplaintsVC
+            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
+            newFrontViewController.isNavigationBarHidden = true
+            revealViewController().pushFrontViewController(destiController, animated: true)
+            
+        }else if menuData[index].title == StringConstants.MENU_ELECTION {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idElectionVC") as! ElectionVC
+            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
+            newFrontViewController.isNavigationBarHidden = true
+            revealViewController().pushFrontViewController(destiController, animated: true)
+            
+        }
+        else if menuData[index].title == StringConstants.MENU_PROFILE {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idProfileVC") as! ProfileVC
+            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
+            newFrontViewController.isNavigationBarHidden = true
+            revealViewController().pushFrontViewController(destiController, animated: true)
+            
+        }
+        else if menuData[index].title == StringConstants.MENU_MEMBERS {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idMemberVC") as! MemberVC
+         //   let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idNavMember") as! UINavigationController
+            
+        //    let newFrontViewController = UINavigationController.init(rootViewController: destiController)
+          //  newFrontViewController.isNavigationBarHidden = true
+      //  present(destiController, animated: true, completion: nil)
+          revealViewController().pushFrontViewController(destiController, animated: true)
+      //  self.navigationController?.pushViewController(destiController, animated: true)
+        }
+        
+        
+        
+        
+        
+        
 //        else if menuData[index].title == StringConstants. {
 //            let destiController = storyBoard.instantiateViewController(withIdentifier: "idMyOrdersVC") as! MyOrdersVC
 //            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
@@ -159,6 +217,20 @@ extension HomeNavigationMenuController : UITableViewDelegate,UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tbvMenuList.dequeueReusableCell(withIdentifier: itemCell, for: indexPath)as! NavigationMenuCell
         cell.lblMenuItemName.text = menuData[indexPath.row].title
+        cell.imgMenuItem.image = UIImage(named: menuData[indexPath.row].image)
+        //print("dddd" , indexPath.row)
+       // print("dddd" ,  menuData[indexPath.row].isSelectd)
+        
+        if menuData[indexPath.row].isSelectd {
+          cell.lblMenuItemName.textColor = UIColor(named: "ColorPrimary")
+          cell.imgMenuItem.setImageColor(color: UIColor(named: "ColorPrimary")!)
+            cell.viewSelect.isHidden = false
+        } else {
+            cell.lblMenuItemName.textColor = UIColor(named: "grey_60")
+            cell.imgMenuItem.setImageColor(color: UIColor(named: "grey_60")!)
+             cell.viewSelect.isHidden = true
+        }
+      
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -166,7 +238,30 @@ extension HomeNavigationMenuController : UITableViewDelegate,UITableViewDataSour
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         doSelectMenu(index: indexPath.row)
+       
+        doReset(index: indexPath.row)
         
+    }
+    func doReset(index:Int) {
+       
+        
+        for i in (0..<menuData.count).reversed() {
+           if i == index {
+                  menuData[i].isSelectd = true
+            } else {
+                  menuData[i].isSelectd = false
+            }
+          
+        }
+        
+     tbvMenuList.reloadData()
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        print("sdjsbdjvsjdv")
+       // menuData[indexPath.row].isSelectd = false
+       // tableView.reloadData()
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
          self.viewWillLayoutSubviews()

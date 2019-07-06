@@ -21,6 +21,8 @@ struct ModelEvent : Codable {
     let event_start_date:String!//" : "2019-07-02 02:38 PM",
     let event_title:String!//" : "Event Test",
     let going_person:String!//" : "1"
+    let notes_person:String! //"notes_person" : "noting",
+    let numberof_person:String!// "numberof_person" : "5"
 }
 
 class EventsVC: BaseVC {
@@ -124,6 +126,16 @@ extension  EventsVC :   UICollectionViewDelegate , UICollectionViewDataSource , 
        cell.lbTitle.text = eventList[indexPath.row].event_title
           cell.lbDesc.text = eventList[indexPath.row].event_description
           cell.lbDate.text = eventList[indexPath.row].event_start_date
+        
+        if eventList[indexPath.row].going_person == "0" {
+            cell.lbAttending.text = "Yes"
+             cell.lbAttending.textColor = UIColor(named: "green_a700")
+        } else {
+             cell.lbAttending.text = "NO"
+             cell.lbAttending.textColor = UIColor(named: "red_a700")
+            
+        }
+        
         return  cell
     }
     

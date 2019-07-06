@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2518674C22CF0A7C0076D056 /* AttendEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518674B22CF0A7C0076D056 /* AttendEventVC.swift */; };
 		2520F5B3229F8F620023F90A /* Extentios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2520F5B2229F8F620023F90A /* Extentios.swift */; };
 		2520F5B5229FB3EC0023F90A /* OTPVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2520F5B4229FB3EC0023F90A /* OTPVerificationVC.swift */; };
 		2559F19122A23A01006181A8 /* SelectUserTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2559F19022A23A01006181A8 /* SelectUserTypeVC.swift */; };
@@ -80,6 +81,9 @@
 		25C983B622981CF600F2DF3A /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C983B522981CF600F2DF3A /* StringConstants.swift */; };
 		25C983BE2298232A00F2DF3A /* SocietyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C983BD2298232A00F2DF3A /* SocietyVC.swift */; };
 		25CDC92122B0BA5D004527EA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25CDC92022B0BA5C004527EA /* GoogleService-Info.plist */; };
+		25E039ED22D055FE006BE961 /* FacilityMainTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E039EC22D055FE006BE961 /* FacilityMainTabVC.swift */; };
+		25E039EF22D0565B006BE961 /* TabMyFacilityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E039EE22D0565B006BE961 /* TabMyFacilityVC.swift */; };
+		25E039F122D0567F006BE961 /* TabAllFacilityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E039F022D0567F006BE961 /* TabAllFacilityVC.swift */; };
 		25F5756922CC75FF000389E4 /* TermsAndConditionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F5756822CC75FF000389E4 /* TermsAndConditionVC.swift */; };
 		25F5756C22CCB7E6000389E4 /* EventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F5756B22CCB7E6000389E4 /* EventsVC.swift */; };
 		25F5757022CCBC06000389E4 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F5756E22CCBC06000389E4 /* EventCell.swift */; };
@@ -171,6 +175,7 @@
 
 /* Begin PBXFileReference section */
 		2506D75922A52C96008F956E /* DailogFamilyMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailogFamilyMember.swift; sourceTree = "<group>"; };
+		2518674B22CF0A7C0076D056 /* AttendEventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendEventVC.swift; sourceTree = "<group>"; };
 		2520F5B2229F8F620023F90A /* Extentios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentios.swift; sourceTree = "<group>"; };
 		2520F5B4229FB3EC0023F90A /* OTPVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationVC.swift; sourceTree = "<group>"; };
 		2559F19022A23A01006181A8 /* SelectUserTypeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserTypeVC.swift; sourceTree = "<group>"; };
@@ -248,6 +253,9 @@
 		25C983BD2298232A00F2DF3A /* SocietyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocietyVC.swift; sourceTree = "<group>"; };
 		25CDC92022B0BA5C004527EA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		25CDC92222B0BD37004527EA /* Finca.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Finca.entitlements; sourceTree = "<group>"; };
+		25E039EC22D055FE006BE961 /* FacilityMainTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityMainTabVC.swift; sourceTree = "<group>"; };
+		25E039EE22D0565B006BE961 /* TabMyFacilityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabMyFacilityVC.swift; sourceTree = "<group>"; };
+		25E039F022D0567F006BE961 /* TabAllFacilityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllFacilityVC.swift; sourceTree = "<group>"; };
 		25F5756822CC75FF000389E4 /* TermsAndConditionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionVC.swift; sourceTree = "<group>"; };
 		25F5756B22CCB7E6000389E4 /* EventsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsVC.swift; sourceTree = "<group>"; };
 		25F5756E22CCBC06000389E4 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
@@ -500,6 +508,7 @@
 		258CD0312297D5C900AAB8E6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				25E039EB22D05373006BE961 /* facility */,
 				25F5756A22CCB761000389E4 /* event */,
 				25F5756722CC75CB000389E4 /* terms and condition */,
 				259FC88422CC6FF100A72204 /* select location */,
@@ -668,6 +677,16 @@
 			path = registration;
 			sourceTree = "<group>";
 		};
+		25E039EB22D05373006BE961 /* facility */ = {
+			isa = PBXGroup;
+			children = (
+				25E039EC22D055FE006BE961 /* FacilityMainTabVC.swift */,
+				25E039EE22D0565B006BE961 /* TabMyFacilityVC.swift */,
+				25E039F022D0567F006BE961 /* TabAllFacilityVC.swift */,
+			);
+			path = facility;
+			sourceTree = "<group>";
+		};
 		25F5756722CC75CB000389E4 /* terms and condition */ = {
 			isa = PBXGroup;
 			children = (
@@ -681,6 +700,7 @@
 			children = (
 				25F5756B22CCB7E6000389E4 /* EventsVC.swift */,
 				258A216022CCE07900B3D562 /* EventDetailsVC.swift */,
+				2518674B22CF0A7C0076D056 /* AttendEventVC.swift */,
 			);
 			path = event;
 			sourceTree = "<group>";
@@ -1221,8 +1241,10 @@
 				2B5208FF22AF817E003B6662 /* InfoFamalyMemberCell.swift in Sources */,
 				2BB68D7822C0EFDD00D846AD /* GallerySlider.swift in Sources */,
 				25C9839722980CE600F2DF3A /* NVActivityIndicatorAnimationLineScalePulseOut.swift in Sources */,
+				2518674C22CF0A7C0076D056 /* AttendEventVC.swift in Sources */,
 				2B284CED22B9F75A00CF1AE0 /* VehicleMainTabVC.swift in Sources */,
 				2BBCBC3122B13B0B000EB023 /* FundFragmentVC.swift in Sources */,
+				25E039EF22D0565B006BE961 /* TabMyFacilityVC.swift in Sources */,
 				2B62121622C0B47B00FE8AF9 /* GalleryVC.swift in Sources */,
 				25C9839922980CE600F2DF3A /* NVActivityIndicatorAnimationBallZigZagDeflect.swift in Sources */,
 				2B47EB6622C492A000F1D559 /* ElectionDetailsVC.swift in Sources */,
@@ -1281,6 +1303,7 @@
 				25C983A122980CE600F2DF3A /* NVActivityIndicatorAnimationBallRotateChase.swift in Sources */,
 				25C9838C22980CE600F2DF3A /* NVActivityIndicatorAnimationDelegate.swift in Sources */,
 				25C9839422980CE600F2DF3A /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */,
+				25E039ED22D055FE006BE961 /* FacilityMainTabVC.swift in Sources */,
 				2B401E4822C3758D005E1A16 /* ElectionCell.swift in Sources */,
 				2BBA56BB22B79C060031A0A6 /* VisitorVC.swift in Sources */,
 				2559F19C22A28AA4006181A8 /* SelectBlockAndRoomVC.swift in Sources */,
@@ -1304,6 +1327,7 @@
 				25AF673C22BB883B00637C1C /* ProfileVC.swift in Sources */,
 				2B4B0455229F919B0031B293 /* NavigationMenuCell.swift in Sources */,
 				25C983B422980DFD00F2DF3A /* NetworkAPI.swift in Sources */,
+				25E039F122D0567F006BE961 /* TabAllFacilityVC.swift in Sources */,
 				2BFC8FD422B0B73300115AD8 /* HomeSliderCell.swift in Sources */,
 				25C983A522980CE600F2DF3A /* NVActivityIndicatorAnimationAudioEqualizer.swift in Sources */,
 				25C9839522980CE600F2DF3A /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift in Sources */,

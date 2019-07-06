@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "fitness-facilities.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "multiple_users_silhouette.png",
       "scale" : "2x"
     },
     {

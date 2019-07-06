@@ -114,8 +114,11 @@ class MemberVC: BaseVC {
             if data?.unit_status == "1" || data?.unit_status == "3" || data?.unit_status == "5" {
                 let vc = storyboard?.instantiateViewController(withIdentifier: "idMemberDetailVC") as! MemberDetailVC
                 vc.unitModelMember = data
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
+               // self.navigationController?.pushViewController(vc, animated: true)
+                
+                  revealViewController().pushFrontViewController(vc, animated: true)
+           
+              }
             
         }
         

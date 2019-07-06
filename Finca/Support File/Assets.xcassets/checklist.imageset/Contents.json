@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "dashboard.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "checklist-on-a-paper-with-a-pencil.png",
       "scale" : "2x"
     },
     {

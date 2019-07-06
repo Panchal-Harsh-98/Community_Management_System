@@ -10,6 +10,7 @@ import UIKit
 
 class NavigationMenuCell: UITableViewCell {
 
+    @IBOutlet weak var viewSelect: UIView!
     @IBOutlet weak var lblMenuItemName: UILabel!
     @IBOutlet weak var imgMenuItem: UIImageView!
     override func awakeFromNib() {
