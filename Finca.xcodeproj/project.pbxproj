@@ -84,6 +84,14 @@
 		25E039ED22D055FE006BE961 /* FacilityMainTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E039EC22D055FE006BE961 /* FacilityMainTabVC.swift */; };
 		25E039EF22D0565B006BE961 /* TabMyFacilityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E039EE22D0565B006BE961 /* TabMyFacilityVC.swift */; };
 		25E039F122D0567F006BE961 /* TabAllFacilityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E039F022D0567F006BE961 /* TabAllFacilityVC.swift */; };
+		25E039F622D0715C006BE961 /* AllFacilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E039F422D0715C006BE961 /* AllFacilityCell.swift */; };
+		25E039F722D0715C006BE961 /* AllFacilityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E039F522D0715C006BE961 /* AllFacilityCell.xib */; };
+		25E039F922D07570006BE961 /* AllFacilityDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E039F822D07570006BE961 /* AllFacilityDetailsVC.swift */; };
+		25E039FC22D0AD5F006BE961 /* MyFacilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E039FA22D0AD5F006BE961 /* MyFacilityCell.swift */; };
+		25E039FD22D0AD5F006BE961 /* MyFacilityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E039FB22D0AD5F006BE961 /* MyFacilityCell.xib */; };
+		25E03A0022D0C0C0006BE961 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E039FF22D0C0C0006BE961 /* NotificationVC.swift */; };
+		25E03A0422D0CACE006BE961 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E03A0222D0CACE006BE961 /* NotificationCell.swift */; };
+		25E03A0522D0CACE006BE961 /* NotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E03A0322D0CACE006BE961 /* NotificationCell.xib */; };
 		25F5756922CC75FF000389E4 /* TermsAndConditionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F5756822CC75FF000389E4 /* TermsAndConditionVC.swift */; };
 		25F5756C22CCB7E6000389E4 /* EventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F5756B22CCB7E6000389E4 /* EventsVC.swift */; };
 		25F5757022CCBC06000389E4 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F5756E22CCBC06000389E4 /* EventCell.swift */; };
@@ -259,6 +267,14 @@
 		25E039EC22D055FE006BE961 /* FacilityMainTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityMainTabVC.swift; sourceTree = "<group>"; };
 		25E039EE22D0565B006BE961 /* TabMyFacilityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabMyFacilityVC.swift; sourceTree = "<group>"; };
 		25E039F022D0567F006BE961 /* TabAllFacilityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllFacilityVC.swift; sourceTree = "<group>"; };
+		25E039F422D0715C006BE961 /* AllFacilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFacilityCell.swift; sourceTree = "<group>"; };
+		25E039F522D0715C006BE961 /* AllFacilityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllFacilityCell.xib; sourceTree = "<group>"; };
+		25E039F822D07570006BE961 /* AllFacilityDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFacilityDetailsVC.swift; sourceTree = "<group>"; };
+		25E039FA22D0AD5F006BE961 /* MyFacilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFacilityCell.swift; sourceTree = "<group>"; };
+		25E039FB22D0AD5F006BE961 /* MyFacilityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyFacilityCell.xib; sourceTree = "<group>"; };
+		25E039FF22D0C0C0006BE961 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
+		25E03A0222D0CACE006BE961 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		25E03A0322D0CACE006BE961 /* NotificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationCell.xib; sourceTree = "<group>"; };
 		25F5756822CC75FF000389E4 /* TermsAndConditionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionVC.swift; sourceTree = "<group>"; };
 		25F5756B22CCB7E6000389E4 /* EventsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsVC.swift; sourceTree = "<group>"; };
 		25F5756E22CCBC06000389E4 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
@@ -514,6 +530,7 @@
 		258CD0312297D5C900AAB8E6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				25E039FE22D0BCF3006BE961 /* notification */,
 				25E039EB22D05373006BE961 /* facility */,
 				25F5756A22CCB761000389E4 /* event */,
 				25F5756722CC75CB000389E4 /* terms and condition */,
@@ -649,6 +666,7 @@
 		25C983B72298205D00F2DF3A /* xib */ = {
 			isa = PBXGroup;
 			children = (
+				25E03A0122D0CAA5006BE961 /* notification */,
 				25E039F222D061E5006BE961 /* facility */,
 				25F5756D22CCBBA7000389E4 /* event */,
 				2BE4C32822CB956B008E0CA5 /* poll */,
@@ -690,6 +708,7 @@
 				25E039EC22D055FE006BE961 /* FacilityMainTabVC.swift */,
 				25E039EE22D0565B006BE961 /* TabMyFacilityVC.swift */,
 				25E039F022D0567F006BE961 /* TabAllFacilityVC.swift */,
+				25E039F822D07570006BE961 /* AllFacilityDetailsVC.swift */,
 			);
 			path = facility;
 			sourceTree = "<group>";
@@ -697,8 +716,29 @@
 		25E039F222D061E5006BE961 /* facility */ = {
 			isa = PBXGroup;
 			children = (
+				25E039F422D0715C006BE961 /* AllFacilityCell.swift */,
+				25E039F522D0715C006BE961 /* AllFacilityCell.xib */,
+				25E039FA22D0AD5F006BE961 /* MyFacilityCell.swift */,
+				25E039FB22D0AD5F006BE961 /* MyFacilityCell.xib */,
 			);
 			path = facility;
+			sourceTree = "<group>";
+		};
+		25E039FE22D0BCF3006BE961 /* notification */ = {
+			isa = PBXGroup;
+			children = (
+				25E039FF22D0C0C0006BE961 /* NotificationVC.swift */,
+			);
+			path = notification;
+			sourceTree = "<group>";
+		};
+		25E03A0122D0CAA5006BE961 /* notification */ = {
+			isa = PBXGroup;
+			children = (
+				25E03A0222D0CACE006BE961 /* NotificationCell.swift */,
+				25E03A0322D0CACE006BE961 /* NotificationCell.xib */,
+			);
+			path = notification;
 			sourceTree = "<group>";
 		};
 		25F5756722CC75CB000389E4 /* terms and condition */ = {
@@ -1142,9 +1182,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25E03A0522D0CACE006BE961 /* NotificationCell.xib in Resources */,
 				2B2D14D422CF4C900029B2C4 /* PollingProgressbarCell.xib in Resources */,
-				2B62121B22C0B77A00FE8AF9 /* GalleryCell.xib in Resources */,
-				2BB68D7A22C0F01C00D846AD /* GallerySlider.xib in Resources */,
 				2B284CE322B9F13700CF1AE0 /* FloorMemberCell.xib in Resources */,
 				25F5757122CCBC06000389E4 /* EventCell.xib in Resources */,
 				25CDC92122B0BA5D004527EA /* GoogleService-Info.plist in Resources */,
@@ -1153,10 +1192,12 @@
 				2B284CF822B9F79400CF1AE0 /* MyVehicleNumberCell.xib in Resources */,
 				2BBA56C422B7D9410031A0A6 /* VisitorArrivedCell.xib in Resources */,
 				2B5208FE22AF817E003B6662 /* InfoFamalyMemberCell.xib in Resources */,
+				25E039F722D0715C006BE961 /* AllFacilityCell.xib in Resources */,
 				2B62122222C0D7D400FE8AF9 /* GallerySliderCell.xib in Resources */,
 				2B52090522AFA4D3003B6662 /* HomeScreenCvCell.xib in Resources */,
 				2562475122BA54870032DB4B /* GateKeeperCell.xib in Resources */,
 				2B401E4922C3758D005E1A16 /* ElectionCell.xib in Resources */,
+				25E039FD22D0AD5F006BE961 /* MyFacilityCell.xib in Resources */,
 				2B284CE422B9F13700CF1AE0 /* BlockMemberCell.xib in Resources */,
 				2B4B0456229F919B0031B293 /* NavigationMenuCell.xib in Resources */,
 				2B284D1122BA10B300CF1AE0 /* ExpectedVisitorCell.xib in Resources */,
@@ -1234,6 +1275,7 @@
 				2520F5B3229F8F620023F90A /* Extentios.swift in Sources */,
 				25C9838D22980CE600F2DF3A /* NVActivityIndicatorPresenter.swift in Sources */,
 				2B47EB6922C4E29F00F1D559 /* ElectionWinnerCell.swift in Sources */,
+				25E039F922D07570006BE961 /* AllFacilityDetailsVC.swift in Sources */,
 				2BFC8FD722B0C35C00115AD8 /* ServiceNameConstants.swift in Sources */,
 				25C9839022980CE600F2DF3A /* NVActivityIndicatorView.swift in Sources */,
 				25C2AF5022CA2B67007AAC12 /* DailogSwitchToRenterVC.swift in Sources */,
@@ -1249,12 +1291,14 @@
 				2BEF8F9022CCDE0500A572C8 /* PollingDetailsVC.swift in Sources */,
 				2B284CEB22B9F75A00CF1AE0 /* TabMemberVC.swift in Sources */,
 				2B284D0C22B9FB1C00CF1AE0 /* ResourcesVC.swift in Sources */,
+				25E03A0422D0CACE006BE961 /* NotificationCell.swift in Sources */,
 				2B284D0522B9FAF800CF1AE0 /* EmployeeListCell.swift in Sources */,
 				2B284CD122B9EF8F00CF1AE0 /* MemberDetailVC.swift in Sources */,
 				2B284CEC22B9F75A00CF1AE0 /* TabMyVC.swift in Sources */,
 				2B0EB4B622C234AD00C752C5 /* DocumentCell.swift in Sources */,
 				2B62122122C0D7D400FE8AF9 /* GallerySliderCell.swift in Sources */,
 				2B284CE622B9F13700CF1AE0 /* BlockMemberCell.swift in Sources */,
+				25E039F622D0715C006BE961 /* AllFacilityCell.swift in Sources */,
 				2B284CDA22B9EFC500CF1AE0 /* RecievedCell.swift in Sources */,
 				2BBA56C322B7D9410031A0A6 /* VisitorArrivedCell.swift in Sources */,
 				2559F19922A2894B006181A8 /* SelectBlockCell.swift in Sources */,
@@ -1267,6 +1311,7 @@
 				2B284CED22B9F75A00CF1AE0 /* VehicleMainTabVC.swift in Sources */,
 				2BBCBC3122B13B0B000EB023 /* FundFragmentVC.swift in Sources */,
 				25E039EF22D0565B006BE961 /* TabMyFacilityVC.swift in Sources */,
+				25E03A0022D0C0C0006BE961 /* NotificationVC.swift in Sources */,
 				2B62121622C0B47B00FE8AF9 /* GalleryVC.swift in Sources */,
 				25C9839922980CE600F2DF3A /* NVActivityIndicatorAnimationBallZigZagDeflect.swift in Sources */,
 				2B47EB6622C492A000F1D559 /* ElectionDetailsVC.swift in Sources */,
@@ -1342,6 +1387,7 @@
 				2B284CD222B9EF8F00CF1AE0 /* MemberVC.swift in Sources */,
 				2B25CE1C22CA10AB005EDC50 /* ComplaintsVC.swift in Sources */,
 				25C983AD22980CE600F2DF3A /* NVActivityIndicatorAnimationCubeTransition.swift in Sources */,
+				25E039FC22D0AD5F006BE961 /* MyFacilityCell.swift in Sources */,
 				2B284CE522B9F13700CF1AE0 /* FloorMemberCell.swift in Sources */,
 				25C9838F22980CE600F2DF3A /* NVActivityIndicatorShape.swift in Sources */,
 				2559F19322A2423C006181A8 /* OwnedDataSelectVC.swift in Sources */,

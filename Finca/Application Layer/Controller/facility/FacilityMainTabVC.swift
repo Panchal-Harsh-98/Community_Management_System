@@ -10,6 +10,11 @@ import UIKit
 import XLPagerTabStrip
 class FacilityMainTabVC: ButtonBarPagerTabStripViewController , SWRevealViewControllerDelegate {
  var overlyView = UIView()
+    
+    @IBOutlet weak var viewChatCount: UIView!
+    @IBOutlet weak var lbChatCount: UILabel!
+    @IBOutlet weak var viewNotiCount: UIView!
+    @IBOutlet weak var lbNotiCount: UILabel!
     @IBOutlet weak var bMenu: UIButton!
     
     override func viewDidLoad() {
@@ -23,7 +28,9 @@ class FacilityMainTabVC: ButtonBarPagerTabStripViewController , SWRevealViewCont
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        loadNoti()
+    }
 
     func revealController(_ revealController: SWRevealViewController!, willMoveTo position: FrontViewPosition) {
         
@@ -38,6 +45,23 @@ class FacilityMainTabVC: ButtonBarPagerTabStripViewController , SWRevealViewCont
         {
             overlyView.removeFromSuperview()
             //self.view.isUserInteractionEnabled = true
+        }
+    }
+    func loadNoti() {
+        let vc = BaseVC()
+        if vc.getChatCount() !=  "0" {
+            self.viewChatCount.isHidden =  false
+            self.lbChatCount.text = vc.getChatCount()
+            
+        } else {
+            self.viewChatCount.isHidden =  true
+        }
+        if vc.getNotiCount() !=  "0" {
+            self.viewNotiCount.isHidden =  false
+            self.lbNotiCount.text = vc.getNotiCount()
+            
+        } else {
+            self.viewNotiCount.isHidden =  true
         }
     }
     func loadDesing () {
