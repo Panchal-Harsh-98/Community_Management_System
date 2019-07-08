@@ -225,9 +225,7 @@ extension SelectBlockAndRoomVC : UICollectionViewDelegate , UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if collectionView == cvBlock {
-            
-            
-            doGetFlorUnit(block_id: blocks[indexPath.row].block_id)
+             doGetFlorUnit(block_id: blocks[indexPath.row].block_id)
        
             blockModel = blocks[indexPath.row]
         }

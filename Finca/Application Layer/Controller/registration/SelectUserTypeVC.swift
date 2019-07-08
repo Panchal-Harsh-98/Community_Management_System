@@ -13,13 +13,14 @@ class SelectUserTypeVC: BaseVC {
     @IBOutlet weak var bBack: UIButton!
      var society_id:String!
     var mobileNumber:String!
+    @IBOutlet weak var ivRenter: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         changeButtonImageColor(btn: bBack, image: "back", color: ColorConstant.primaryColor)
         
-    
+    ivRenter.setImageColor(color: UIColor.white)
     }
     
 

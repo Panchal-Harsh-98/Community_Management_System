@@ -40,6 +40,7 @@ class ChatVC: BaseVC {
     
     @IBOutlet weak var ivProfile: UIImageView!
     @IBOutlet weak var lbUserName: UILabel!
+    @IBOutlet weak var lbNoData: UILabel!
     
     @IBOutlet weak var tfMessage: UITextField!
     var itemCellRecieved = "RecievedCell"
@@ -76,7 +77,7 @@ class ChatVC: BaseVC {
         tbvData.register(inbRecieved, forCellReuseIdentifier: itemCellRecieved)
         Utils.setRoundImage(imageView: ivProfile)
         
-       
+       lbNoData.isHidden = true
         doGetChat(isRefresh: false)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -96,7 +97,37 @@ class ChatVC: BaseVC {
         initUI()
      
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.doThisWhenNotify(notif:)), name: NSNotification.Name(rawValue: StringConstants.KEY_NOTIFIATION), object: nil)
+        
     }
+    
+    @objc func doThisWhenNotify(notif: NSNotification) {
+        
+        guard
+            let aps =  notif.userInfo?["aps"] as? NSDictionary,
+            let alert = aps["alert"] as? NSDictionary,
+           // let body = alert["body"] as? String
+            
+             let title = alert["title"] as? String
+        
+       
+        
+        
+        else {
+                
+                
+                // handle any error here
+                return
+        }
+       // reloadData(message_type: "1", msg: body)
+        
+        if title == "Chat Message Received" {
+            doGetChat(isRefresh: false)
+        }
+        
+        
+    }
+    
    func initUI() {
     if isGateKeeper {
         Utils.setImageFromUrl(imageView: ivProfile, urlString: profile)
@@ -166,7 +197,7 @@ class ChatVC: BaseVC {
                     
                     
                     if response.status == "200" {
-                        
+                        self.lbNoData.isHidden = true
                         if self.chats.count > 0 {
                             self.chats.removeAll()
                             self.tbvData.reloadData()
@@ -179,7 +210,8 @@ class ChatVC: BaseVC {
                        
                         
                     }else {
-                        self.showAlertMessage(title: "Alert", msg: response.message)
+                        self.lbNoData.isHidden = false
+                       // self.showAlertMessage(title: "Alert", msg: response.message)
                     }
                 } catch {
                     print("parse error")

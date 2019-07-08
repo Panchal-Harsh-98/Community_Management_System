@@ -44,9 +44,9 @@ class SplashVC: BaseVC {
             
              //  let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "idNavMain")as! UINavigationController
             
-            self.present(homeVC, animated: true, completion: nil)
+           /// self.present(homeVC, animated: true, completion: nil)
             
-        //  self.self.navigationController?.pushViewController(homeVC, animated: true)
+          self.self.navigationController?.pushViewController(homeVC, animated: true)
         }
         
     }

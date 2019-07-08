@@ -12,6 +12,11 @@ import EzPopup
 class VisitorVC: ButtonBarPagerTabStripViewController,SWRevealViewControllerDelegate {
     
     @IBOutlet weak var bMenu: UIButton!
+    var overlyView = UIView()
+    @IBOutlet weak var viewChatCount: UIView!
+    @IBOutlet weak var lbChatCount: UILabel!
+    @IBOutlet weak var viewNotiCount: UIView!
+    @IBOutlet weak var lbNotiCount: UILabel!
     var selectedColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     override func viewDidLoad() {
         
@@ -33,6 +38,15 @@ class VisitorVC: ButtonBarPagerTabStripViewController,SWRevealViewControllerDele
             newCell?.label.textColor = self?.selectedColor
         }
         NotificationCenter.default.addObserver(self, selector: #selector(loadDialog(_:)), name: Notification.Name(rawValue:StringConstants.KEY_NOTIFICATION_VISITOR), object: nil)
+        
+        
+        revealViewController().delegate = self
+        if self.revealViewController() != nil {
+            bMenu.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
+        
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
@@ -42,6 +56,7 @@ class VisitorVC: ButtonBarPagerTabStripViewController,SWRevealViewControllerDele
         //        child_2.loadView()
         return [child_1, child_2]
     }
+    
     @objc func loadDialog(_ notification: Notification) {
         let screenwidth = UIScreen.main.bounds.width
         let screenheight = UIScreen.main.bounds.height
@@ -56,5 +71,58 @@ class VisitorVC: ButtonBarPagerTabStripViewController,SWRevealViewControllerDele
         popupVC.canTapOutsideToDismiss = true
         present(popupVC, animated: true)
 
+    }
+    func revealController(_ revealController: SWRevealViewController!, willMoveTo position: FrontViewPosition) {
+        
+        if revealController.frontViewPosition == FrontViewPosition.left     // if it not statisfy try this --> if
+        {
+            overlyView.frame = CGRect(x: 0, y: 60, width: self.view.frame.size.width, height: self.view.frame.size.height)
+            //overlyView.backgroundColor = UIColor.red
+            self.view.addSubview(overlyView)
+            //self.view.isUserInteractionEnabled = false
+        }
+        else
+        {
+            overlyView.removeFromSuperview()
+            //self.view.isUserInteractionEnabled = true
+        }
+    }
+    
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent // .default
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadNoti()
+    }
+    func loadNoti() {
+        let vc = BaseVC()
+        if vc.getChatCount() !=  "0" {
+            self.viewChatCount.isHidden =  false
+            self.lbChatCount.text = vc.getChatCount()
+            
+        } else {
+            self.viewChatCount.isHidden =  true
+        }
+        if vc.getNotiCount() !=  "0" {
+            self.viewNotiCount.isHidden =  false
+            self.lbNotiCount.text = vc.getNotiCount()
+            
+        } else {
+            self.viewNotiCount.isHidden =  true
+        }
+    }
+    
+    
+    @IBAction func onClickNotification(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "idNotificationVC") as! NotificationVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    @IBAction func onClickChat(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "idTabCarversionVC") as! TabCarversionVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
 }
