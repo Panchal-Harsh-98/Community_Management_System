@@ -24,7 +24,7 @@ class BillFragmentVC: BaseVC{
         
     }
     @objc func refreshData(_ notification: Notification) {
-        
+
         let month =  notification.userInfo?["month"] as! String
         let year = notification.userInfo?["year"]!as! String
         Bill_list.removeAll()

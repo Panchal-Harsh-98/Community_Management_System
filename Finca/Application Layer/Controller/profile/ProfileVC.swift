@@ -571,7 +571,7 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
         let actionSheet = UIAlertController(title: "Photo Source", message: "Chose a source", preferredStyle: .actionSheet)
         // actionSheet.view.layer.cornerRadius = 10
         
-        actionSheet.addAction(UIAlertAction(title: "Camara", style: .default, handler: { (action:UIAlertAction) in
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action:UIAlertAction) in
             
             if UIImagePickerController.isSourceTypeAvailable(.camera){
                 imagePicker.sourceType = .camera
@@ -584,7 +584,7 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
             
         }))
         
-        actionSheet.addAction(UIAlertAction(title: "Galary", style: .default, handler: { (action:UIAlertAction) in
+        actionSheet.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { (action:UIAlertAction) in
             imagePicker.sourceType = .photoLibrary
             self.present(imagePicker, animated: true, completion: nil)
             

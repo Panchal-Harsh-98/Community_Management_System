@@ -29,9 +29,7 @@ class HomeNavigationMenuController: BaseVC {
     //    imgProfile.layer.cornerRadius = imgProfile.frame.height/2
         
         Utils.setRoundImageWithBorder(imageView: imgProfile, color: UIColor.white)
-        Utils.setImageFromUrl(imageView: imgProfile, urlString: doGetLocalDataUser().user_profile_pic)
-        
-        lbUserName.text = doGetLocalDataUser().user_full_name
+      
         let inb = UINib(nibName: itemCell, bundle: nil)
         tbvMenuList.register(inb, forCellReuseIdentifier: itemCell)
         tbvMenuList.delegate = self
@@ -39,6 +37,11 @@ class HomeNavigationMenuController: BaseVC {
         tbvMenuList.separatorStyle = .none
         loadMenuData()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        Utils.setImageFromUrl(imageView: imgProfile, urlString: doGetLocalDataUser().user_profile_pic!)
+        lbUserName.text = doGetLocalDataUser().user_full_name
     }
     
     override func viewWillLayoutSubviews() {

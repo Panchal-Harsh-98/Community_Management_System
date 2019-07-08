@@ -25,8 +25,15 @@ class ElectionVC: BaseVC {
         tbvElection.dataSource = self
         doGetElectionData()
         doInintialRevelController(bMenu: bMenu)
+        addRefreshControlTo(tableView: tbvElection)
     }
-    override func viewWillAppear(_ animated: Bool) {
+    override func fetchNewDataOnRefresh() {
+        refreshControl.beginRefreshing()
+        election_list.removeAll()
+        doGetElectionData()
+        refreshControl.endRefreshing()
+    }
+    override func viewWillAppear(_ animated: Bool){
         if viewWillAppearFlag == true{
             election_list.removeAll()
             doGetElectionData()

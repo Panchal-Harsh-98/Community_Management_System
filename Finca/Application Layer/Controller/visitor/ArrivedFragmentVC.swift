@@ -19,6 +19,14 @@ class ArrivedFragmentVC:BaseVC {
         tbvVisitorList.register(nib, forCellReuseIdentifier: itemCell)
         tbvVisitorList.delegate = self
         tbvVisitorList.dataSource = self
+        
+        addRefreshControlTo(tableView: tbvVisitorList)
+    }
+    
+    override func fetchNewDataOnRefresh() {
+        visitor_List.removeAll()
+        doCallVisitorApi()
+        refreshControl.endRefreshing()
     }
     
     func doCallVisitorApi() {

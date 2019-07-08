@@ -486,3 +486,99 @@ struct PollingResultModel: Codable {
         case givenVote = "given_vote"
     }
 }
+struct BuildingDetailResponse: Codable {
+    let builderName: String!
+    let trialDays: String!
+    let message: String!
+    let builderAddress: String!
+    let socieatyLogo: String!
+    let noOfStaff: Int!
+    let noOfPopulation: Int!
+    let status: String!
+    let noOfUnits: Int!
+    let carCapcity: String!
+    let societyAddress: String!
+    let noOfBlocks: Int!
+    let secretaryEmail: String!
+    let secretaryMobile: String!
+    let bikeCapcity: String!
+    let carAllocate: String!
+    let builderMobile: String!
+    let societyName: String!
+    let bikeAllocate: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case builderName = "builder_name"
+        case trialDays = "trial_days"
+        case message = "message"
+        case builderAddress = "builder_address"
+        case socieatyLogo = "socieaty_logo"
+        case noOfStaff = "no_of_staff"
+        case noOfPopulation = "no_of_population"
+        case status = "status"
+        case noOfUnits = "no_of_units"
+        case carCapcity = "car_capcity"
+        case societyAddress = "society_address"
+        case noOfBlocks = "no_of_blocks"
+        case secretaryEmail = "secretary_email"
+        case secretaryMobile = "secretary_mobile"
+        case bikeCapcity = "bike_capcity"
+        case carAllocate = "car_allocate"
+        case builderMobile = "builder_mobile"
+        case societyName = "society_name"
+        case bikeAllocate = "bike_allocate"
+    }
+}
+// MARK: - EmergencyResponse
+struct EmergencyResponse: Codable {
+    let message: String!
+    let status: String!
+    let emergencyNumber: [EmergencyNumberModel]!
+    
+    enum CodingKeys: String, CodingKey {
+        case message = "message"
+        case status = "status"
+        case emergencyNumber = "emergencyNumber"
+    }
+}
+
+// MARK: - EmergencyNumber
+struct EmergencyNumberModel: Codable {
+    let name: String!
+    let designation: String!
+    let mobile: String!
+    let image: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case name = "name"
+        case designation = "designation"
+        case mobile = "mobile"
+        case image = "image"
+    }
+}
+struct BalanceSheetResponse: Codable {
+    let status: String!
+    let balancesheet: [BalancesheetModel]!
+    let cashOnHand: String!
+    let message: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case status = "status"
+        case balancesheet = "balancesheet"
+        case cashOnHand = "cash_on_hand"
+        case message = "message"
+    }
+}
+
+// MARK: - Balancesheet
+struct BalancesheetModel: Codable {
+    let balancesheetName: String!
+    let balancesheetID: String!
+    let currentBalance: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case balancesheetName = "balancesheet_name"
+        case balancesheetID = "balancesheet_id"
+        case currentBalance = "current_balance"
+    }
+}
