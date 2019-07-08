@@ -22,6 +22,15 @@ class GalleryVC: BaseVC,UIGestureRecognizerDelegate {
         cvGallery.dataSource = self
         doInintialRevelController(bMenu: bMenu)
         setupLongPressGesture()
+        
+        addRefreshControlTo(collectionView: cvGallery)
+    }
+    
+    override func fetchNewDataOnRefresh() {
+        refreshControl.beginRefreshing()
+        gallery_List.removeAll()
+        doGetGalleryImages()
+        refreshControl.endRefreshing()
     }
     
     func setupLongPressGesture() {

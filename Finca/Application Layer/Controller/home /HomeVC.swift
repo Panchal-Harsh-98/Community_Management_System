@@ -325,8 +325,12 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollect
             self.navigationController?.pushViewController(nextVC, animated: true)
             break;
         case 12:
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idBuildingDetailsVC")as! BuildingDetailsVC
+            self.navigationController?.pushViewController(nextVC, animated: true)
             break;
         case 13:
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idEmergencyContactsVC")as! EmergencyContactsVC
+            self.navigationController?.pushViewController(nextVC, animated: true)
             break;
         case 14:
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idProfileVC")as! ProfileVC
@@ -342,8 +346,12 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollect
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idDocumentsVC")as! DocumentsVC
             self.navigationController?.pushViewController(nextVC, animated: true)
             break;
+            
         case 18:
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idBalanceSheetVc")as! BalanceSheetVc
+            self.navigationController?.pushViewController(nextVC, animated: true)
             break;
+            
         default:
             break;
         }

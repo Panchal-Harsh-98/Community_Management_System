@@ -26,10 +26,22 @@ class ComplaintsVC: BaseVC {
         FloatingButtonView.layer.shadowOpacity = 0.7
         FloatingButtonView.layer.shadowColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         FloatingButtonView.layer.masksToBounds = false
+        
         let nib = UINib(nibName: itemCell, bundle: nil)
         tbvComplain.register(nib, forCellReuseIdentifier: itemCell)
         tbvComplain.delegate = self
         tbvComplain.dataSource = self
+        
+        
+        addRefreshControlTo(tableView: tbvComplain)
+        
+    }
+    
+    override func fetchNewDataOnRefresh() {
+        refreshControl.beginRefreshing()
+        ComplainList.removeAll()
+        doCallGetComplainApi()
+        refreshControl.endRefreshing()
     }
     
     @IBAction func btnAddComplaint(_ sender: UIButton) {

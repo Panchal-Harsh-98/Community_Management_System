@@ -22,7 +22,18 @@ class ExpectedFragmentVC: BaseVC {
         tbvExpectedVisitor.delegate = self
         tbvExpectedVisitor.dataSource = self
          NotificationCenter.default.addObserver(self, selector: #selector(callRefreshData(_:)), name: Notification.Name(rawValue:StringConstants.KEY_NOTIFICATION_VISITOR), object: nil)
+        
+        addRefreshControlTo(tableView: tbvExpectedVisitor)
+        
     }
+    
+    override func fetchNewDataOnRefresh() {
+        exp_visitor_list.removeAll()
+        doGetExpectedVisitorList()
+        refreshControl.endRefreshing()
+    }
+    
+    
     @IBAction func btnAddExpectedVisitor(_ sender: UIButton) {
         NotificationCenter.default.post(name: NSNotification.Name(StringConstants.KEY_NOTIFICATION_VISITOR), object: nil)
     }

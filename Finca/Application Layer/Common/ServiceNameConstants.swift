@@ -9,7 +9,7 @@
 import Foundation
 public struct ServiceNameConstants {
     
-     public static let LOCATION_CONTROLLER = "location_controller.php"
+    public static let LOCATION_CONTROLLER = "location_controller.php"
     
     public static let SLIDER_CONTROLLER = "get_slider_controller.php"
     public static let BILL_CONTROLLER = "bill_controller.php"
@@ -33,12 +33,13 @@ public struct ServiceNameConstants {
     public static let pollingController = "voting_list_controller.php"
     public static let maintenanceController = "maintenance_controller.php"
     public static let getUserPaymentData = "get_user_payment_data.php"
-     public static let residentDataUpdateController = "resident_data_update_controller.php"
+    public static let residentDataUpdateController = "resident_data_update_controller.php"
     public static let switchController = "switch_controller.php"
     public static let switchUserController = "switch_user_controller.php"
     public static let forgotPassword = "forgot_password.php"
-    public static let   userEventController = "user_event_controller.php"
-    
-  
+    public static let userEventController = "user_event_controller.php"
+    public static let buildingDetailsController = "buildingDetails_controller.php"
+    public static let emergencyNumberController = "emergency_numbber_list_controller.php"
+    public static let balanceSheetController  = "balancesheet_controller.php"
     
 };

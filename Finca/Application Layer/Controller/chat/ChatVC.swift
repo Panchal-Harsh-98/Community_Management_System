@@ -47,7 +47,7 @@ class ChatVC: BaseVC {
      var unitModelMember:UnitModelMember!
      var chats = [ChatModel]()
      var isFirsttime = true
-    var refreshControl = UIRefreshControl()
+
     
     var isGateKeeper:Bool!
     var userid:String!

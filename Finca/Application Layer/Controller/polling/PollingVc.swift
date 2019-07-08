@@ -19,11 +19,17 @@ class PollingVc: BaseVC {
         super.viewDidLoad()
         doInintialRevelController(bMenu: bMenu)
         doGetPollingQuestions()
-        
+        addRefreshControlTo(tableView: tbvPoll)
         let nib = UINib(nibName: itemCell, bundle: nil)
         tbvPoll.register(nib, forCellReuseIdentifier: itemCell)
         tbvPoll.delegate = self
         tbvPoll.dataSource = self
+    }
+    override func fetchNewDataOnRefresh() {
+        refreshControl.beginRefreshing()
+        pollingQuesList.removeAll()
+        doGetPollingQuestions()
+        refreshControl.endRefreshing()
     }
     
     override func viewWillAppear(_ animated: Bool) {

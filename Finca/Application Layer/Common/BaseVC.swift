@@ -15,6 +15,10 @@ class BaseVC: UIViewController , UITextFieldDelegate , SWRevealViewControllerDel
     var successStyle = ToastStyle()
     var failureStyle = ToastStyle()
     var warningStyle = ToastStyle()
+    
+    public let refreshControl = UIRefreshControl()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,11 +30,41 @@ class BaseVC: UIViewController , UITextFieldDelegate , SWRevealViewControllerDel
         
         warningStyle.messageColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         warningStyle.backgroundColor = #colorLiteral(red: 0.9137254902, green: 0.6784313725, blue: 0.1921568627, alpha: 1)
+        refreshControl.tintColor = ColorConstant.primaryColor
+        
         // Do any additional setup after loading the view.
 //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
 //        self.view.addGestureRecognizer(tapGesture)
     }
     
+    func addRefreshControlTo(collectionView : UICollectionView){
+        if #available(iOS 10.0, *) {
+            collectionView.refreshControl = refreshControl
+        } else {
+            collectionView.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(pullToRefreshData(_:)), for: .valueChanged)
+    }
+    
+    func addRefreshControlTo(tableView:UITableView){
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(pullToRefreshData(_:)), for: .valueChanged)
+        
+    }
+    
+    @objc func pullToRefreshData(_ sender:Any){
+        
+        fetchNewDataOnRefresh()
+        
+    }
+    
+    func fetchNewDataOnRefresh(){
+        
+    }
     
     func doInintialRevelController(bMenu:UIButton) {
         revealViewController().delegate = self

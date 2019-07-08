@@ -145,14 +145,20 @@
 		2B5D67F122C63C4E00CBC4BB /* VotingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B5D67EF22C63C4E00CBC4BB /* VotingCell.xib */; };
 		2B5EAEC522AFE5C40089E068 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5EAEC322AFE5C40089E068 /* iCarousel.m */; };
 		2B62121622C0B47B00FE8AF9 /* GalleryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B62121522C0B47B00FE8AF9 /* GalleryVC.swift */; };
-		2B62121A22C0B77A00FE8AF9 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B62121822C0B77A00FE8AF9 /* GalleryCell.swift */; };
 		2B62121D22C0D1EC00FE8AF9 /* GallerySliderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B62121C22C0D1EC00FE8AF9 /* GallerySliderVC.swift */; };
-		2B62122122C0D7D400FE8AF9 /* GallerySliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B62121F22C0D7D400FE8AF9 /* GallerySliderCell.swift */; };
-		2B62122222C0D7D400FE8AF9 /* GallerySliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B62122022C0D7D400FE8AF9 /* GallerySliderCell.xib */; };
+		2B7D47BA22D303DB00B791B5 /* GalleryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B7D47B822D303DB00B791B5 /* GalleryCell.xib */; };
+		2B7D47BB22D303DB00B791B5 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7D47B922D303DB00B791B5 /* GalleryCell.swift */; };
+		2B7D47C022D3043900B791B5 /* GallerySliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7D47BC22D3043900B791B5 /* GallerySliderCell.swift */; };
+		2B7D47C122D3043900B791B5 /* GallerySlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7D47BD22D3043900B791B5 /* GallerySlider.swift */; };
+		2B7D47C222D3043900B791B5 /* GallerySliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B7D47BE22D3043900B791B5 /* GallerySliderCell.xib */; };
+		2B7D47C322D3043900B791B5 /* GallerySlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B7D47BF22D3043900B791B5 /* GallerySlider.xib */; };
+		2B7D47C522D322FF00B791B5 /* BalanceSheetVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7D47C422D322FF00B791B5 /* BalanceSheetVc.swift */; };
+		2B7D47CC22D32DDE00B791B5 /* BalanceSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7D47CA22D32DDE00B791B5 /* BalanceSheetCell.swift */; };
+		2B7D47CD22D32DDE00B791B5 /* BalanceSheetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B7D47CB22D32DDE00B791B5 /* BalanceSheetCell.xib */; };
 		2B9B0E6D229E9DB800734FCA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9B0E6C229E9DB800734FCA /* SWRevealViewController.m */; };
 		2B9B0E70229EA07200734FCA /* HomeNavigationMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9B0E6F229EA07200734FCA /* HomeNavigationMenuController.swift */; };
 		2B9B0E72229EB69800734FCA /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9B0E71229EB69800734FCA /* HomeVC.swift */; };
-		2BB68D7822C0EFDD00D846AD /* GallerySlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB68D7722C0EFDD00D846AD /* GallerySlider.swift */; };
+		2BAE805422D064B200A052DA /* BuildingDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE805322D064B200A052DA /* BuildingDetailsVC.swift */; };
 		2BBA56BB22B79C060031A0A6 /* VisitorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBA56BA22B79C060031A0A6 /* VisitorVC.swift */; };
 		2BBA56BD22B7B1D30031A0A6 /* ArrivedFragmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBA56BC22B7B1D30031A0A6 /* ArrivedFragmentVC.swift */; };
 		2BBA56BF22B7B1F20031A0A6 /* ExpectedFragmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBA56BE22B7B1F20031A0A6 /* ExpectedFragmentVC.swift */; };
@@ -169,6 +175,9 @@
 		2BE4C32D22CB95AF008E0CA5 /* PollingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4C32B22CB95AF008E0CA5 /* PollingCell.swift */; };
 		2BE4C32E22CB95AF008E0CA5 /* PollingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BE4C32C22CB95AF008E0CA5 /* PollingCell.xib */; };
 		2BEF8F9022CCDE0500A572C8 /* PollingDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEF8F8F22CCDE0500A572C8 /* PollingDetailsVC.swift */; };
+		2BEFACEE22D0C43000B4B983 /* EmergencyContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEFACED22D0C43000B4B983 /* EmergencyContactsVC.swift */; };
+		2BEFACF422D0CD2000B4B983 /* EmergencyContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEFACF222D0CD2000B4B983 /* EmergencyContactCell.swift */; };
+		2BEFACF522D0CD2000B4B983 /* EmergencyContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BEFACF322D0CD2000B4B983 /* EmergencyContactCell.xib */; };
 		2BFC8FD422B0B73300115AD8 /* HomeSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC8FD222B0B73300115AD8 /* HomeSliderCell.swift */; };
 		2BFC8FD522B0B73300115AD8 /* HomeSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BFC8FD322B0B73300115AD8 /* HomeSliderCell.xib */; };
 		2BFC8FD722B0C35C00115AD8 /* ServiceNameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC8FD622B0C35C00115AD8 /* ServiceNameConstants.swift */; };
@@ -323,18 +332,22 @@
 		2B5EAEC422AFE5C40089E068 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		2B5EAEC622AFE5DB0089E068 /* Bridging_header_file.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging_header_file.h; sourceTree = "<group>"; };
 		2B62121522C0B47B00FE8AF9 /* GalleryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryVC.swift; sourceTree = "<group>"; };
-		2B62121822C0B77A00FE8AF9 /* GalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
-		2B62121922C0B77A00FE8AF9 /* GalleryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryCell.xib; sourceTree = "<group>"; };
 		2B62121C22C0D1EC00FE8AF9 /* GallerySliderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallerySliderVC.swift; sourceTree = "<group>"; };
-		2B62121F22C0D7D400FE8AF9 /* GallerySliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallerySliderCell.swift; sourceTree = "<group>"; };
-		2B62122022C0D7D400FE8AF9 /* GallerySliderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GallerySliderCell.xib; sourceTree = "<group>"; };
 		2B636CC122A4DDE800BEFE60 /* Finca_Bridging_header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Finca_Bridging_header.h; sourceTree = "<group>"; };
+		2B7D47B822D303DB00B791B5 /* GalleryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryCell.xib; sourceTree = "<group>"; };
+		2B7D47B922D303DB00B791B5 /* GalleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
+		2B7D47BC22D3043900B791B5 /* GallerySliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GallerySliderCell.swift; sourceTree = "<group>"; };
+		2B7D47BD22D3043900B791B5 /* GallerySlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GallerySlider.swift; sourceTree = "<group>"; };
+		2B7D47BE22D3043900B791B5 /* GallerySliderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GallerySliderCell.xib; sourceTree = "<group>"; };
+		2B7D47BF22D3043900B791B5 /* GallerySlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GallerySlider.xib; sourceTree = "<group>"; };
+		2B7D47C422D322FF00B791B5 /* BalanceSheetVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceSheetVc.swift; sourceTree = "<group>"; };
+		2B7D47CA22D32DDE00B791B5 /* BalanceSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceSheetCell.swift; sourceTree = "<group>"; };
+		2B7D47CB22D32DDE00B791B5 /* BalanceSheetCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BalanceSheetCell.xib; sourceTree = "<group>"; };
 		2B9B0E6B229E9DB800734FCA /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		2B9B0E6C229E9DB800734FCA /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		2B9B0E6F229EA07200734FCA /* HomeNavigationMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationMenuController.swift; sourceTree = "<group>"; };
 		2B9B0E71229EB69800734FCA /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
-		2BB68D7722C0EFDD00D846AD /* GallerySlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallerySlider.swift; sourceTree = "<group>"; };
-		2BB68D7922C0F01C00D846AD /* GallerySlider.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GallerySlider.xib; sourceTree = "<group>"; };
+		2BAE805322D064B200A052DA /* BuildingDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingDetailsVC.swift; sourceTree = "<group>"; };
 		2BBA56BA22B79C060031A0A6 /* VisitorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorVC.swift; sourceTree = "<group>"; };
 		2BBA56BC22B7B1D30031A0A6 /* ArrivedFragmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivedFragmentVC.swift; sourceTree = "<group>"; };
 		2BBA56BE22B7B1F20031A0A6 /* ExpectedFragmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectedFragmentVC.swift; sourceTree = "<group>"; };
@@ -351,6 +364,9 @@
 		2BE4C32B22CB95AF008E0CA5 /* PollingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingCell.swift; sourceTree = "<group>"; };
 		2BE4C32C22CB95AF008E0CA5 /* PollingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PollingCell.xib; sourceTree = "<group>"; };
 		2BEF8F8F22CCDE0500A572C8 /* PollingDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingDetailsVC.swift; sourceTree = "<group>"; };
+		2BEFACED22D0C43000B4B983 /* EmergencyContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContactsVC.swift; sourceTree = "<group>"; };
+		2BEFACF222D0CD2000B4B983 /* EmergencyContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContactCell.swift; sourceTree = "<group>"; };
+		2BEFACF322D0CD2000B4B983 /* EmergencyContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmergencyContactCell.xib; sourceTree = "<group>"; };
 		2BFC8FD222B0B73300115AD8 /* HomeSliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSliderCell.swift; sourceTree = "<group>"; };
 		2BFC8FD322B0B73300115AD8 /* HomeSliderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeSliderCell.xib; sourceTree = "<group>"; };
 		2BFC8FD622B0C35C00115AD8 /* ServiceNameConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceNameConstants.swift; sourceTree = "<group>"; };
@@ -514,6 +530,9 @@
 		258CD0312297D5C900AAB8E6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2B7D47C622D3230800B791B5 /* balance sheet  */,
+				2BEFACF022D0C44A00B4B983 /* emergency contacts */,
+				2BEFACEF22D0C43B00B4B983 /* building details */,
 				25E039EB22D05373006BE961 /* facility */,
 				25F5756A22CCB761000389E4 /* event */,
 				25F5756722CC75CB000389E4 /* terms and condition */,
@@ -649,6 +668,8 @@
 		25C983B72298205D00F2DF3A /* xib */ = {
 			isa = PBXGroup;
 			children = (
+				2B7D47C722D32D9900B791B5 /* balance sheet cell */,
+				2BEFACF122D0CCEC00B4B983 /* emergency contact cell */,
 				25F5756D22CCBBA7000389E4 /* event */,
 				2BE4C32822CB956B008E0CA5 /* poll */,
 				2BE4C32022CB22DC008E0CA5 /* complain */,
@@ -955,14 +976,31 @@
 		2B62121722C0B75E00FE8AF9 /* gallery */ = {
 			isa = PBXGroup;
 			children = (
-				2B62121822C0B77A00FE8AF9 /* GalleryCell.swift */,
-				2B62121922C0B77A00FE8AF9 /* GalleryCell.xib */,
-				2B62121F22C0D7D400FE8AF9 /* GallerySliderCell.swift */,
-				2B62122022C0D7D400FE8AF9 /* GallerySliderCell.xib */,
-				2BB68D7722C0EFDD00D846AD /* GallerySlider.swift */,
-				2BB68D7922C0F01C00D846AD /* GallerySlider.xib */,
+				2B7D47B922D303DB00B791B5 /* GalleryCell.swift */,
+				2B7D47B822D303DB00B791B5 /* GalleryCell.xib */,
+				2B7D47BD22D3043900B791B5 /* GallerySlider.swift */,
+				2B7D47BF22D3043900B791B5 /* GallerySlider.xib */,
+				2B7D47BC22D3043900B791B5 /* GallerySliderCell.swift */,
+				2B7D47BE22D3043900B791B5 /* GallerySliderCell.xib */,
 			);
 			path = gallery;
+			sourceTree = "<group>";
+		};
+		2B7D47C622D3230800B791B5 /* balance sheet  */ = {
+			isa = PBXGroup;
+			children = (
+				2B7D47C422D322FF00B791B5 /* BalanceSheetVc.swift */,
+			);
+			path = "balance sheet ";
+			sourceTree = "<group>";
+		};
+		2B7D47C722D32D9900B791B5 /* balance sheet cell */ = {
+			isa = PBXGroup;
+			children = (
+				2B7D47CA22D32DDE00B791B5 /* BalanceSheetCell.swift */,
+				2B7D47CB22D32DDE00B791B5 /* BalanceSheetCell.xib */,
+			);
+			path = "balance sheet cell";
 			sourceTree = "<group>";
 		};
 		2B9B0E6A229E9DB800734FCA /* Navigation view */ = {
@@ -1051,6 +1089,31 @@
 			path = poll;
 			sourceTree = "<group>";
 		};
+		2BEFACEF22D0C43B00B4B983 /* building details */ = {
+			isa = PBXGroup;
+			children = (
+				2BAE805322D064B200A052DA /* BuildingDetailsVC.swift */,
+			);
+			path = "building details";
+			sourceTree = "<group>";
+		};
+		2BEFACF022D0C44A00B4B983 /* emergency contacts */ = {
+			isa = PBXGroup;
+			children = (
+				2BEFACED22D0C43000B4B983 /* EmergencyContactsVC.swift */,
+			);
+			path = "emergency contacts";
+			sourceTree = "<group>";
+		};
+		2BEFACF122D0CCEC00B4B983 /* emergency contact cell */ = {
+			isa = PBXGroup;
+			children = (
+				2BEFACF222D0CD2000B4B983 /* EmergencyContactCell.swift */,
+				2BEFACF322D0CD2000B4B983 /* EmergencyContactCell.xib */,
+			);
+			path = "emergency contact cell";
+			sourceTree = "<group>";
+		};
 		2BFC8FD122B0B73300115AD8 /* home slider */ = {
 			isa = PBXGroup;
 			children = (
@@ -1135,17 +1198,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B2D14D422CF4C900029B2C4 /* PollingProgressbarCell.xib in Resources */,
-				2B62121B22C0B77A00FE8AF9 /* GalleryCell.xib in Resources */,
-				2BB68D7A22C0F01C00D846AD /* GallerySlider.xib in Resources */,
 				2B284CE322B9F13700CF1AE0 /* FloorMemberCell.xib in Resources */,
+				2B7D47CD22D32DDE00B791B5 /* BalanceSheetCell.xib in Resources */,
 				25F5757122CCBC06000389E4 /* EventCell.xib in Resources */,
 				25CDC92122B0BA5D004527EA /* GoogleService-Info.plist in Resources */,
+				2B7D47C322D3043900B791B5 /* GallerySlider.xib in Resources */,
 				2B284D0722B9FAF800CF1AE0 /* ResourceCell.xib in Resources */,
 				2B284CF922B9F79400CF1AE0 /* ParkingSlotCell.xib in Resources */,
 				2B284CF822B9F79400CF1AE0 /* MyVehicleNumberCell.xib in Resources */,
 				2BBA56C422B7D9410031A0A6 /* VisitorArrivedCell.xib in Resources */,
 				2B5208FE22AF817E003B6662 /* InfoFamalyMemberCell.xib in Resources */,
-				2B62122222C0D7D400FE8AF9 /* GallerySliderCell.xib in Resources */,
 				2B52090522AFA4D3003B6662 /* HomeScreenCvCell.xib in Resources */,
 				2562475122BA54870032DB4B /* GateKeeperCell.xib in Resources */,
 				2B401E4922C3758D005E1A16 /* ElectionCell.xib in Resources */,
@@ -1154,7 +1216,9 @@
 				2B284D1122BA10B300CF1AE0 /* ExpectedVisitorCell.xib in Resources */,
 				2B47EB6A22C4E29F00F1D559 /* ElectionWinnerCell.xib in Resources */,
 				2BE4C32422CB230D008E0CA5 /* ComplainCell.xib in Resources */,
+				2B7D47C222D3043900B791B5 /* GallerySliderCell.xib in Resources */,
 				2BFC8FD522B0B73300115AD8 /* HomeSliderCell.xib in Resources */,
+				2BEFACF522D0CD2000B4B983 /* EmergencyContactCell.xib in Resources */,
 				2B284CDC22B9EFC500CF1AE0 /* SendChatCell.xib in Resources */,
 				2B0EB4B722C234AD00C752C5 /* DocumentCell.xib in Resources */,
 				2BC48F6322B234D4006BF433 /* FundCell.xib in Resources */,
@@ -1163,6 +1227,7 @@
 				258CD0242297D43F00AAB8E6 /* LaunchScreen.storyboard in Resources */,
 				2B52090022AF817E003B6662 /* SocietyRegistrationCell.xib in Resources */,
 				2559F19A22A2894B006181A8 /* SelectBlockCell.xib in Resources */,
+				2B7D47BA22D303DB00B791B5 /* GalleryCell.xib in Resources */,
 				2BE4C32E22CB95AF008E0CA5 /* PollingCell.xib in Resources */,
 				258CD0382297E9DE00AAB8E6 /* Color.xcassets in Resources */,
 				2B284D0622B9FAF800CF1AE0 /* EmployeeListCell.xib in Resources */,
@@ -1245,7 +1310,6 @@
 				2B284CD122B9EF8F00CF1AE0 /* MemberDetailVC.swift in Sources */,
 				2B284CEC22B9F75A00CF1AE0 /* TabMyVC.swift in Sources */,
 				2B0EB4B622C234AD00C752C5 /* DocumentCell.swift in Sources */,
-				2B62122122C0D7D400FE8AF9 /* GallerySliderCell.swift in Sources */,
 				2B284CE622B9F13700CF1AE0 /* BlockMemberCell.swift in Sources */,
 				2B284CDA22B9EFC500CF1AE0 /* RecievedCell.swift in Sources */,
 				2BBA56C322B7D9410031A0A6 /* VisitorArrivedCell.swift in Sources */,
@@ -1253,7 +1317,6 @@
 				25C9835E2298032400F2DF3A /* LoginVC.swift in Sources */,
 				2B284D1022BA10B300CF1AE0 /* ExpectedVisitorCell.swift in Sources */,
 				2B5208FF22AF817E003B6662 /* InfoFamalyMemberCell.swift in Sources */,
-				2BB68D7822C0EFDD00D846AD /* GallerySlider.swift in Sources */,
 				25C9839722980CE600F2DF3A /* NVActivityIndicatorAnimationLineScalePulseOut.swift in Sources */,
 				2518674C22CF0A7C0076D056 /* AttendEventVC.swift in Sources */,
 				2B284CED22B9F75A00CF1AE0 /* VehicleMainTabVC.swift in Sources */,
@@ -1271,9 +1334,9 @@
 				2B27588C22B3671800E0DC2E /* BillAndFundDetailsVC.swift in Sources */,
 				2BE4C32722CB8747008E0CA5 /* PollingVc.swift in Sources */,
 				2B52090122AF817E003B6662 /* SocietyRegistrationCell.swift in Sources */,
+				2BEFACEE22D0C43000B4B983 /* EmergencyContactsVC.swift in Sources */,
 				2B52090422AFA4D3003B6662 /* HomeScreenCvCell.swift in Sources */,
 				25C983A822980CE600F2DF3A /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
-				2B62121A22C0B77A00FE8AF9 /* GalleryCell.swift in Sources */,
 				25C9839F22980CE600F2DF3A /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,
 				2B401E4422C374CD005E1A16 /* ElectionVC.swift in Sources */,
 				2B9B0E72229EB69800734FCA /* HomeVC.swift in Sources */,
@@ -1303,6 +1366,7 @@
 				2562474A22BA38B90032DB4B /* TabMemberConversionVC.swift in Sources */,
 				2559F19522A248CE006181A8 /* Utils.swift in Sources */,
 				25C983A022980CE600F2DF3A /* NVActivityIndicatorAnimationSquareSpin.swift in Sources */,
+				2B7D47C122D3043900B791B5 /* GallerySlider.swift in Sources */,
 				25F5757022CCBC06000389E4 /* EventCell.swift in Sources */,
 				25C983AC22980CE600F2DF3A /* NVActivityIndicatorAnimationBallPulseSync.swift in Sources */,
 				258CD0342297E90500AAB8E6 /* BaseVC.swift in Sources */,
@@ -1318,7 +1382,9 @@
 				25C9838C22980CE600F2DF3A /* NVActivityIndicatorAnimationDelegate.swift in Sources */,
 				25C9839422980CE600F2DF3A /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */,
 				25E039ED22D055FE006BE961 /* FacilityMainTabVC.swift in Sources */,
+				2B7D47C522D322FF00B791B5 /* BalanceSheetVc.swift in Sources */,
 				2B401E4822C3758D005E1A16 /* ElectionCell.swift in Sources */,
+				2BAE805422D064B200A052DA /* BuildingDetailsVC.swift in Sources */,
 				2BBA56BB22B79C060031A0A6 /* VisitorVC.swift in Sources */,
 				2559F19C22A28AA4006181A8 /* SelectBlockAndRoomVC.swift in Sources */,
 				25C983A622980CE600F2DF3A /* NVActivityIndicatorAnimationTriangleSkewSpin.swift in Sources */,
@@ -1328,10 +1394,12 @@
 				2B9B0E6D229E9DB800734FCA /* SWRevealViewController.m in Sources */,
 				25C983B622981CF600F2DF3A /* StringConstants.swift in Sources */,
 				25C983AB22980CE600F2DF3A /* NVActivityIndicatorAnimationPacman.swift in Sources */,
+				2B7D47C022D3043900B791B5 /* GallerySliderCell.swift in Sources */,
 				2B284CD022B9EF8F00CF1AE0 /* ChatVC.swift in Sources */,
 				25C9839D22980CE600F2DF3A /* NVActivityIndicatorAnimationSemiCircleSpin.swift in Sources */,
 				258CD03A2297EBCA00AAB8E6 /* ColorConstant.swift in Sources */,
 				2B284CD222B9EF8F00CF1AE0 /* MemberVC.swift in Sources */,
+				2B7D47BB22D303DB00B791B5 /* GalleryCell.swift in Sources */,
 				2B25CE1C22CA10AB005EDC50 /* ComplaintsVC.swift in Sources */,
 				25C983AD22980CE600F2DF3A /* NVActivityIndicatorAnimationCubeTransition.swift in Sources */,
 				2B284CE522B9F13700CF1AE0 /* FloorMemberCell.swift in Sources */,
@@ -1341,11 +1409,13 @@
 				25AF673C22BB883B00637C1C /* ProfileVC.swift in Sources */,
 				2B4B0455229F919B0031B293 /* NavigationMenuCell.swift in Sources */,
 				25C983B422980DFD00F2DF3A /* NetworkAPI.swift in Sources */,
+				2BEFACF422D0CD2000B4B983 /* EmergencyContactCell.swift in Sources */,
 				25E039F122D0567F006BE961 /* TabAllFacilityVC.swift in Sources */,
 				2BFC8FD422B0B73300115AD8 /* HomeSliderCell.swift in Sources */,
 				25C983A522980CE600F2DF3A /* NVActivityIndicatorAnimationAudioEqualizer.swift in Sources */,
 				25C9839522980CE600F2DF3A /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift in Sources */,
 				2562475022BA54870032DB4B /* GateKeeperCell.swift in Sources */,
+				2B7D47CC22D32DDE00B791B5 /* BalanceSheetCell.swift in Sources */,
 				25C9839822980CE600F2DF3A /* NVActivityIndicatorAnimationLineSpinFadeLoader.swift in Sources */,
 				25C983B122980CE600F2DF3A /* NVActivityIndicatorAnimationBallPulseRise.swift in Sources */,
 				2BBA56BF22B7B1F20031A0A6 /* ExpectedFragmentVC.swift in Sources */,
