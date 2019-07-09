@@ -13,6 +13,12 @@ class GalleryVC: BaseVC,UIGestureRecognizerDelegate {
     var itemCell = "GalleryCell"
     var gallery_List = [EventModel]()
     @IBOutlet weak var bMenu: UIButton!
+    @IBOutlet weak var viewChatCount: UIView!
+    @IBOutlet weak var lbChatCount: UILabel!
+    @IBOutlet weak var viewNotiCount: UIView!
+    @IBOutlet weak var lbNotiCount: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         doGetGalleryImages()
@@ -39,6 +45,7 @@ class GalleryVC: BaseVC,UIGestureRecognizerDelegate {
         longPressGesture.delegate = self
         self.cvGallery.addGestureRecognizer(longPressGesture)
     }
+    
     @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer){
         if gestureRecognizer.state == .ended {
             let touchPoint = gestureRecognizer.location(in: self.cvGallery)
@@ -62,6 +69,7 @@ class GalleryVC: BaseVC,UIGestureRecognizerDelegate {
             }
         }
     }
+    
     func doGetGalleryImages() {
         showProgress()
         
@@ -93,6 +101,40 @@ class GalleryVC: BaseVC,UIGestureRecognizerDelegate {
                 }
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadNoti()
+    }
+    
+    func loadNoti() {
+        let vc = BaseVC()
+        if vc.getChatCount() !=  "0" {
+            self.viewChatCount.isHidden =  false
+            self.lbChatCount.text = vc.getChatCount()
+            
+        } else {
+            self.viewChatCount.isHidden =  true
+        }
+        if vc.getNotiCount() !=  "0" {
+            self.viewNotiCount.isHidden =  false
+            self.lbNotiCount.text = vc.getNotiCount()
+            
+        } else {
+            self.viewNotiCount.isHidden =  true
+        }
+    }
+    
+    @IBAction func onClickNotification(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "idNotificationVC") as! NotificationVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    @IBAction func onClickChat(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "idTabCarversionVC") as! TabCarversionVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
 }
 extension GalleryVC : UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UICollectionViewDataSource{

@@ -37,11 +37,11 @@ public struct ServiceNameConstants {
     public static let switchController = "switch_controller.php"
     public static let switchUserController = "switch_user_controller.php"
     public static let forgotPassword = "forgot_password.php"
-    public static let   userEventController = "user_event_controller.php"
-    public static let   getFacilityController = "get_facility_controller.php"
-    public static let   getMyFacilityController = "get_my_facility_controller.php"
+    public static let userEventController = "user_event_controller.php"
+    public static let getFacilityController = "get_facility_controller.php"
+    public static let getMyFacilityController = "get_my_facility_controller.php"
     public static let   user_notification_controller = "user_notification_controller.php"
     
-  
+    
     
 };

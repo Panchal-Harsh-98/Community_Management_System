@@ -18,6 +18,7 @@ class VisitorVC: ButtonBarPagerTabStripViewController,SWRevealViewControllerDele
     @IBOutlet weak var viewNotiCount: UIView!
     @IBOutlet weak var lbNotiCount: UILabel!
     var selectedColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    
     override func viewDidLoad() {
         
         settings.style.buttonBarBackgroundColor = .clear
@@ -49,6 +50,40 @@ class VisitorVC: ButtonBarPagerTabStripViewController,SWRevealViewControllerDele
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        loadNoti()
+    }
+    
+    func loadNoti() {
+        
+        if getChatCount() !=  "0" {
+            self.viewChatCount.isHidden =  false
+            self.lbChatCount.text = getChatCount()
+            
+        } else {
+            self.viewChatCount.isHidden =  true
+        }
+        if getNotiCount() !=  "0" {
+            self.viewNotiCount.isHidden =  false
+            self.lbNotiCount.text = getNotiCount()
+            
+        } else {
+            self.viewNotiCount.isHidden =  true
+        }
+    }
+    
+    @IBAction func onClickNotification(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "idNotificationVC") as! NotificationVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    @IBAction func onClickChat(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "idTabCarversionVC") as! TabCarversionVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         let child_1 = self.storyboard?.instantiateViewController(withIdentifier: "idArrivedFragmentVC")as! ArrivedFragmentVC
         //        child_1.loadView()
@@ -72,6 +107,7 @@ class VisitorVC: ButtonBarPagerTabStripViewController,SWRevealViewControllerDele
         present(popupVC, animated: true)
 
     }
+    
     func revealController(_ revealController: SWRevealViewController!, willMoveTo position: FrontViewPosition) {
         
         if revealController.frontViewPosition == FrontViewPosition.left     // if it not statisfy try this --> if
@@ -96,6 +132,7 @@ class VisitorVC: ButtonBarPagerTabStripViewController,SWRevealViewControllerDele
     override func viewDidAppear(_ animated: Bool) {
         loadNoti()
     }
+    
     func loadNoti() {
         let vc = BaseVC()
         if vc.getChatCount() !=  "0" {
@@ -114,12 +151,12 @@ class VisitorVC: ButtonBarPagerTabStripViewController,SWRevealViewControllerDele
         }
     }
     
-    
     @IBAction func onClickNotification(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "idNotificationVC") as! NotificationVC
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
+    
     @IBAction func onClickChat(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "idTabCarversionVC") as! TabCarversionVC
         self.navigationController?.pushViewController(vc, animated: true)

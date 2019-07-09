@@ -31,10 +31,43 @@ class ComplaintsVC: BaseVC {
         tbvComplain.register(nib, forCellReuseIdentifier: itemCell)
         tbvComplain.delegate = self
         tbvComplain.dataSource = self
-        
-        
         addRefreshControlTo(tableView: tbvComplain)
         
+    }
+    
+    
+    @IBOutlet weak var viewChatCount: UIView!
+    @IBOutlet weak var lbChatCount: UILabel!
+    @IBOutlet weak var viewNotiCount: UIView!
+    @IBOutlet weak var lbNotiCount: UILabel!
+    
+    func loadNoti() {
+        let vc = BaseVC()
+        if vc.getChatCount() !=  "0" {
+            self.viewChatCount.isHidden =  false
+            self.lbChatCount.text = vc.getChatCount()
+            
+        } else {
+            self.viewChatCount.isHidden =  true
+        }
+        if vc.getNotiCount() !=  "0" {
+            self.viewNotiCount.isHidden =  false
+            self.lbNotiCount.text = vc.getNotiCount()
+            
+        } else {
+            self.viewNotiCount.isHidden =  true
+        }
+    }
+    
+    @IBAction func onClickNotification(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "idNotificationVC") as! NotificationVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    @IBAction func onClickChat(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "idTabCarversionVC") as! TabCarversionVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func fetchNewDataOnRefresh() {

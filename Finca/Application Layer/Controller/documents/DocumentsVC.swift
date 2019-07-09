@@ -14,6 +14,7 @@ class DocumentsVC: BaseVC {
     @IBOutlet weak var tbvDocuments: UITableView!
     let itemCell = "DocumentCell"
     var Document_List = [DocumentModel]()
+    
     let documentInteractionController = UIDocumentInteractionController()
     
     override func viewDidLoad() {
@@ -60,6 +61,7 @@ class DocumentsVC: BaseVC {
             }
         }
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -95,6 +97,42 @@ class DocumentsVC: BaseVC {
         
         
     }
+    
+    
+    @IBOutlet weak var viewChatCount: UIView!
+    @IBOutlet weak var lbChatCount: UILabel!
+    @IBOutlet weak var viewNotiCount: UIView!
+    @IBOutlet weak var lbNotiCount: UILabel!
+    
+    func loadNoti() {
+        let vc = BaseVC()
+        if vc.getChatCount() !=  "0" {
+            self.viewChatCount.isHidden =  false
+            self.lbChatCount.text = vc.getChatCount()
+            
+        } else {
+            self.viewChatCount.isHidden =  true
+        }
+        if vc.getNotiCount() !=  "0" {
+            self.viewNotiCount.isHidden =  false
+            self.lbNotiCount.text = vc.getNotiCount()
+            
+        } else {
+            self.viewNotiCount.isHidden =  true
+        }
+    }
+    
+    @IBAction func onClickNotification(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "idNotificationVC") as! NotificationVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    @IBAction func onClickChat(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "idTabCarversionVC") as! TabCarversionVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 extension DocumentsVC : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

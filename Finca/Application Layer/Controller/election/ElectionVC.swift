@@ -27,12 +27,14 @@ class ElectionVC: BaseVC {
         doInintialRevelController(bMenu: bMenu)
         addRefreshControlTo(tableView: tbvElection)
     }
+    
     override func fetchNewDataOnRefresh() {
         refreshControl.beginRefreshing()
         election_list.removeAll()
         doGetElectionData()
         refreshControl.endRefreshing()
     }
+    
     override func viewWillAppear(_ animated: Bool){
         if viewWillAppearFlag == true{
             election_list.removeAll()
@@ -71,6 +73,40 @@ class ElectionVC: BaseVC {
                 }
             }
         }
+    }
+    
+    @IBOutlet weak var viewChatCount: UIView!
+    @IBOutlet weak var lbChatCount: UILabel!
+    @IBOutlet weak var viewNotiCount: UIView!
+    @IBOutlet weak var lbNotiCount: UILabel!
+    
+    func loadNoti() {
+        let vc = BaseVC()
+        if vc.getChatCount() !=  "0" {
+            self.viewChatCount.isHidden =  false
+            self.lbChatCount.text = vc.getChatCount()
+            
+        } else {
+            self.viewChatCount.isHidden =  true
+        }
+        if vc.getNotiCount() !=  "0" {
+            self.viewNotiCount.isHidden =  false
+            self.lbNotiCount.text = vc.getNotiCount()
+            
+        } else {
+            self.viewNotiCount.isHidden =  true
+        }
+    }
+    
+    @IBAction func onClickNotification(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "idNotificationVC") as! NotificationVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    @IBAction func onClickChat(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "idTabCarversionVC") as! TabCarversionVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

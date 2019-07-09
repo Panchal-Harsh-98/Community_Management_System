@@ -236,6 +236,9 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVL-Dt-i3f">
                                                         <rect key="frame" x="5" y="0.0" width="40" height="40"/>
+                                                        <connections>
+                                                            <action selector="onClickChat:" destination="nRJ-VZ-1Lf" eventType="touchUpInside" id="3T8-U3-ghj"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -286,6 +289,9 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4o-FF-jTP">
                                                         <rect key="frame" x="5" y="0.0" width="40" height="40"/>
+                                                        <connections>
+                                                            <action selector="onClickNotification:" destination="nRJ-VZ-1Lf" eventType="touchUpInside" id="m8V-8w-lwF"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -357,6 +363,10 @@
                     <connections>
                         <outlet property="bMenu" destination="THj-sw-RKU" id="ylV-82-E3I"/>
                         <outlet property="cvData" destination="gJS-Jv-1ln" id="HaS-Cn-sLl"/>
+                        <outlet property="lbChatCount" destination="Z5P-yl-8yp" id="q73-bL-wtX"/>
+                        <outlet property="lbNotiCount" destination="PJn-H2-cMl" id="nVk-8a-FtN"/>
+                        <outlet property="viewChatCount" destination="Abb-qR-128" id="YNI-kL-Ipv"/>
+                        <outlet property="viewNotiCount" destination="Aqg-jh-wQN" id="Zfx-Xa-aze"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3Z-ZB-I9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1240,7 +1250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VUI-MB-cOn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2349" y="18"/>
+            <point key="canvasLocation" x="2093" y="38"/>
         </scene>
         <!--HomeVC-->
         <scene sceneID="4aZ-sF-Z0W">
@@ -2715,6 +2725,7 @@
                         <viewLayoutGuide key="safeArea" id="AmI-1V-ons"/>
                     </view>
                     <connections>
+                        <outlet property="bMenu" destination="qg1-NH-3RX" id="TBr-Eg-GxB"/>
                         <outlet property="buttonBarView" destination="cZE-HU-zAM" id="g95-oU-RbE"/>
                         <outlet property="containerView" destination="Ae0-6u-op3" id="44L-ni-U5B"/>
                         <outlet property="lbChatCount" destination="GjK-mX-zC3" id="jiY-oT-nOa"/>
@@ -5339,7 +5350,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tpm-8W-XN4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2586" y="-691"/>
+            <point key="canvasLocation" x="3383" y="-665"/>
         </scene>
         <!--NotificationVC-->
         <scene sceneID="prx-Ys-d3E">
@@ -5429,7 +5440,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IWP-FQ-mgD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5387" y="-1938"/>
+            <point key="canvasLocation" x="5597" y="-2107"/>
         </scene>
         <!--Bills And FundsVC-->
         <scene sceneID="mMf-5k-M98">
@@ -6766,7 +6777,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dg0-b3-vvn">
                                                         <rect key="frame" x="5" y="0.0" width="40" height="40"/>
                                                         <connections>
-                                                            <action selector="onClickConversion:" destination="eVG-yW-qPw" eventType="touchUpInside" id="KKZ-ru-bdh"/>
+                                                            <action selector="onClickChat:" destination="eVG-yW-qPw" eventType="touchUpInside" id="lpV-JJ-d3P"/>
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPk-KA-8eO" userLabel="view count msg">
@@ -6818,6 +6829,9 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyb-Qu-mtY">
                                                         <rect key="frame" x="5" y="0.0" width="40" height="40"/>
+                                                        <connections>
+                                                            <action selector="onClickNotification:" destination="eVG-yW-qPw" eventType="touchUpInside" id="qUg-hU-RSf"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fTE-VM-hX3" userLabel="view count noti">
                                                         <rect key="frame" x="25" y="0.0" width="20" height="20"/>
@@ -6975,6 +6989,9 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0QS-gs-tvG">
                                                         <rect key="frame" x="5" y="0.0" width="40" height="40"/>
+                                                        <connections>
+                                                            <action selector="onClickChat:" destination="JwN-uo-GIE" eventType="touchUpInside" id="vsL-U6-fou"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="owX-Uj-dlu" userLabel="view count msg">
                                                         <rect key="frame" x="25" y="0.0" width="20" height="20"/>
@@ -7025,6 +7042,9 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHy-Xf-Xjl">
                                                         <rect key="frame" x="5" y="0.0" width="40" height="40"/>
+                                                        <connections>
+                                                            <action selector="onClickNotification:" destination="JwN-uo-GIE" eventType="touchUpInside" id="q5I-4V-nqL"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rXO-iA-QBP" userLabel="view count noti">
                                                         <rect key="frame" x="25" y="0.0" width="20" height="20"/>
@@ -7862,7 +7882,9 @@
                         <outlet property="heightConstrainstMember" destination="UCy-P4-DC2" id="ZcY-qj-Q2M"/>
                         <outlet property="heightConstrainstNumber" destination="3Uw-nF-Klm" id="r7v-Ii-AC7"/>
                         <outlet property="ivProfile" destination="gVS-VK-oGB" id="57n-xc-jK8"/>
+                        <outlet property="lbChatCount" destination="kE7-ka-LVl" id="fKt-22-6zM"/>
                         <outlet property="lbDue" destination="Snb-JH-rWV" id="w3V-kt-rfw"/>
+                        <outlet property="lbNotiCount" destination="SBv-uL-O9d" id="ox4-fl-KoA"/>
                         <outlet property="lbResidentNumber" destination="qkR-MI-KX1" id="QMF-d6-ZdQ"/>
                         <outlet property="lbUnpaidBill" destination="TrG-Jp-eq7" id="PwI-U9-ogw"/>
                         <outlet property="lbUnpaidMaintence" destination="5V2-Wu-Jjb" id="bEE-xk-EPj"/>
@@ -7872,7 +7894,9 @@
                         <outlet property="tfLastName" destination="yLe-B6-iE1" id="Y0D-gN-eod"/>
                         <outlet property="tfMobile" destination="gwu-dH-Jz7" id="yXQ-3x-sEM"/>
                         <outlet property="tfName" destination="wLB-4K-hAw" id="dqJ-38-fAt"/>
+                        <outlet property="viewChatCount" destination="owX-Uj-dlu" id="sII-wg-cWb"/>
                         <outlet property="viewMaintance" destination="HwK-eF-cgw" id="mt6-A9-PeJ"/>
+                        <outlet property="viewNotiCount" destination="rXO-iA-QBP" id="nbC-5M-GzH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JkD-s3-txa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -8186,6 +8210,9 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCZ-OR-7ug">
                                                         <rect key="frame" x="5" y="0.0" width="40" height="40"/>
+                                                        <connections>
+                                                            <action selector="onClickChat:" destination="bHC-Li-FWj" eventType="touchUpInside" id="zim-tN-D1z"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zef-eN-p9L" userLabel="view count msg">
                                                         <rect key="frame" x="25" y="0.0" width="20" height="20"/>
@@ -8236,6 +8263,9 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14x-Ac-X6V">
                                                         <rect key="frame" x="5" y="0.0" width="40" height="40"/>
+                                                        <connections>
+                                                            <action selector="onClickNotification:" destination="bHC-Li-FWj" eventType="touchUpInside" id="LUQ-p0-TxN"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xo9-nn-24c" userLabel="view count noti">
                                                         <rect key="frame" x="25" y="0.0" width="20" height="20"/>
@@ -8350,6 +8380,10 @@
                     <connections>
                         <outlet property="bMenu" destination="Ea2-9Q-wTI" id="eb8-4E-YfO"/>
                         <outlet property="cvGallery" destination="BGs-Oc-vcU" id="QbN-V4-ZWa"/>
+                        <outlet property="lbChatCount" destination="cLU-TS-SbQ" id="EWN-lf-Vqe"/>
+                        <outlet property="lbNotiCount" destination="pjX-d8-WFA" id="8mj-aZ-eHE"/>
+                        <outlet property="viewChatCount" destination="Zef-eN-p9L" id="9z4-Gh-QfR"/>
+                        <outlet property="viewNotiCount" destination="Xo9-nn-24c" id="ScO-vs-4VQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWa-G2-KrF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -8405,6 +8439,9 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Wr-YH-uWG">
                                                         <rect key="frame" x="5" y="0.0" width="40" height="40"/>
+                                                        <connections>
+                                                            <action selector="onClickChat:" destination="uRm-6f-Uwl" eventType="touchUpInside" id="T9M-U0-M3f"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GaP-ok-hlr" userLabel="view count msg">
                                                         <rect key="frame" x="25" y="0.0" width="20" height="20"/>
@@ -8455,6 +8492,9 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d88-GC-oee">
                                                         <rect key="frame" x="5" y="0.0" width="40" height="40"/>
+                                                        <connections>
+                                                            <action selector="onClickNotification:" destination="uRm-6f-Uwl" eventType="touchUpInside" id="FMS-rZ-R3E"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B35-o1-UPg" userLabel="view count noti">
                                                         <rect key="frame" x="25" y="0.0" width="20" height="20"/>
@@ -8552,7 +8592,11 @@
                     </view>
                     <connections>
                         <outlet property="bMenu" destination="K8A-Fp-LE2" id="Ncx-cP-Rk0"/>
+                        <outlet property="lbChatCount" destination="wiX-gg-zlk" id="WqR-YP-uH2"/>
+                        <outlet property="lbNotiCount" destination="Ftn-g5-bOb" id="p3c-Eh-8Ec"/>
                         <outlet property="tbvDocuments" destination="pc1-bb-6tt" id="rfg-u1-1iY"/>
+                        <outlet property="viewChatCount" destination="GaP-ok-hlr" id="307-Yx-b8Z"/>
+                        <outlet property="viewNotiCount" destination="B35-o1-UPg" id="kFB-lL-xBL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FTe-7b-Xnh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -8608,6 +8652,9 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDI-Hv-c6I">
                                                         <rect key="frame" x="5" y="0.0" width="40" height="40"/>
+                                                        <connections>
+                                                            <action selector="onClickChat:" destination="FnI-J3-gtj" eventType="touchUpInside" id="ffD-Ti-NQh"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x16-UW-N2K" userLabel="view count msg">
                                                         <rect key="frame" x="25" y="0.0" width="20" height="20"/>
@@ -8658,6 +8705,9 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQF-3N-B5d">
                                                         <rect key="frame" x="5" y="0.0" width="40" height="40"/>
+                                                        <connections>
+                                                            <action selector="onClickNotification:" destination="FnI-J3-gtj" eventType="touchUpInside" id="5OL-gu-t2c"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gqL-iB-KzI" userLabel="view count noti">
                                                         <rect key="frame" x="25" y="0.0" width="20" height="20"/>
@@ -8788,7 +8838,11 @@
                     </view>
                     <connections>
                         <outlet property="bMenu" destination="fPV-BX-9uZ" id="giX-4Q-qiQ"/>
+                        <outlet property="lbChatCount" destination="5VO-zV-j4c" id="3WW-gC-aPu"/>
+                        <outlet property="lbNotiCount" destination="Vun-lb-G5o" id="FFf-p5-UZx"/>
                         <outlet property="tbvElection" destination="3ZX-RC-hJf" id="a0M-e1-Lk7"/>
+                        <outlet property="viewChatCount" destination="x16-UW-N2K" id="FxP-pa-8F1"/>
+                        <outlet property="viewNotiCount" destination="gqL-iB-KzI" id="TH3-hi-Xpv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c72-z7-uA1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -8844,6 +8898,9 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWc-aH-jW6">
                                                         <rect key="frame" x="5" y="0.0" width="40" height="40"/>
+                                                        <connections>
+                                                            <action selector="onClickChat:" destination="27o-3Q-d89" eventType="touchUpInside" id="ez5-YE-0G8"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bce-8j-5pN" userLabel="view count msg">
                                                         <rect key="frame" x="25" y="0.0" width="20" height="20"/>
@@ -8894,6 +8951,9 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCG-t4-uYM">
                                                         <rect key="frame" x="5" y="0.0" width="40" height="40"/>
+                                                        <connections>
+                                                            <action selector="onClickNotification:" destination="27o-3Q-d89" eventType="touchUpInside" id="c22-8w-MdV"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DIz-q7-iyv" userLabel="view count noti">
                                                         <rect key="frame" x="25" y="0.0" width="20" height="20"/>
@@ -9033,7 +9093,11 @@
                     <connections>
                         <outlet property="FloatingButtonView" destination="Efp-jc-1uD" id="NnD-sQ-DUu"/>
                         <outlet property="bMenu" destination="xwx-6M-ILS" id="b0h-9B-etA"/>
+                        <outlet property="lbChatCount" destination="CKb-3W-Iey" id="Acv-nC-7if"/>
+                        <outlet property="lbNotiCount" destination="PsK-k7-OET" id="dcp-zP-7Gq"/>
                         <outlet property="tbvComplain" destination="gDn-VR-vbM" id="7wc-oS-m5f"/>
+                        <outlet property="viewChatCount" destination="bce-8j-5pN" id="1As-kP-lMI"/>
+                        <outlet property="viewNotiCount" destination="DIz-q7-iyv" id="Ukr-A8-ZG0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HUT-Ad-NXR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -9089,6 +9153,9 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1DD-Kh-9hb">
                                                         <rect key="frame" x="5" y="0.0" width="40" height="40"/>
+                                                        <connections>
+                                                            <action selector="onClickChat:" destination="wke-Zv-oen" eventType="touchUpInside" id="ytT-1f-FlT"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibk-ZZ-VXf" userLabel="view count msg">
                                                         <rect key="frame" x="25" y="0.0" width="20" height="20"/>
@@ -9139,6 +9206,9 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D03-5K-QSZ">
                                                         <rect key="frame" x="5" y="0.0" width="40" height="40"/>
+                                                        <connections>
+                                                            <action selector="onClickNotification:" destination="wke-Zv-oen" eventType="touchUpInside" id="kgz-Ma-zH0"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k6d-TB-X3e" userLabel="view count noti">
                                                         <rect key="frame" x="25" y="0.0" width="20" height="20"/>
@@ -9236,7 +9306,11 @@
                     </view>
                     <connections>
                         <outlet property="bMenu" destination="4Qv-Em-kWd" id="8rd-of-Pim"/>
+                        <outlet property="lbChatCount" destination="2GD-bm-NZz" id="VXw-2E-tSy"/>
+                        <outlet property="lbNotiCount" destination="a7n-e5-a9G" id="0lj-RT-jIw"/>
                         <outlet property="tbvPoll" destination="Wjz-W8-ZxK" id="Q4M-RE-B4N"/>
+                        <outlet property="viewChatCount" destination="ibk-ZZ-VXf" id="Da7-9R-d5g"/>
+                        <outlet property="viewNotiCount" destination="k6d-TB-X3e" id="iQN-QL-xf4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PFD-qC-2hj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -10707,7 +10781,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lwt-94-t52" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6241" y="8047"/>
+            <point key="canvasLocation" x="6242" y="8022"/>
         </scene>
         <!--Balance Sheet Vc-->
         <scene sceneID="gdZ-Zq-Ck2">
@@ -11019,7 +11093,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pil-St-3ZA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6240.579710144928" y="8713.858695652174"/>
+            <point key="canvasLocation" x="6242" y="8689"/>
         </scene>
         <!--Attend EventVC-->
         <scene sceneID="2zR-n4-7Cm">
@@ -12086,7 +12160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Va7-Sr-xuf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10109" y="-2107"/>
+            <point key="canvasLocation" x="9106" y="-171"/>
         </scene>
         <!--Tab All FacilityVC-->
         <scene sceneID="N2D-Bf-5Oh">

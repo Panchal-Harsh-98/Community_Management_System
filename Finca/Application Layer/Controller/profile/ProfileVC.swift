@@ -9,7 +9,7 @@
 import UIKit
 
 struct ResponseAllPayment:Codable {
-   var message: String!//  "message" : "Get success.",
+    var message: String!//  "message" : "Get success.",
     var bill: String!//   "bill" : "0.00",
     var status: String!//   "status" : "200",
     var total: String!//   "total" : "20.00",
@@ -18,7 +18,7 @@ struct ResponseAllPayment:Codable {
 
 class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     @IBOutlet weak var bMenu: UIButton!
-     @IBOutlet weak var ivProfile: UIImageView!
+    @IBOutlet weak var ivProfile: UIImageView!
     
     @IBOutlet weak var lbResidentNumber: UILabel!
     @IBOutlet weak var lbUnpaidMaintence: UILabel!
@@ -39,7 +39,13 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
     @IBOutlet weak var viewMaintance: UIView!
     @IBOutlet weak var heightConstrainstMember: NSLayoutConstraint!
     @IBOutlet weak var heightConstrainstNumber: NSLayoutConstraint!
-     var item = "InfoFamalyMemberCell"
+    
+    @IBOutlet weak var viewChatCount: UIView!
+    @IBOutlet weak var lbChatCount: UILabel!
+    @IBOutlet weak var viewNotiCount: UIView!
+    @IBOutlet weak var lbNotiCount: UILabel!
+    
+    var item = "InfoFamalyMemberCell"
     var  heightCVFamily = 0.0
     var  heightCVEmergancy = 0.0
     
@@ -52,9 +58,9 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-          doInintialRevelController(bMenu: bMenu)
+        doInintialRevelController(bMenu: bMenu)
         switchApartment.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
         switchOwner.addTarget(self, action: #selector(switchChangedRenter), for: UIControl.Event.valueChanged)
         
@@ -70,7 +76,7 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
         } else {
             if doGetLocalDataUser().user_type == "0" {
                 //owner
-              doCallSwichApartment(unit_status: "1")
+                doCallSwichApartment(unit_status: "1")
                 
             } else {
                 //tenent
@@ -81,7 +87,6 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
         }
         
     }
-   
     
     @objc func switchChangedRenter(mySwitch: UISwitch) {
         let value = mySwitch.isOn
@@ -98,22 +103,22 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
     }
     
     func confirm(isOnwer:Bool){
-    
+        
         let refreshAlert = UIAlertController(title: "", message: "Are you sure to become Rent?", preferredStyle: UIAlertController.Style.alert)
-    
-    refreshAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
-        self.showDailog(isOnwer: isOnwer)
-    }))
-    
-    refreshAlert.addAction(UIAlertAction(title: "CANCEL", style: .cancel, handler: { (action: UIAlertAction!) in
-   
-    }))
-    
-    present(refreshAlert, animated: true, completion: nil)
-    
+        
+        refreshAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+            self.showDailog(isOnwer: isOnwer)
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "CANCEL", style: .cancel, handler: { (action: UIAlertAction!) in
+            
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+        
     }
     
-     func showDailog(isOnwer:Bool) {
+    func showDailog(isOnwer:Bool) {
         
         if isOnwer {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "idDailogSwitchToRenterVC") as! DailogSwitchToRenterVC
@@ -125,9 +130,9 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
         } else {
             doSwitchToOnwer()
         }
-       
         
-     }
+        
+    }
     
     func  initUI() {
         
@@ -138,7 +143,7 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
         
         lbResidentNumber.text = doGetLocalDataUser().block_name + "-" + doGetLocalDataUser().unit_name
         
-         tfName.text = doGetLocalDataUser().user_first_name
+        tfName.text = doGetLocalDataUser().user_first_name
         tfLastName.text = doGetLocalDataUser().user_last_name
         tfMobile.text = doGetLocalDataUser().user_mobile
         tfEmail.text = doGetLocalDataUser().user_email
@@ -155,14 +160,14 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
             switchOwner.isOn = false
             
         } else {
-             //tenent
-             switchOwner.isOn = true
+            //tenent
+            switchOwner.isOn = true
             
         }
-         if doGetLocalDataUser().unit_status == "5" {
-             switchApartment.isOn = true
-         } else {
-              switchApartment.isOn = false
+        if doGetLocalDataUser().unit_status == "5" {
+            switchApartment.isOn = true
+        } else {
+            switchApartment.isOn = false
         }
         
         doDisbleUI()
@@ -198,7 +203,7 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
             member.append(contentsOf: doGetLocalDataUser().member)
             cvMember.reloadData()
             heightCVFamily =  heightCVFamily + (Double(doGetLocalDataUser().member.count) * 50.0)
-          
+            
             heightConstrainstMember.constant = CGFloat(heightCVFamily)
         }
         
@@ -215,10 +220,11 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return view.endEditing(true)
     }
-     
+    
     @IBAction func onClickSave(_ sender: Any) {
         doSubmitData()
     }
+    
     func doMaintence() {
         showProgress()
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
@@ -234,15 +240,15 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
         
         
         requrest.requestPost(serviceName: ServiceNameConstants.getUserPaymentData, parameters: params) { (json, error) in
-             self.hideProgress()
+            self.hideProgress()
             if json != nil {
-               
+                
                 do {
                     let response = try JSONDecoder().decode(ResponseAllPayment.self, from:json!)
                     
                     
                     if response.status == "200" {
-                         self.lbUnpaidMaintence.text = response.maintenance
+                        self.lbUnpaidMaintence.text = response.maintenance
                         self.lbUnpaidBill.text = response.bill
                         self.lbDue.text = response.total
                         
@@ -261,9 +267,9 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
     
     func doDisbleUI() {
         tfName.textColor = UIColor(named: "grey_60")
-         tfLastName.textColor = UIColor(named: "grey_60")
-         tfMobile.textColor = UIColor(named: "grey_60")
-         tfEmail.textColor = UIColor(named: "grey_60")
+        tfLastName.textColor = UIColor(named: "grey_60")
+        tfMobile.textColor = UIColor(named: "grey_60")
+        tfEmail.textColor = UIColor(named: "grey_60")
         
         bMember.isHidden = true
         bNumber.isHidden = true
@@ -305,13 +311,14 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "idDailogFamilyMember") as! DailogFamilyMember
         vc.isEmergancy = false
         vc.profileVC = self
-         vc.isProfile = true
+        vc.isProfile = true
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         self.addChild(vc)
         self.view.addSubview(vc.view)
         
         
     }
+    
     @IBAction func onClickEmergancy(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "idDailogFamilyMember") as! DailogFamilyMember
         vc.isEmergancy = true
@@ -321,28 +328,28 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
         self.addChild(vc)
         self.view.addSubview(vc.view)
     }
+    
     override func viewDidLayoutSubviews() {
         print("viewDidLayoutSubviews ")
         if emergencyModel != nil {
-          
-               emergency.append(emergencyModel)
-                emergencyModel = nil
-                cvNumber.reloadData()
-                heightCVEmergancy =  heightCVEmergancy + 50.0
-                heightConstrainstNumber.constant = CGFloat(heightCVEmergancy)
-               
-        }
-          if memberModel != nil      {
-                member.append(memberModel)
-                memberModel = nil
-                cvMember.reloadData()
-                heightCVFamily =  heightCVFamily + 50.0
-                print("family " , member.count)
-                heightConstrainstMember.constant = CGFloat(heightCVFamily)
-            }
+            
+            emergency.append(emergencyModel)
+            emergencyModel = nil
+            cvNumber.reloadData()
+            heightCVEmergancy =  heightCVEmergancy + 50.0
+            heightConstrainstNumber.constant = CGFloat(heightCVEmergancy)
             
         }
-    
+        if memberModel != nil      {
+            member.append(memberModel)
+            memberModel = nil
+            cvMember.reloadData()
+            heightCVFamily =  heightCVFamily + 50.0
+            print("family " , member.count)
+            heightConstrainstMember.constant = CGFloat(heightCVFamily)
+        }
+        
+    }
     
     func doSubmitData() {
         showProgress()
@@ -359,18 +366,18 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
                 
                 if data.user_family_id == "" {
                     if member_family_id == "" {
-                         member_family_id =  member_family_id + "0"
+                        member_family_id =  member_family_id + "0"
                     } else {
                         member_family_id =  member_family_id + "~" + "0"
                     }
-                   
+                    
                 } else {
                     if member_family_id == "" {
                         member_family_id =  member_family_id + data.user_family_id
                     } else {
                         member_family_id =  member_family_id + "~" + data.user_family_id
                     }
-                   
+                    
                 }
                 
                 if member_name == "" {
@@ -424,9 +431,9 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
                         emergencyContact_id =  emergencyContact_id + data.emergencyContact_id
                         
                     } else {
-                         emergencyContact_id = emergencyContact_id + "~" + data.emergencyContact_id
+                        emergencyContact_id = emergencyContact_id + "~" + data.emergencyContact_id
                     }
-                  
+                    
                 }
                 
                 if person_name == "" {
@@ -457,7 +464,7 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
         
         
         if ivProfile.image != nil {
-             user_profile_pic = convertImageTobase64(imageView: ivProfile)
+            user_profile_pic = convertImageTobase64(imageView: ivProfile)
         }
         
         let fullname = tfName.text! + " " + tfLastName.text!
@@ -508,7 +515,7 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
                     if response.status == "200" {
                         
                         self.doGetProfileData()
-                       // Utils.setHomeRootLogin()
+                        // Utils.setHomeRootLogin()
                         
                     }else {
                         self.showAlertMessage(title: "Alert", msg: response.message)
@@ -520,10 +527,9 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
         }
         
     }
-    
-    
+
     func doGetProfileData() {
-       /// showProgress()
+        /// showProgress()
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
         let params = ["key":apiKey(),
                       "getProfileData":"getProfileData",
@@ -538,7 +544,7 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
         requrest.requestPost(serviceName: ServiceNameConstants.residentDataUpdateController, parameters: params) { (json, error) in
             
             if json != nil {
-               // self.hideProgress()
+                // self.hideProgress()
                 do {
                     let loginResponse = try JSONDecoder().decode(LoginResponse.self, from:json!)
                     
@@ -548,7 +554,7 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
                             UserDefaults.standard.set(encoded, forKey: StringConstants.KEY_LOGIN_DATA)
                         }
                         self.initUI()
-                       
+                        
                     }else {
                         //                        UserDefaults.standard.set("0", forKey: StringConstants.KEY_LOGIN)
                         self.showAlertMessage(title: "Alert", msg: loginResponse.message)
@@ -604,14 +610,15 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
         doDeletrMember(user_family_id: member[index].user_family_id, index: index)
         
     }
+    
     @objc func onClickDeleteEmergancy(seder:UIButton) {
         let index = seder.tag
-         print("onClickDeleteEmergancy" , index)
+        print("onClickDeleteEmergancy" , index)
         doDeletrNumber(emergencyContact_id: emergency[index].emergencyContact_id, index: index)
     }
     
     func doDeletrMember(user_family_id:String,index:Int) {
-       // showProgress()
+        // showProgress()
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
         let params = ["key":apiKey(),
                       "deleteFamilyMember":"deleteFamilyMember",
@@ -625,16 +632,16 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
         requrest.requestPost(serviceName: ServiceNameConstants.residentRegisterController, parameters: params) { (json, error) in
             
             if json != nil {
-               // self.hideProgress()
+                // self.hideProgress()
                 do {
                     let response = try JSONDecoder().decode(ResponseCommonMessage.self, from:json!)
                     
                     
                     if response.status == "200" {
-                       
+                        
                         self.member.remove(at: index)
                         self.cvMember.reloadData()
-                         self.doGetProfileData()
+                        self.doGetProfileData()
                         
                     }else {
                         //                        UserDefaults.standard.set("0", forKey: StringConstants.KEY_LOGIN)
@@ -646,6 +653,7 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
             }
         }
     }
+    
     func doDeletrNumber(emergencyContact_id:String,index:Int) {
         // showProgress()
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
@@ -683,8 +691,6 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
         }
     }
     
-    
-    
     func doCallSwichApartment(unit_status:String) {
         // showProgress()
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
@@ -708,7 +714,7 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
                     
                     if response.status == "200" {
                         
-                    self.doGetProfileData()
+                        self.doGetProfileData()
                         
                     }else {
                         //                        UserDefaults.standard.set("0", forKey: StringConstants.KEY_LOGIN)
@@ -721,24 +727,21 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
         }
     }
     
-    
     func doSwitchToOnwer() {
         showProgress()
         
-       
-      
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
-    
-          let  params = ["key":apiKey(),
-                      "switchUser":"switchUser",
-                      "society_id":doGetLocalDataUser().society_id!,
-                      "owner_name":doGetLocalDataUser().owner_name!,
-                      "owner_email":doGetLocalDataUser().owner_email!,
-                      "owner_mobile":doGetLocalDataUser().owner_mobile!,
-                      "addUser":"0",
-                      "user_id":doGetLocalDataUser().user_id!,
-                      "unit_id":doGetLocalDataUser().unit_id!]
-       
+        
+        let  params = ["key":apiKey(),
+                       "switchUser":"switchUser",
+                       "society_id":doGetLocalDataUser().society_id!,
+                       "owner_name":doGetLocalDataUser().owner_name!,
+                       "owner_email":doGetLocalDataUser().owner_email!,
+                       "owner_mobile":doGetLocalDataUser().owner_mobile!,
+                       "addUser":"0",
+                       "user_id":doGetLocalDataUser().user_id!,
+                       "unit_id":doGetLocalDataUser().unit_id!]
+        
         
         
         
@@ -768,9 +771,44 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
             }
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadNoti()
+    }
+    
+    func loadNoti() {
+        let vc = BaseVC()
+        if vc.getChatCount() !=  "0" {
+            self.viewChatCount.isHidden =  false
+            self.lbChatCount.text = vc.getChatCount()
+            
+        } else {
+            self.viewChatCount.isHidden =  true
+        }
+        if vc.getNotiCount() !=  "0" {
+            self.viewNotiCount.isHidden =  false
+            self.lbNotiCount.text = vc.getNotiCount()
+            
+        } else {
+            self.viewNotiCount.isHidden =  true
+        }
+    }
+    
+    @IBAction func onClickNotification(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "idNotificationVC") as! NotificationVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    @IBAction func onClickChat(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "idTabCarversionVC") as! TabCarversionVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
 }
 
 extension ProfileVC : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == cvNumber {
             return emergency.count
@@ -803,6 +841,7 @@ extension ProfileVC : UICollectionViewDelegate , UICollectionViewDataSource , UI
         
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let yourWidth = collectionView.bounds.width
@@ -812,6 +851,7 @@ extension ProfileVC : UICollectionViewDelegate , UICollectionViewDataSource , UI
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 5
     }

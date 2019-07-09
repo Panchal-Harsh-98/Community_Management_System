@@ -15,22 +15,32 @@ struct ResponseEmployee : Codable {
     
 }
 struct ModelEmployeeType : Codable {
-   
+    
     let society_id : String! //"society_id" : "48",
     let emp_type_icon : String! //"emp_type_icon" : "emp_icon\/Maids_1560837068.png",
     let emp_type_status : String! //"emp_type_status" : "0",
     let emp_type_id : String! //"emp_type_id" : "74",
-   let emp_type_name : String! // "emp_type_name" : "Maids"
+    let emp_type_name : String! // "emp_type_name" : "Maids"
 }
 
 class ResourcesVC: BaseVC {
+    
     @IBOutlet weak var cvData: UICollectionView!
+    
     let itemCell = "ResourceCell"
-      var employee_Types = [ModelEmployeeType]()
+    
+    var employee_Types = [ModelEmployeeType]()
+    
     @IBOutlet weak var bMenu: UIButton!
+    
+    @IBOutlet weak var viewChatCount: UIView!
+    @IBOutlet weak var lbChatCount: UILabel!
+    @IBOutlet weak var viewNotiCount: UIView!
+    @IBOutlet weak var lbNotiCount: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         cvData.delegate = self
         cvData.dataSource = self
         
@@ -65,7 +75,7 @@ class ResourcesVC: BaseVC {
                     
                     if response.status == "200" {
                         self.employee_Types.append(contentsOf: response.employee_Type)
-                    self.cvData.reloadData()
+                        self.cvData.reloadData()
                         
                         
                     }else {
@@ -78,10 +88,39 @@ class ResourcesVC: BaseVC {
         }
         
     }
-
-
+    
+    func loadNoti() {
+        let vc = BaseVC()
+        if vc.getChatCount() !=  "0" {
+            self.viewChatCount.isHidden =  false
+            self.lbChatCount.text = vc.getChatCount()
+            
+        } else {
+            self.viewChatCount.isHidden =  true
+        }
+        if vc.getNotiCount() !=  "0" {
+            self.viewNotiCount.isHidden =  false
+            self.lbNotiCount.text = vc.getNotiCount()
+            
+        } else {
+            self.viewNotiCount.isHidden =  true
+        }
+    }
+    
+    @IBAction func onClickNotification(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "idNotificationVC") as! NotificationVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    @IBAction func onClickChat(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "idTabCarversionVC") as! TabCarversionVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
 }
 extension  ResourcesVC :   UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
@@ -89,7 +128,7 @@ extension  ResourcesVC :   UICollectionViewDelegate , UICollectionViewDataSource
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: itemCell, for: indexPath) as! ResourceCell
         cell.lbTitle.text = employee_Types[indexPath.row].emp_type_name
         Utils.setImageFromUrl(imageView: cell.ivImage, urlString: employee_Types[indexPath.row].emp_type_icon)
-       // cell.lbNumber.text =  myParkings[indexPath.row].vehicle_no
+        // cell.lbNumber.text =  myParkings[indexPath.row].vehicle_no
         return  cell
     }
     
@@ -98,8 +137,6 @@ extension  ResourcesVC :   UICollectionViewDelegate , UICollectionViewDataSource
         
         return employee_Types.count
     }
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -114,6 +151,7 @@ extension  ResourcesVC :   UICollectionViewDelegate , UICollectionViewDataSource
         
         return 2
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
         return 4
