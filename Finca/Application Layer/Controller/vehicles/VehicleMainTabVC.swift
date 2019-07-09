@@ -102,10 +102,10 @@ class VehicleMainTabVC: ButtonBarPagerTabStripViewController , SWRevealViewContr
         if vc.getNotiCount() !=  "0" {
             self.viewNotiCount.isHidden =  false
             self.lbNotiCount.text = vc.getNotiCount()
-            
         } else {
             self.viewNotiCount.isHidden =  true
         }
+        
     }
     
     
