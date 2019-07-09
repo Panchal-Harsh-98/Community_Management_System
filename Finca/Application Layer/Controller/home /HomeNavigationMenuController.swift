@@ -136,13 +136,13 @@ class HomeNavigationMenuController: BaseVC {
         }
         else if menuData[index].title == StringConstants.MENU_MEMBERS {
             let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idMemberVC") as! MemberVC
-         //   let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idNavMember") as! UINavigationController
-            
-        //    let newFrontViewController = UINavigationController.init(rootViewController: destiController)
-          //  newFrontViewController.isNavigationBarHidden = true
-      //  present(destiController, animated: true, completion: nil)
+        
           revealViewController().pushFrontViewController(destiController, animated: true)
-      //  self.navigationController?.pushViewController(destiController, animated: true)
+        }
+        else if menuData[index].title == StringConstants.MENU_VEHICALS {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idVehicleMainTabVC") as! VehicleMainTabVC
+            
+            revealViewController().pushFrontViewController(destiController, animated: true)
         }
         
         

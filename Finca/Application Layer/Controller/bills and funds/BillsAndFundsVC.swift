@@ -21,6 +21,11 @@ class BillsAndFundsVC:ButtonBarPagerTabStripViewController, UIGestureRecognizerD
     var selected_index = 0
      let overlyView = UIView ()
     @IBOutlet weak var bMenu: UIButton!
+    @IBOutlet weak var viewChatCount: UIView!
+    @IBOutlet weak var lbChatCount: UILabel!
+    @IBOutlet weak var viewNotiCount: UIView!
+    @IBOutlet weak var lbNotiCount: UILabel!
+    
     override func viewDidLoad() {
         
         
@@ -125,6 +130,44 @@ class BillsAndFundsVC:ButtonBarPagerTabStripViewController, UIGestureRecognizerD
             overlyView.removeFromSuperview()
         }
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadNoti()
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent // .default
+    }
+    func loadNoti() {
+        let vc = BaseVC()
+        if vc.getChatCount() !=  "0" {
+            self.viewChatCount.isHidden =  false
+            self.lbChatCount.text = vc.getChatCount()
+            
+        } else {
+            self.viewChatCount.isHidden =  true
+        }
+        if vc.getNotiCount() !=  "0" {
+            self.viewNotiCount.isHidden =  false
+            self.lbNotiCount.text = vc.getNotiCount()
+            
+        } else {
+            self.viewNotiCount.isHidden =  true
+        }
+    }
+    
+    
+    @IBAction func onClickNotification(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "idNotificationVC") as! NotificationVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    @IBAction func onClickChar(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "idTabCarversionVC") as! TabCarversionVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
     
 }
 extension BillsAndFundsVC : UIPickerViewDelegate,UIPickerViewDataSource{

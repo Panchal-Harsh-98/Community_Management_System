@@ -18,6 +18,8 @@ struct BlockModelMember : Codable {
     var block_name:String!// "block_name" : "A",
     var block_id:String! //"block_id" : "126",
     var society_id:String!  //"society_id" : "48"
+    var isSelect:Bool!  //"society_id" : "48"
+    
     var  floors : [FloorModelMember]!
     
 }
@@ -82,6 +84,12 @@ class MemberVC: BaseVC {
     var  floors = [FloorModelMember]()
     var isFirstTimeload = true
     
+    @IBOutlet weak var viewChatCount: UIView!
+    @IBOutlet weak var lbChatCount: UILabel!
+    @IBOutlet weak var viewNotiCount: UIView!
+    @IBOutlet weak var lbNotiCount: UILabel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,6 +114,37 @@ class MemberVC: BaseVC {
         doInintialRevelController(bMenu: bMenu)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        loadNoti()
+    }
+    func loadNoti() {
+       
+        if getChatCount() !=  "0" {
+            self.viewChatCount.isHidden =  false
+            self.lbChatCount.text = getChatCount()
+            
+        } else {
+            self.viewChatCount.isHidden =  true
+        }
+        if getNotiCount() !=  "0" {
+            self.viewNotiCount.isHidden =  false
+            self.lbNotiCount.text = getNotiCount()
+            
+        } else {
+            self.viewNotiCount.isHidden =  true
+        }
+    }
+    
+    @IBAction func onClickNotification(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "idNotificationVC") as! NotificationVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    @IBAction func onClickChat(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "idTabCarversionVC") as! TabCarversionVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
     @objc func clickFloor(_ notification: NSNotification) {
         
         let data =  notification.userInfo?["data"] as? UnitModelMember
@@ -114,14 +153,31 @@ class MemberVC: BaseVC {
             if data?.unit_status == "1" || data?.unit_status == "3" || data?.unit_status == "5" {
                 let vc = storyboard?.instantiateViewController(withIdentifier: "idMemberDetailVC") as! MemberDetailVC
                 vc.unitModelMember = data
-               // self.navigationController?.pushViewController(vc, animated: true)
+                self.navigationController?.pushViewController(vc, animated: true)
                 
-                  revealViewController().pushFrontViewController(vc, animated: true)
+                //  revealViewController().pushFrontViewController(vc, animated: true)
            
               }
             
         }
         
+        
+    }
+    
+    func selectItem(index:Int) {
+        
+        //blocks
+        
+        for i in (0..<blocks.count).reversed() {
+            if i == index {
+                blocks[i].isSelect = true
+            } else {
+                blocks[i].isSelect = false
+            }
+            
+        }
+        
+        cvBlock.reloadData()
         
     }
     
@@ -172,6 +228,7 @@ class MemberVC: BaseVC {
                         self.blocks.append(contentsOf: response.block)
                         self.cvBlock.reloadData()
                         self.setDataUtnit(floors: self.blocks[0].floors)
+                        self.selectItem(index: 0)
                     }else {
                         self.showAlertMessage(title: "Alert", msg: response.message)
                     }
@@ -211,11 +268,16 @@ extension MemberVC :  UICollectionViewDelegate , UICollectionViewDataSource , UI
         cell.lbTitle.text = blocks[indexPath.row].block_name
         
         
-        if isFirstTimeload{
-            if indexPath.row == 0 {
-                cell.viewTest.backgroundColor = ColorConstant.primaryColor
-            }
+        
+        if blocks[indexPath.row].isSelect {
+           // cell.viewTest.backgroundColor = ColorConstant.primaryColor
+            cell.viewTest.backgroundColor = ColorConstant.primaryColor
+            cell.lbTitle.textColor = UIColor.white
+        } else {
+            cell.viewTest.backgroundColor = ColorConstant.colorGray10
+            cell.lbTitle.textColor = ColorConstant.colorGray90
         }
+        
         
         return cell
         
@@ -235,12 +297,14 @@ extension MemberVC :  UICollectionViewDelegate , UICollectionViewDataSource , UI
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if collectionView == cvBlock {
-            let selectedCell = collectionView.cellForItem(at: indexPath) as! BlockMemberCell
+           /* let selectedCell = collectionView.cellForItem(at: indexPath) as! BlockMemberCell
             
             selectedCell.viewTest.backgroundColor = ColorConstant.primaryColor
             selectedCell.lbTitle.textColor = UIColor.white
-            self.setDataUtnit(floors: blocks[indexPath.row].floors)
-            isFirstTimeload = false
+           
+            isFirstTimeload = false*/
+             self.setDataUtnit(floors: blocks[indexPath.row].floors)
+            selectItem(index: indexPath.row)
         }
         
         
@@ -250,12 +314,12 @@ extension MemberVC :  UICollectionViewDelegate , UICollectionViewDataSource , UI
     
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if collectionView == cvBlock {
+       /* if collectionView == cvBlock {
             let selectedCell = collectionView.cellForItem(at: indexPath) as! BlockMemberCell
             selectedCell.viewTest.backgroundColor = ColorConstant.colorGray10
             selectedCell.lbTitle.textColor = ColorConstant.colorGray90
             isFirstTimeload = false
-        }
+        }*/
         
     }
     

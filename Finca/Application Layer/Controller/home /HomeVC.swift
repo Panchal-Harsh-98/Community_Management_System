@@ -311,6 +311,9 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollect
             self.navigationController?.pushViewController(nextVC, animated: true )
             break;
         case 8:
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idFacilityMainTabVC")as! FacilityMainTabVC
+            self.navigationController?.pushViewController(nextVC, animated: true )
+            
             break;
         case 9:
             let nextvc = self.storyboard?.instantiateViewController(withIdentifier: "idComplaintsVC")as! ComplaintsVC

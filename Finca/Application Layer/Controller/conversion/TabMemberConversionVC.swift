@@ -61,6 +61,22 @@ class TabMemberConversionVC: BaseVC {
         
         
     }
+    func selectItem(index:Int) {
+        
+        //blocks
+        
+        for i in (0..<blocks.count).reversed() {
+            if i == index {
+                blocks[i].isSelect = true
+            } else {
+                blocks[i].isSelect = false
+            }
+            
+        }
+        
+        cvBlocks.reloadData()
+        
+    }
     
     func doGetSocietes() {
         showProgress()
@@ -89,6 +105,7 @@ class TabMemberConversionVC: BaseVC {
                         self.blocks.append(contentsOf: response.block)
                        self.cvBlocks.reloadData()
                           self.setDataUtnit(floors: self.blocks[0].floors)
+                        self.selectItem(index: 0)
                     }else {
                         self.showAlertMessage(title: "Alert", msg: response.message)
                     }
@@ -147,11 +164,17 @@ extension TabMemberConversionVC :  UICollectionViewDelegate , UICollectionViewDa
         cell.lbTitle.text = blocks[indexPath.row].block_name
         
         
-        if isFirstTimeload{
-            if indexPath.row == 0 {
-                cell.viewTest.backgroundColor = ColorConstant.primaryColor
-            }
+        
+        
+        if blocks[indexPath.row].isSelect {
+            // cell.viewTest.backgroundColor = ColorConstant.primaryColor
+            cell.viewTest.backgroundColor = ColorConstant.primaryColor
+            cell.lbTitle.textColor = UIColor.white
+        } else {
+            cell.viewTest.backgroundColor = ColorConstant.colorGray10
+            cell.lbTitle.textColor = ColorConstant.colorGray90
         }
+        
         
         return cell
         
@@ -171,12 +194,11 @@ extension TabMemberConversionVC :  UICollectionViewDelegate , UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if collectionView == cvBlocks {
-            let selectedCell = collectionView.cellForItem(at: indexPath) as! BlockMemberCell
+           // let selectedCell = collectionView.cellForItem(at: indexPath) as! BlockMemberCell
             
-            selectedCell.viewTest.backgroundColor = ColorConstant.primaryColor
-            selectedCell.lbTitle.textColor = UIColor.white
             self.setDataUtnit(floors: blocks[indexPath.row].floors)
-            isFirstTimeload = false
+          //  isFirstTimeload = false
+            selectItem(index: indexPath.row)
         }
         
         
@@ -187,10 +209,10 @@ extension TabMemberConversionVC :  UICollectionViewDelegate , UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if collectionView == cvBlocks {
-            let selectedCell = collectionView.cellForItem(at: indexPath) as! BlockMemberCell
-            selectedCell.viewTest.backgroundColor = ColorConstant.colorGray10
-            selectedCell.lbTitle.textColor = ColorConstant.colorGray90
-           isFirstTimeload = false
+           // let selectedCell = collectionView.cellForItem(at: indexPath) as! BlockMemberCell
+          //  selectedCell.viewTest.backgroundColor = ColorConstant.colorGray10
+          //  selectedCell.lbTitle.textColor = ColorConstant.colorGray90
+         //  isFirstTimeload = false
         }
         
     }

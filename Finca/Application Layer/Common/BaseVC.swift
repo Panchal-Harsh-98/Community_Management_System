@@ -107,16 +107,16 @@ class BaseVC: UIViewController , UITextFieldDelegate , SWRevealViewControllerDel
         textField.inputAccessoryView = kb
     }
     
-    func isKeyPresentInUserDefaults(key: String) -> Bool {
-        return UserDefaults.standard.object(forKey: key) != nil
-    }
+  
     
     @objc func doneClickKeyboard(){
         view.endEditing(true)
     }
 
     //end
-    
+    func isKeyPresentInUserDefaults(key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: key) != nil
+    }
     func doGetLocalDataUser()->LoginResponse{
         var userLocalData : LoginResponse? = nil
         if let data = UserDefaults.standard.data(forKey: StringConstants.KEY_LOGIN_DATA), let decoded = try? JSONDecoder().decode(LoginResponse.self, from: data){
