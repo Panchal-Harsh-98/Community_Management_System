@@ -29,9 +29,11 @@ class VehicleMainTabVC: ButtonBarPagerTabStripViewController , SWRevealViewContr
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
+   
     override func viewWillAppear(_ animated: Bool) {
-       
+       loadNoti()
     }
+    
     func revealController(_ revealController: SWRevealViewController!, willMoveTo position: FrontViewPosition) {
         
         if revealController.frontViewPosition == FrontViewPosition.left     // if it not statisfy try this --> if
@@ -47,6 +49,7 @@ class VehicleMainTabVC: ButtonBarPagerTabStripViewController , SWRevealViewContr
             //self.view.isUserInteractionEnabled = true
         }
     }
+    
     func loadDesing () {
         settings.style.selectedBarHeight=1
         //   settings.style.buttonBarBackgroundColor = UIColor(red: 50/255.0, green: 81/255.0, blue: 101/255.0, alpha: 1.0)
@@ -90,6 +93,7 @@ class VehicleMainTabVC: ButtonBarPagerTabStripViewController , SWRevealViewContr
     override func viewDidAppear(_ animated: Bool) {
         loadNoti()
     }
+    
     func loadNoti() {
         let vc = BaseVC()
         if vc.getChatCount() !=  "0" {
@@ -108,12 +112,12 @@ class VehicleMainTabVC: ButtonBarPagerTabStripViewController , SWRevealViewContr
         
     }
     
-    
     @IBAction func onClickNotification(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "idNotificationVC") as! NotificationVC
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
+    
     @IBAction func onClickChat(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "idTabCarversionVC") as! TabCarversionVC
         self.navigationController?.pushViewController(vc, animated: true)

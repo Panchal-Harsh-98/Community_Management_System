@@ -10,6 +10,7 @@ import UIKit
 
 class PollingDetailsVC: BaseVC {
     
+   
     @IBOutlet weak var tbvPollingOptionList: UITableView!
     @IBOutlet weak var btnVoteHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var tbvHeightConstraint: NSLayoutConstraint!
@@ -33,6 +34,7 @@ class PollingDetailsVC: BaseVC {
         viewThankYou.isHidden = true
         lblPollQuestion.text = pollingDetails.votingQuestion
         lblPollDescription.text = pollingDetails.votingDescription
+
        
        
         tbvPollingOptionList.bounces = false

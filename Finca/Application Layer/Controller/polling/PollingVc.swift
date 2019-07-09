@@ -12,6 +12,10 @@ class PollingVc: BaseVC {
     
     @IBOutlet weak var bMenu: UIButton!
     @IBOutlet weak var tbvPoll: UITableView!
+    @IBOutlet weak var viewChatCount: UIView!
+    @IBOutlet weak var lbChatCount: UILabel!
+    @IBOutlet weak var viewNotiCount: UIView!
+    @IBOutlet weak var lbNotiCount: UILabel!
     var itemCell = "PollingCell"
     var pollingQuesList = [PollingModel]()
     var flagViewRefresh = false
@@ -19,11 +23,17 @@ class PollingVc: BaseVC {
         super.viewDidLoad()
         doInintialRevelController(bMenu: bMenu)
         doGetPollingQuestions()
-        
+        addRefreshControlTo(tableView: tbvPoll)
         let nib = UINib(nibName: itemCell, bundle: nil)
         tbvPoll.register(nib, forCellReuseIdentifier: itemCell)
         tbvPoll.delegate = self
         tbvPoll.dataSource = self
+    }
+    override func fetchNewDataOnRefresh() {
+        refreshControl.beginRefreshing()
+        pollingQuesList.removeAll()
+        doGetPollingQuestions()
+        refreshControl.endRefreshing()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +69,37 @@ class PollingVc: BaseVC {
                 }
             }
         }
+    }
+    
+   
+    
+    func loadNoti() {
+        let vc = BaseVC()
+        if vc.getChatCount() !=  "0" {
+            self.viewChatCount.isHidden =  false
+            self.lbChatCount.text = vc.getChatCount()
+            
+        } else {
+            self.viewChatCount.isHidden =  true
+        }
+        if vc.getNotiCount() !=  "0" {
+            self.viewNotiCount.isHidden =  false
+            self.lbNotiCount.text = vc.getNotiCount()
+            
+        } else {
+            self.viewNotiCount.isHidden =  true
+        }
+    }
+    
+    @IBAction func onClickNotification(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "idNotificationVC") as! NotificationVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    @IBAction func onClickChat(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "idTabCarversionVC") as! TabCarversionVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

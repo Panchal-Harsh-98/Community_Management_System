@@ -51,6 +51,7 @@ class EventsVC: BaseVC {
         
         doEvent()
         
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
