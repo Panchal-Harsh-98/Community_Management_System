@@ -87,7 +87,22 @@ class TabMemberVC: BaseVC {
     
     
     
-    
+    func selectItem(index:Int) {
+        
+        //blocks
+        
+        for i in (0..<blocks.count).reversed() {
+            if i == index {
+                blocks[i].isSelect = true
+            } else {
+                blocks[i].isSelect = false
+            }
+            
+        }
+        
+        cvBlock.reloadData()
+        
+    }
   
     func doGetMemberParking() {
         showProgress()
@@ -121,7 +136,7 @@ class TabMemberVC: BaseVC {
                         self.cvBlock.reloadData()
                         
                         self.setDataUtnit(blockModelMember: self.blocks[0])
-                        
+                         self.selectItem(index: 0)
                     }else {
                         self.showAlertMessage(title: "Alert", msg: response.message)
                     }
@@ -166,10 +181,13 @@ extension TabMemberVC :  UICollectionViewDelegate , UICollectionViewDataSource ,
       //  cell.viewMain.backgroundColor = ColorConstant.primaryColor
         cell.lbTitle.text = blocks[indexPath.row].block_name
         
-        if isFirstTime{
-            if indexPath.row == 0 {
-                cell.viewTest.backgroundColor = ColorConstant.primaryColor
-            }
+        if blocks[indexPath.row].isSelect {
+            // cell.viewTest.backgroundColor = ColorConstant.primaryColor
+            cell.viewTest.backgroundColor = UIColor(named: "ColorPrimary")
+            cell.lbTitle.textColor = UIColor.white
+        } else {
+            cell.viewTest.backgroundColor = UIColor(named: "gray_20")
+            cell.lbTitle.textColor = ColorConstant.colorGray90
         }
         
         
@@ -182,7 +200,7 @@ extension TabMemberVC :  UICollectionViewDelegate , UICollectionViewDataSource ,
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
        if collectionView == cvUnits {
             let yourWidth = collectionView.bounds.width
-            return CGSize(width: yourWidth-4, height: 100)
+            return CGSize(width: yourWidth-4, height: 150)
         }
         
         return CGSize(width: 80, height: 60)
@@ -192,15 +210,15 @@ extension TabMemberVC :  UICollectionViewDelegate , UICollectionViewDataSource ,
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if collectionView == cvBlock {
-            let selectedCell = collectionView.cellForItem(at: indexPath) as! BlockMemberCell
+            //let selectedCell = collectionView.cellForItem(at: indexPath) as! BlockMemberCell
             
-            selectedCell.viewTest.backgroundColor = ColorConstant.primaryColor
+           /* selectedCell.viewTest.backgroundColor = ColorConstant.primaryColor
             selectedCell.lbTitle.textColor = UIColor.white
           //  self.setDataUtnit(floors: blocks[indexPath.row].floors)
-            self.isFirstTime = false
+            self.isFirstTime = false*/
             
             self.setDataUtnit(blockModelMember: blocks[indexPath.row])
-           
+            selectItem(index: indexPath.row)
         }
         
         
@@ -209,16 +227,7 @@ extension TabMemberVC :  UICollectionViewDelegate , UICollectionViewDataSource ,
     }
     
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if collectionView == cvBlock {
-            let selectedCell = collectionView.cellForItem(at: indexPath) as! BlockMemberCell
-            selectedCell.viewTest.backgroundColor = ColorConstant.colorGray10
-            selectedCell.lbTitle.textColor = ColorConstant.colorGray90
-            self.isFirstTime = false
-           
-        }
-        
-    }
+   
     
 }
 

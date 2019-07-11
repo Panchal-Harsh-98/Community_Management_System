@@ -106,10 +106,15 @@ extension FloorSelectionCell : UICollectionViewDelegate , UICollectionViewDataSo
             
             
            if isConversoin {
+            
             if unitsMember[indexPath.row].chat_status != "0" {
                 cell.viewNotification.isHidden = false
                 cell.lbCountNoti.text = unitsMember[indexPath.row].chat_status
+            } else {
+                  cell.viewNotification.isHidden = true
             }
+           
+            
             }
          
             
@@ -173,10 +178,21 @@ extension FloorSelectionCell : UICollectionViewDelegate , UICollectionViewDataSo
         
         
         if isMember {
-            NotificationCenter.default.post(
-                name: Notification.Name(rawValue: "clickFloor"),
-                object: nil,
-                userInfo: ["data": unitsMember[indexPath.row]])
+            
+            if isConversoin {
+                NotificationCenter.default.post(
+                    name: Notification.Name(rawValue: "clickFloorChat"),
+                    object: nil,
+                    userInfo: ["data": unitsMember[indexPath.row]])
+            } else {
+                NotificationCenter.default.post(
+                    name: Notification.Name(rawValue: "clickFloor"),
+                    object: nil,
+                    userInfo: ["data": unitsMember[indexPath.row]])
+            }
+            
+            
+            
         } else {
             NotificationCenter.default.post(
                 name: Notification.Name(rawValue: "clickFloor"),

@@ -270,11 +270,12 @@ extension MemberVC :  UICollectionViewDelegate , UICollectionViewDataSource , UI
         
         
         if blocks[indexPath.row].isSelect {
-           // cell.viewTest.backgroundColor = ColorConstant.primaryColor
-            cell.viewTest.backgroundColor = ColorConstant.primaryColor
+            // cell.viewTest.backgroundColor = ColorConstant.primaryColor
+            cell.viewTest.backgroundColor = UIColor(named: "ColorPrimary")
             cell.lbTitle.textColor = UIColor.white
         } else {
-            cell.viewTest.backgroundColor = ColorConstant.colorGray10
+            
+            cell.viewTest.backgroundColor = UIColor(named: "gray_20")
             cell.lbTitle.textColor = ColorConstant.colorGray90
         }
         

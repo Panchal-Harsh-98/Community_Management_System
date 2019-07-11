@@ -23,6 +23,7 @@
 		2562474C22BA392A0032DB4B /* TabGateKeeperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2562474B22BA392A0032DB4B /* TabGateKeeperVC.swift */; };
 		2562475022BA54870032DB4B /* GateKeeperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2562474E22BA54870032DB4B /* GateKeeperCell.swift */; };
 		2562475122BA54870032DB4B /* GateKeeperCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2562474F22BA54870032DB4B /* GateKeeperCell.xib */; };
+		2572F82D22D4904400A16F46 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2572F82C22D4904400A16F46 /* ChangePasswordVC.swift */; };
 		258A216122CCE07900B3D562 /* EventDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258A216022CCE07900B3D562 /* EventDetailsVC.swift */; };
 		258CD01A2297D43B00AAB8E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258CD0192297D43B00AAB8E6 /* AppDelegate.swift */; };
 		258CD01F2297D43B00AAB8E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 258CD01D2297D43B00AAB8E6 /* Main.storyboard */; };
@@ -36,6 +37,9 @@
 		259FC88622CC6FF100A72204 /* SelectLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259FC88522CC6FF100A72204 /* SelectLocationVC.swift */; };
 		25AF673922BB623300637C1C /* NoticeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AF673822BB623300637C1C /* NoticeVC.swift */; };
 		25AF673C22BB883B00637C1C /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AF673B22BB883B00637C1C /* ProfileVC.swift */; };
+		25B5513B22D6FB49003FE381 /* DailogLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B5513A22D6FB49003FE381 /* DailogLocationVC.swift */; };
+		25B5513F22D702A5003FE381 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B5513D22D702A5003FE381 /* LocationCell.swift */; };
+		25B5514022D702A5003FE381 /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25B5513E22D702A5003FE381 /* LocationCell.xib */; };
 		25C2AF5022CA2B67007AAC12 /* DailogSwitchToRenterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C2AF4F22CA2B67007AAC12 /* DailogSwitchToRenterVC.swift */; };
 		25C9835E2298032400F2DF3A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9835D2298032400F2DF3A /* LoginVC.swift */; };
 		25C983602298054F00F2DF3A /* AlamofireSingleTon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9835F2298054F00F2DF3A /* AlamofireSingleTon.swift */; };
@@ -96,6 +100,8 @@
 		25F5756C22CCB7E6000389E4 /* EventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F5756B22CCB7E6000389E4 /* EventsVC.swift */; };
 		25F5757022CCBC06000389E4 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F5756E22CCBC06000389E4 /* EventCell.swift */; };
 		25F5757122CCBC06000389E4 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25F5756F22CCBC06000389E4 /* EventCell.xib */; };
+		25FB98F522D596BB003B6C94 /* SOSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB98F422D596BB003B6C94 /* SOSVC.swift */; };
+		25FB98F822D5DDEC003B6C94 /* ContactUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB98F722D5DDEC003B6C94 /* ContactUsVC.swift */; };
 		2B0EB4B222C21AAF00C752C5 /* DocumentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0EB4B122C21AAF00C752C5 /* DocumentsVC.swift */; };
 		2B0EB4B622C234AD00C752C5 /* DocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0EB4B422C234AD00C752C5 /* DocumentCell.swift */; };
 		2B0EB4B722C234AD00C752C5 /* DocumentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B0EB4B522C234AD00C752C5 /* DocumentCell.xib */; };
@@ -211,6 +217,7 @@
 		2562474B22BA392A0032DB4B /* TabGateKeeperVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabGateKeeperVC.swift; sourceTree = "<group>"; };
 		2562474E22BA54870032DB4B /* GateKeeperCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GateKeeperCell.swift; sourceTree = "<group>"; };
 		2562474F22BA54870032DB4B /* GateKeeperCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GateKeeperCell.xib; sourceTree = "<group>"; };
+		2572F82C22D4904400A16F46 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		258A216022CCE07900B3D562 /* EventDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsVC.swift; sourceTree = "<group>"; };
 		258CD0162297D43B00AAB8E6 /* Finca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		258CD0192297D43B00AAB8E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -226,6 +233,9 @@
 		259FC88522CC6FF100A72204 /* SelectLocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLocationVC.swift; sourceTree = "<group>"; };
 		25AF673822BB623300637C1C /* NoticeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeVC.swift; sourceTree = "<group>"; };
 		25AF673B22BB883B00637C1C /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		25B5513A22D6FB49003FE381 /* DailogLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailogLocationVC.swift; sourceTree = "<group>"; };
+		25B5513D22D702A5003FE381 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		25B5513E22D702A5003FE381 /* LocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
 		25C2AF4F22CA2B67007AAC12 /* DailogSwitchToRenterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailogSwitchToRenterVC.swift; sourceTree = "<group>"; };
 		25C9835D2298032400F2DF3A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		25C9835F2298054F00F2DF3A /* AlamofireSingleTon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireSingleTon.swift; sourceTree = "<group>"; };
@@ -288,6 +298,8 @@
 		25F5756B22CCB7E6000389E4 /* EventsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsVC.swift; sourceTree = "<group>"; };
 		25F5756E22CCBC06000389E4 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		25F5756F22CCBC06000389E4 /* EventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
+		25FB98F422D596BB003B6C94 /* SOSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSVC.swift; sourceTree = "<group>"; };
+		25FB98F722D5DDEC003B6C94 /* ContactUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsVC.swift; sourceTree = "<group>"; };
 		27D9FA772E94878B90DF6695 /* Pods-Finca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finca.debug.xcconfig"; path = "Target Support Files/Pods-Finca/Pods-Finca.debug.xcconfig"; sourceTree = "<group>"; };
 		2B0EB4B122C21AAF00C752C5 /* DocumentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsVC.swift; sourceTree = "<group>"; };
 		2B0EB4B422C234AD00C752C5 /* DocumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCell.swift; sourceTree = "<group>"; };
@@ -445,6 +457,14 @@
 			path = gatekeeper;
 			sourceTree = "<group>";
 		};
+		2572F82B22D4901A00A16F46 /* change password */ = {
+			isa = PBXGroup;
+			children = (
+				2572F82C22D4904400A16F46 /* ChangePasswordVC.swift */,
+			);
+			path = "change password";
+			sourceTree = "<group>";
+		};
 		258CD00D2297D43B00AAB8E6 = {
 			isa = PBXGroup;
 			children = (
@@ -546,6 +566,9 @@
 		258CD0312297D5C900AAB8E6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				25FB98F622D5DDC4003B6C94 /* contact us */,
+				25FB98F322D596A8003B6C94 /* sos */,
+				2572F82B22D4901A00A16F46 /* change password */,
 				25E039FE22D0BCF3006BE961 /* notification */,
 				2B7D47C622D3230800B791B5 /* balance sheet  */,
 				2BEFACF022D0C44A00B4B983 /* emergency contacts */,
@@ -599,6 +622,7 @@
 			isa = PBXGroup;
 			children = (
 				259FC88522CC6FF100A72204 /* SelectLocationVC.swift */,
+				25B5513A22D6FB49003FE381 /* DailogLocationVC.swift */,
 			);
 			path = "select location";
 			sourceTree = "<group>";
@@ -618,6 +642,15 @@
 				25C2AF4F22CA2B67007AAC12 /* DailogSwitchToRenterVC.swift */,
 			);
 			path = profile;
+			sourceTree = "<group>";
+		};
+		25B5513C22D70266003FE381 /* location */ = {
+			isa = PBXGroup;
+			children = (
+				25B5513D22D702A5003FE381 /* LocationCell.swift */,
+				25B5513E22D702A5003FE381 /* LocationCell.xib */,
+			);
+			path = location;
 			sourceTree = "<group>";
 		};
 		25C9836122980CE600F2DF3A /* NVActivityIndicatorView */ = {
@@ -685,6 +718,7 @@
 		25C983B72298205D00F2DF3A /* xib */ = {
 			isa = PBXGroup;
 			children = (
+				25B5513C22D70266003FE381 /* location */,
 				25E03A0122D0CAA5006BE961 /* notification */,
 				25E039F222D061E5006BE961 /* facility */,
 				2B7D47C722D32D9900B791B5 /* balance sheet cell */,
@@ -787,6 +821,22 @@
 				25F5756F22CCBC06000389E4 /* EventCell.xib */,
 			);
 			path = event;
+			sourceTree = "<group>";
+		};
+		25FB98F322D596A8003B6C94 /* sos */ = {
+			isa = PBXGroup;
+			children = (
+				25FB98F422D596BB003B6C94 /* SOSVC.swift */,
+			);
+			path = sos;
+			sourceTree = "<group>";
+		};
+		25FB98F622D5DDC4003B6C94 /* contact us */ = {
+			isa = PBXGroup;
+			children = (
+				25FB98F722D5DDEC003B6C94 /* ContactUsVC.swift */,
+			);
+			path = "contact us";
 			sourceTree = "<group>";
 		};
 		2B0EB4B022C21A5C00C752C5 /* documents */ = {
@@ -1258,7 +1308,6 @@
 				2BBA56C422B7D9410031A0A6 /* VisitorArrivedCell.xib in Resources */,
 				2B5208FE22AF817E003B6662 /* InfoFamalyMemberCell.xib in Resources */,
 				25E039F722D0715C006BE961 /* AllFacilityCell.xib in Resources */,
-				2B62122222C0D7D400FE8AF9 /* GallerySliderCell.xib in Resources */,
 				2B52090522AFA4D3003B6662 /* HomeScreenCvCell.xib in Resources */,
 				2562475122BA54870032DB4B /* GateKeeperCell.xib in Resources */,
 				2B401E4922C3758D005E1A16 /* ElectionCell.xib in Resources */,
@@ -1282,6 +1331,7 @@
 				2B7D47BA22D303DB00B791B5 /* GalleryCell.xib in Resources */,
 				2BE4C32E22CB95AF008E0CA5 /* PollingCell.xib in Resources */,
 				258CD0382297E9DE00AAB8E6 /* Color.xcassets in Resources */,
+				25B5514022D702A5003FE381 /* LocationCell.xib in Resources */,
 				2B284D0622B9FAF800CF1AE0 /* EmployeeListCell.xib in Resources */,
 				2B284CFA22B9F79400CF1AE0 /* MemberParkingCell.xib in Resources */,
 				258CD0212297D43F00AAB8E6 /* Assets.xcassets in Resources */,
@@ -1378,6 +1428,7 @@
 				2BBCBC3122B13B0B000EB023 /* FundFragmentVC.swift in Sources */,
 				25E039EF22D0565B006BE961 /* TabMyFacilityVC.swift in Sources */,
 				25E03A0022D0C0C0006BE961 /* NotificationVC.swift in Sources */,
+				25B5513F22D702A5003FE381 /* LocationCell.swift in Sources */,
 				2B62121622C0B47B00FE8AF9 /* GalleryVC.swift in Sources */,
 				25C9839922980CE600F2DF3A /* NVActivityIndicatorAnimationBallZigZagDeflect.swift in Sources */,
 				2B47EB6622C492A000F1D559 /* ElectionDetailsVC.swift in Sources */,
@@ -1471,16 +1522,20 @@
 				2BFC8FD422B0B73300115AD8 /* HomeSliderCell.swift in Sources */,
 				25C983A522980CE600F2DF3A /* NVActivityIndicatorAnimationAudioEqualizer.swift in Sources */,
 				25C9839522980CE600F2DF3A /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift in Sources */,
+				25FB98F522D596BB003B6C94 /* SOSVC.swift in Sources */,
 				2562475022BA54870032DB4B /* GateKeeperCell.swift in Sources */,
 				2B7D47CC22D32DDE00B791B5 /* BalanceSheetCell.swift in Sources */,
 				25C9839822980CE600F2DF3A /* NVActivityIndicatorAnimationLineSpinFadeLoader.swift in Sources */,
+				2572F82D22D4904400A16F46 /* ChangePasswordVC.swift in Sources */,
 				25C983B122980CE600F2DF3A /* NVActivityIndicatorAnimationBallPulseRise.swift in Sources */,
 				2BBA56BF22B7B1F20031A0A6 /* ExpectedFragmentVC.swift in Sources */,
+				25B5513B22D6FB49003FE381 /* DailogLocationVC.swift in Sources */,
 				2562474622BA21DA0032DB4B /* TabCarversionVC.swift in Sources */,
 				2BBCBC2F22B13AF5000EB023 /* BillFragmentVC.swift in Sources */,
 				2B284CFB22B9F79400CF1AE0 /* MemberParkingCell.swift in Sources */,
 				2BE4C32322CB230D008E0CA5 /* ComplainCell.swift in Sources */,
 				2B284CDD22B9EFC500CF1AE0 /* SendChatCell.swift in Sources */,
+				25FB98F822D5DDEC003B6C94 /* ContactUsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,7 +17,6 @@ struct ReposneLocation : Codable {
 }
 
 struct CountriModel : Codable {
-    
     let capital:String! //" : "New Delhi",
     let country_id:String! //" : "101",
     let currency:String! //" : "India",
@@ -39,6 +38,7 @@ struct CityModel : Codable {
     let country_id : String!//" : "101",
     let name : String!//" : "Bombuflat",
     let state_id : String!//" : "1547"
+   
 }
 
 class SelectLocationVC: BaseVC {
@@ -49,59 +49,90 @@ class SelectLocationVC: BaseVC {
      var states = [StateModel]()
     
      var cities = [CityModel]()
+    @IBOutlet weak var ivBackground: UIImageView!
     
-    @IBOutlet weak var lbCity: UILabel!
-    @IBOutlet weak var lbState: UILabel!
-    @IBOutlet weak var lbCoutry: UILabel!
+    
     @IBOutlet weak var lbTitle: UILabel!
+    
+    @IBOutlet weak var lbCountry: UILabel!
+    @IBOutlet weak var lbState: UILabel!
+    @IBOutlet weak var lbCity: UILabel!
+    
     var selectView = ""
-   var city_id = ""
-   var state_id = ""
-   var country_id = ""
+    var city_id = ""
+    var state_id = ""
+    var country_id = ""
     var isclick = true
+    
+    var type = ""
+    var city = ""
+    var state = ""
+    var country = ""
+    
+    var filterCity = [CityModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.pickerView.delegate = self
-        self.pickerView.dataSource = self
-        mainPickerView.isHidden = true
+      //  self.pickerView.delegate = self
+       // self.pickerView.dataSource = self//
+      //  mainPickerView.isHidden = true
+        Utils.setImageFromUrl(imageView: ivBackground, urlString: UserDefaults.standard.string(forKey: StringConstants.KEY_BACKGROUND_IMAGE)!)
         doLocation()
-    }
+     }
     
     @IBAction func onClickCountry(_ sender: Any) {
-        if isclick {
-           isclick = false
-            selectView = "country"
-            lbTitle.text = "Country"
-            mainPickerView.isHidden = false
-              pickerView.selectRow(0, inComponent: 0, animated: true)
-             pickerView.reloadAllComponents()
-        }
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "idDailogLocationVC") as! DailogLocationVC
+       type =  "country"
+        vc.type = type
+        vc.countries = countries
+        vc.selectLocationVC = self
+      //  vc.isEmergancy = false
+       // vc.ownedDataSelectVC = self
+     //   vc.isProfile = false//
+        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        self.addChild(vc)
+        self.view.addSubview(vc.view)
+        
        
     }
     
     @IBAction func onClickState(_ sender: Any) {
-        if isclick {
-            isclick = false
-            selectView = "state"
-            lbTitle.text = "State"
-            mainPickerView.isHidden = false
-              pickerView.selectRow(0, inComponent: 0, animated: true)
-            pickerView.reloadAllComponents()
-        }
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "idDailogLocationVC") as! DailogLocationVC
+        type =  "state"
+        vc.type = type
+        vc.states = states
+         vc.selectLocationVC = self
+        //  vc.isEmergancy = false
+        // vc.ownedDataSelectVC = self
+        //   vc.isProfile = false//
+        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        self.addChild(vc)
+        self.view.addSubview(vc.view)
        
     }
     
     @IBAction func onClickCity(_ sender: Any) {
-        if isclick {
-            isclick = false
-            selectView = "city"
-            lbTitle.text = "Cities"
-            mainPickerView.isHidden = false
-            pickerView.selectRow(0, inComponent: 0, animated: true)
-            pickerView.reloadAllComponents()
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "idDailogLocationVC") as! DailogLocationVC
+       type =  "city"
+        vc.type = type
+        
+        if state_id == "" {
+            vc.cities = cities
+        } else {
+           vc.cities = filterCity
         }
+        
+         vc.selectLocationVC = self
+        vc.state_id = state_id
+        //  vc.isEmergancy = false
+        // vc.ownedDataSelectVC = self
+        //   vc.isProfile = false//
+        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        self.addChild(vc)
+        self.view.addSubview(vc.view)
+       
        
     }
     
@@ -124,33 +155,24 @@ class SelectLocationVC: BaseVC {
         
         
         requrest.requestPostMain(serviceName: ServiceNameConstants.LOCATION_CONTROLLER, parameters: params) { (json, error) in
-            
+              self.hideProgress()
             if json != nil {
-                self.hideProgress()
+              
                 do {
                     let response = try JSONDecoder().decode(ReposneLocation.self, from:json!)
                     
                     
                     if response.status == "200" {
                         
-                     self.countries.append(contentsOf: response.countries)
-                     self.lbCoutry.text = self.countries[0].name
-                     self.country_id = self.countries[0].country_id
-                     
-                    self.states.append(contentsOf: response.countries[0].states)
-                    self.lbState.text = self.countries[0].states[0].name
-                    self.state_id = self.countries[0].states[0].state_id
+                        self.doSetArrayData(reposneLocation: response)
                         
-                       self.cities.append(contentsOf: response.countries[0].states[0].cities)
-                        self.lbCity.text = self.countries[0].states[0].cities[0].name
-                        self.city_id = self.countries[0].states[0].cities[0].city_id
+                       
                         
-                        
-                    self.pickerView.reloadAllComponents()
-                    
                     }else {
                         self.showAlertMessage(title: "Alert", msg: response.message)
                     }
+                    
+                    
                 } catch {
                     print("parse error")
                 }
@@ -158,80 +180,102 @@ class SelectLocationVC: BaseVC {
         }
         
     }
+   func doSetArrayData(reposneLocation:ReposneLocation) {
+    
+    
+    if reposneLocation.countries != nil {
+        self.countries.append(contentsOf: reposneLocation.countries!)
+        
+        for country in (0..<reposneLocation.countries.count) {
+            
+            if reposneLocation.countries[country].states != nil {
+                self.states.append(contentsOf: reposneLocation.countries[country].states)
+                
+                for state in (0..<reposneLocation.countries[country].states.count) {
+                    
+                    
+                    if reposneLocation.countries[country].states[state].cities != nil {
+                        self.cities.append(contentsOf: reposneLocation.countries[country].states[state].cities)
+                    }
+                    
+                }
+            }
+            
+        }
+        
+    }
+   
+    
+    
+    
+    }
 
     @IBAction func onClickNext(_ sender: Any) {
-   let vc  = self.storyboard?.instantiateViewController(withIdentifier: "idSocietyVC") as! SocietyVC
-         vc.city_id = city_id
-         vc.state_id = state_id
-         vc.country_id = country_id
-        self.navigationController?.pushViewController(vc, animated: true)
+        if isValide() {
+            let vc  = self.storyboard?.instantiateViewController(withIdentifier: "idSocietyVC") as! SocietyVC
+            vc.city_id = city_id
+            vc.state_id = state_id
+            vc.country_id = country_id
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
         
+    }
+    
+    func isValide() -> Bool {
+        var isValid = true
         
+        if country_id == "" {
+            showAlertMessage(title: "", msg: "Select Country")
+            isValid  = false
+        }
+        if state_id == "" {
+            showAlertMessage(title: "", msg: "Select State")
+            isValid  = false
+        }
+        if city_id == "" {
+            showAlertMessage(title: "", msg: "Select City")
+            isValid  = false
+        }
+        return isValid
+    }
+    
+    override func viewDidLayoutSubviews() {
         
+        //print(country_id)
+       // print(city_id)
+      //  print(state_id)
+        if type == "country" {
+             lbCountry.text = country
+        } else if type == "city" {
+            lbCity.text = city
+        } else if type == "state" {
+            lbState.text = state
+            doFilterCity()
+        }
+
         
+    }
+   func doFilterCity() {
+    
+    if filterCity.count > 0 {
+        filterCity.removeAll()
+    }
+    
+    for i in (0..<cities.count) {
+        
+        if cities[i].state_id == state_id {
+            filterCity.append(cities[i])
+        }
+        
+    }
+   
+  // let sortedNames = filterCity.sorted(by: )
+   // print(sortedNames)
+    
+ // filterCity =   filterCity.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
+    
     }
     
 }
 
-extension SelectLocationVC: UIPickerViewDelegate, UIPickerViewDataSource  {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if selectView == "state" {
-         return  states.count
-        }
-        if selectView == "city" {
-             return  cities.count
-        }
-        
-       return countries.count
-    }
-    
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if selectView == "state" {
-             return states[row].name
-        }
-        
-       if selectView == "city" {
-            return cities[row].name
-        }
-        
-        return countries[row].name
-    }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if selectView == "country" {
-            country_id = countries[row].country_id
-            lbCoutry.text = countries[row].name
-            if self.states.count > 0 {
-                self.states.removeAll()
-            }
-            self.states.append(contentsOf: countries[row].states)
-            self.lbState.text = self.countries[row].states[0].name
-            self.state_id = self.countries[row].states[0].state_id
-            
-            
-        } else if selectView == "state" {
-            self.lbState.text = self.states[row].name
-            self.state_id = self.states[row].state_id
-            
-            if self.cities.count > 0 {
-                self.cities.removeAll()
-            }
-            self.cities.append(contentsOf: self.states[row].cities)
-             self.lbCity.text = self.states[row].cities[0].name
-            self.city_id = self.states[row].cities[0].city_id
-            
-        } else if selectView == "city"{
-            
-            self.lbCity.text = self.cities[row].name
-            self.city_id = self.cities[row].city_id
-        }
-        
-        
-    }
-    
-   
-}

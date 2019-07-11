@@ -29,7 +29,7 @@ class AlamofireSingleTon: NSObject {
 
     func requestPost(serviceName:String,parameters: [String:Any]?, completionHandler: @escaping (Data?, NSError?) -> ()) {
         let baseUer = BaseVC().baseUrl()
-       
+ 
         Alamofire.request(baseUer+serviceName, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { (response:DataResponse<Any>) in
             
             switch(response.result) {
@@ -51,7 +51,7 @@ class AlamofireSingleTon: NSObject {
     }
     
     func requestPostMain(serviceName:String,parameters: [String:Any]?, completionHandler: @escaping (Data?, NSError?) -> ()) {
-        
+       
         Alamofire.request(mainUrl+serviceName, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { (response:DataResponse<Any>) in
             
             switch(response.result) {

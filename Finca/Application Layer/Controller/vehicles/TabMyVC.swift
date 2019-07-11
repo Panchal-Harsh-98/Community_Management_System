@@ -28,23 +28,17 @@ struct MyParkingModel : Codable {
 }
 class TabMyVC: BaseVC {
 
-    @IBOutlet weak var heightConstVehicle: NSLayoutConstraint!
-    @IBOutlet weak var lbParking: UILabel!
+     @IBOutlet weak var lbParking: UILabel!
     @IBOutlet weak var lbVehicles: UILabel!
     @IBOutlet weak var cvParkingSlot: UICollectionView!
-    @IBOutlet weak var cvVehicleNumner: UICollectionView!
     let itemCell = "MyVehicleNumberCell"
     let itemCellParking = "ParkingSlotCell"
      var myParkings = [MyParkingModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        cvVehicleNumner.delegate = self
-        cvVehicleNumner.dataSource = self
-        cvParkingSlot.delegate = self
+         cvParkingSlot.delegate = self
         cvParkingSlot.dataSource = self
         
-        let inb = UINib(nibName: itemCell, bundle: nil)
-        cvVehicleNumner.register(inb, forCellWithReuseIdentifier: itemCell)
         
          // Do any additional setup after loading the view.
         
@@ -59,7 +53,7 @@ class TabMyVC: BaseVC {
         let inbPark = UINib(nibName: itemCellParking, bundle: nil)
         cvParkingSlot.register(inbPark, forCellWithReuseIdentifier: itemCellParking)
         
-        heightConstVehicle.constant = 0.0
+      //  heightConstVehicle.constant = 0.0
         doGetParking()
         
     }
@@ -91,22 +85,21 @@ class TabMyVC: BaseVC {
                     if response.status == "200" {
                         
                         self.myParkings.append(contentsOf: response.myParking)
-                        self.cvVehicleNumner.reloadData()
-                        self.cvParkingSlot.reloadData()
+                         self.cvParkingSlot.reloadData()
                         
                         
                         self.lbParking.text = "Parking :" + String(response.myParking.count)
                          self.lbVehicles.text = "Vehicles :" + String(response.myParking.count)
                         
-                        let count = response.myParking.count
+                       // let count = response.myParking.count
                        
-                        if   count % 2 == 0 {
+                       /* if   count % 2 == 0 {
                             self.heightConstVehicle.constant = CGFloat(count/2) * 35.0
                         } else {
                             
                             self.heightConstVehicle.constant = CGFloat(count/2) * 35.0 + 30
                             
-                        }
+                        }*/
                         
                         
                     }else {
@@ -134,21 +127,19 @@ extension TabMyVC : IndicatorInfoProvider {
 extension  TabMyVC :   UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if collectionView == cvParkingSlot {
+       
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: itemCellParking, for: indexPath) as! ParkingSlotCell
             
             cell.lbAllocate.text = myParkings[indexPath.row].parking_name +  "  " + myParkings[indexPath.row].socieaty_parking_name
             
+             cell.lbVehicleNumber.text =  myParkings[indexPath.row].vehicle_no
             
             return  cell
             
-        }
+       
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: itemCell, for: indexPath) as! MyVehicleNumberCell
         
-        cell.lbNumber.text =  myParkings[indexPath.row].vehicle_no
-        return  cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -172,9 +163,7 @@ extension  TabMyVC :   UICollectionViewDelegate , UICollectionViewDataSource , U
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        if collectionView == cvVehicleNumner {
-             return 4
-        }
+       
         return 2
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

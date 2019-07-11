@@ -36,13 +36,15 @@ class SocietyVC: BaseVC {
     @IBOutlet weak var bBack: UIButton!
     @IBOutlet weak var bLogin: UIButton!
     
+    @IBOutlet weak var tfSearch: UITextField!
     var societyArray = [ModelSociety]()
     var selectedSociety : ModelSociety!
-    
+       var filterSocietyArray = [ModelSociety]()
     let itemCell = "SocietyRegistrationCell"
     var city_id : String! // = ""
     var state_id : String! // = ""
     var country_id : String! // = ""
+    var selectIndex : Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,9 +57,27 @@ class SocietyVC: BaseVC {
         
         bLogin.isEnabled = false
         doGetSocietes()
-        changeButtonImageColor(btn: bBack, image: "back",color: ColorConstant.primaryColor)
+       // changeButtonImageColor(btn: bBack, image: "back",color: ColorConstant.primaryColor)
+        tfSearch.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: UIControl.Event.editingChanged)
+        tfSearch.delegate = self
     }
     
+    @objc func textFieldDidChange(textField: UITextField) {
+        
+        
+            filterSocietyArray = textField.text!.isEmpty ? societyArray : societyArray.filter({ (item:ModelSociety) -> Bool in
+                
+                return item.society_name.range(of: textField.text!, options: .caseInsensitive, range: nil, locale: nil) != nil
+            })
+            
+            cvData.reloadData()
+        
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return view.endEditing(true)
+    }
     
     func doGetSocietes() {
         showProgress()
@@ -85,6 +105,7 @@ class SocietyVC: BaseVC {
                     if response.status == "200" {
                        
                         self.societyArray.append(contentsOf: response.society)
+                        self.filterSocietyArray = self.societyArray
                         self.cvData.reloadData()
                     }else {
                         self.showAlertMessage(title: "Alert", msg: response.message)
@@ -118,15 +139,21 @@ extension  SocietyVC :   UICollectionViewDelegate , UICollectionViewDataSource ,
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: itemCell, for: indexPath) as! SocietyRegistrationCell
         
-        cell.lbTitle.text = societyArray[indexPath.row].society_name
-        cell.lbDesc.text = societyArray[indexPath.row].society_address
+        cell.lbTitle.text = filterSocietyArray[indexPath.row].society_name
+        cell.lbDesc.text = filterSocietyArray[indexPath.row].society_address
         
+        if  selectIndex == indexPath.row{
+            cell.viewMain.backgroundColor = UIColor(named: "gray_40")
+            
+        } else {
+             cell.viewMain.backgroundColor = UIColor.white
+        }
         
       return  cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return self.societyArray.count
+         return self.filterSocietyArray.count
     }
     
     
@@ -139,11 +166,13 @@ extension  SocietyVC :   UICollectionViewDelegate , UICollectionViewDataSource ,
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         
-        print("didSelectItemAt")
-        let selectedCell = collectionView.cellForItem(at: indexPath) as! SocietyRegistrationCell
+      //  print("didSelectItemAt")
+       // let selectedCell = collectionView.cellForItem(at: indexPath) as! SocietyRegistrationCell
         
-        selectedCell.viewMain.backgroundColor = ColorConstant.colorSelectRow
-        bLogin.backgroundColor = ColorConstant.colorSelectRow
+        
+        selectIndex = indexPath.row
+        collectionView.reloadData()
+        bLogin.backgroundColor = UIColor(named: "gray_40")
         bLogin.isEnabled = true
         selectedSociety = societyArray[indexPath.row]
         
@@ -156,9 +185,9 @@ extension  SocietyVC :   UICollectionViewDelegate , UICollectionViewDataSource ,
     
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let selectedCell = collectionView.cellForItem(at: indexPath) as! SocietyRegistrationCell
-        print("didDeselectItemAt")
-        selectedCell.viewMain.backgroundColor = UIColor.white
+       // let selectedCell = collectionView.cellForItem(at: indexPath) as! SocietyRegistrationCell
+      //  print("didDeselectItemAt")
+       
     }
     
 }

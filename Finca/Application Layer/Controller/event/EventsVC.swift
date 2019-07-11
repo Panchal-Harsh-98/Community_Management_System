@@ -126,7 +126,7 @@ extension  EventsVC :   UICollectionViewDelegate , UICollectionViewDataSource , 
         
        cell.lbTitle.text = eventList[indexPath.row].event_title
           cell.lbDesc.text = eventList[indexPath.row].event_description
-          cell.lbDate.text = eventList[indexPath.row].event_start_date
+       // cell.lbDate.text = eventList[indexPath.row].event_start_date
         
         if eventList[indexPath.row].going_person == "0" {
             cell.lbAttending.text = "Yes"
@@ -136,6 +136,19 @@ extension  EventsVC :   UICollectionViewDelegate , UICollectionViewDataSource , 
              cell.lbAttending.textColor = UIColor(named: "red_a700")
             
         }
+        
+        
+        //let date = eventList[indexPath.row].event_start_date
+        let time = eventList[indexPath.row].event_start_date!.split{$0 == " "}.map(String.init)
+
+         cell.lbDate.text = time[1] + time[2]
+
+        let date = convertDateFormater(time[0]).split{$0 == "-"}.map(String.init)
+        
+       cell.lbDay.text = date[2]
+        cell.lbMonth.text = date[1]
+        cell.lbYear.text = date[0]
+        
         
         return  cell
     }
@@ -151,12 +164,22 @@ extension  EventsVC :   UICollectionViewDelegate , UICollectionViewDataSource , 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     
         let yourWidth = collectionView.bounds.width
-        return CGSize(width: yourWidth - 5, height: 60)
+        return CGSize(width: yourWidth - 5, height: 120)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "idEventDetailsVC") as! EventDetailsVC
        vc.eventModeL = eventList[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    func convertDateFormater(_ date: String) -> String
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.date(from: date)
+        dateFormatter.dateFormat = "yyyy-MMM-dd"
+        return  dateFormatter.string(from: date!)
         
     }
 

@@ -99,6 +99,7 @@ class HomeNavigationMenuController: BaseVC {
             let newFrontViewController = UINavigationController.init(rootViewController: destiController)
             newFrontViewController.isNavigationBarHidden = true
             revealViewController().pushFrontViewController(destiController, animated: true)
+          //   self.navigationController?.pushViewController(destiController, animated: true)
         
         }
         else if menuData[index].title == StringConstants.MENU_EVENT {
@@ -143,7 +144,31 @@ class HomeNavigationMenuController: BaseVC {
             let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idVehicleMainTabVC") as! VehicleMainTabVC
             
             revealViewController().pushFrontViewController(destiController, animated: true)
+        } else if menuData[index].title == StringConstants.MENU_CHANGE_PASSWORD {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idChangePasswordVC") as! ChangePasswordVC
+            
+          //  revealViewController().pushFrontViewController(destiController, animated: true)
+       self.navigationController?.pushViewController(destiController, animated: true)
+        }else if menuData[index].title == StringConstants.MENU_LOGUT {
+           
+            showDailogLogout()
+            
+        } else if menuData[index].title == StringConstants.MENU_STAFF {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idVehicleMainTabVC") as! VehicleMainTabVC
+            
+            revealViewController().pushFrontViewController(destiController, animated: true)
+        } else if menuData[index].title == StringConstants.MENU_SOS {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idSOSVC") as! SOSVC
+            
+            revealViewController().pushFrontViewController(destiController, animated: true)
         }
+        
+        else if menuData[index].title == StringConstants.MENU_CONTACT_US {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idContactUsVC") as! ContactUsVC
+            
+            revealViewController().pushFrontViewController(destiController, animated: true)
+        }
+        
         
         
         
@@ -207,6 +232,23 @@ class HomeNavigationMenuController: BaseVC {
     {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         return storyBoard
+    }
+    
+   func showDailogLogout() {
+    let refreshAlert = UIAlertController(title: "", message: "Are you sure to Logout?", preferredStyle: UIAlertController.Style.alert)
+    
+    refreshAlert.addAction(UIAlertAction(title: "LOGOUT", style: .default, handler: { (action: UIAlertAction!) in
+    //print("Handle Ok logic here")
+        UserDefaults.standard.set(nil, forKey: StringConstants.KEY_LOGIN)
+        Utils.setHomeRootLocation()
+        
+    }))
+    
+    refreshAlert.addAction(UIAlertAction(title: "CANCEL", style: .cancel, handler: { (action: UIAlertAction!) in
+    //print("Handle Cancel Logic here")
+    }))
+    
+    present(refreshAlert, animated: true, completion: nil)
     }
 }
 

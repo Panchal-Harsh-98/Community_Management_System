@@ -9,7 +9,7 @@
 import UIKit
 struct ColorConstant {
     
-    static let primaryColor =   UIColor(red: 92.0/255.0, green: 31.0/255.0, blue: 52.0/255.0, alpha: 1.0)// #5C1F34
+    static let primaryColor =   UIColor(red: 92.0/255.0, green: 31.0/255.0, blue: 52.0/255.0, alpha: 1.0)// #999999
     static let colorAccent =   UIColor(red: 92.0/255.0, green: 31.0/255.0, blue: 52.0/255.0, alpha: 1.0)// #5C1F34
     
     

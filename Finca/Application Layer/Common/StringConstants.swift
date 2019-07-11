@@ -15,7 +15,7 @@ struct StringConstants {
     static let MENU_MEMBERS = "Members"
     static let MENU_VEHICALS = "Vehicals"
     static let MENU_VISITORS = "Visitors"
-    static let MENU_STAFF = "Staff"
+    static let MENU_STAFF = "Resource"
     static let MENU_EVENT = "Event"
     static let MENU_NOTICE_BOARD = "Notice Board"
     static let MENU_FACILITY = "Facility"
@@ -47,7 +47,8 @@ struct StringConstants {
     
     static let KEY_BASE_URL = "baseURl"
     static let KEY_API_KEY = "apikey"
+    static let KEY_BACKGROUND_IMAGE = "backimage"
     
-    
+    static let KEY_USER_NAME = "userName"
     
 }

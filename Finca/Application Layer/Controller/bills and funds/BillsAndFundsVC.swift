@@ -108,14 +108,15 @@ class BillsAndFundsVC:ButtonBarPagerTabStripViewController, UIGestureRecognizerD
         pickerView.reloadAllComponents()
         PickerViewContainer.isHidden = false
     }
+    
     func  loadSlideMenu() {
         self.revealViewController().delegate = self
         if self.revealViewController() != nil {
             bMenu.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-            
-        }
+         }
+        
     }
     
     func revealController(_ revealController: SWRevealViewController!, willMoveTo position: FrontViewPosition) {

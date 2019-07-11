@@ -37,7 +37,7 @@ class TabMemberConversionVC: BaseVC {
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(clickFloor(_:)),
-                                               name: NSNotification.Name(rawValue: "clickFloor"),
+                                               name: NSNotification.Name(rawValue: "clickFloorChat"),
                                                object: nil)
         
         doGetSocietes()
@@ -49,6 +49,7 @@ class TabMemberConversionVC: BaseVC {
         
         if data?.user_id != doGetLocalDataUser().user_id {
             if data?.unit_status == "1" || data?.unit_status == "3" || data?.unit_status == "5"{
+                
                 let vc = storyboard?.instantiateViewController(withIdentifier: "idChatVC") as! ChatVC
                 vc.unitModelMember =  data
                 vc.isGateKeeper = false
@@ -156,6 +157,7 @@ extension TabMemberConversionVC :  UICollectionViewDelegate , UICollectionViewDa
             cell.lbTitle.text = floors[indexPath.row].floor_name
             cell.doSetDataMember(units: floors[indexPath.row].units, isMember: true)
             cell.setConversion(isConversoin: true)
+            
             return cell
         }
         
@@ -168,10 +170,11 @@ extension TabMemberConversionVC :  UICollectionViewDelegate , UICollectionViewDa
         
         if blocks[indexPath.row].isSelect {
             // cell.viewTest.backgroundColor = ColorConstant.primaryColor
-            cell.viewTest.backgroundColor = ColorConstant.primaryColor
+            cell.viewTest.backgroundColor = UIColor(named: "ColorPrimary")
             cell.lbTitle.textColor = UIColor.white
         } else {
-            cell.viewTest.backgroundColor = ColorConstant.colorGray10
+            
+            cell.viewTest.backgroundColor = UIColor(named: "gray_20")
             cell.lbTitle.textColor = ColorConstant.colorGray90
         }
         

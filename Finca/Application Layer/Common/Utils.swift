@@ -55,5 +55,18 @@ class Utils: NSObject {
         imageView.clipsToBounds = true
         
     }
+    static func setHomeRootLocation() {
+   //      let loginVc = self.storyboard?.instantiateViewController(withIdentifier: "idNavLocation")as! UINavigationController
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+     //   let gotoDashboardVC = storyBoard.instantiateViewController(withIdentifier: "idLoginVC") as! LoginVC
+           let gotoDashboardVC = storyBoard.instantiateViewController(withIdentifier: "idSelectLocationVC") as! SelectLocationVC
+        let appdelegate = UIApplication.shared.delegate as! AppDelegate
+        let nav : UINavigationController = UINavigationController()
+        nav.viewControllers  = [gotoDashboardVC]
+        nav.isNavigationBarHidden = true
+        appdelegate.viewC = gotoDashboardVC
+        appdelegate.window!.rootViewController = nav
+        
+    }
     
 }

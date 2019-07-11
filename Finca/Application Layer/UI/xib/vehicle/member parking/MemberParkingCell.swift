@@ -60,7 +60,8 @@ extension  MemberParkingCell :   UICollectionViewDelegate , UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         
-        let yourWidth = collectionView.bounds.width - 90
+       // let yourWidth = collectionView.bounds.width - 90
+         let yourWidth = collectionView.bounds.width  / 2
         return CGSize(width: yourWidth - 5, height: 30)
     }
     

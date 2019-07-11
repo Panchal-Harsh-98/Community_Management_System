@@ -70,8 +70,8 @@ class LoginVC: BaseVC {
         // Do any additional setup after loading the view.
     
         doneButtonOnKeyboard(textField: tfMobile)
-        tfMobile.text = "9096693518"
-         tfPassword.text = "12345"
+        //tfMobile.text = "9096693518"
+        // tfPassword.text = "12345"
         tfMobile.delegate = self
          tfPassword.delegate = self
         ivLogo.setImageColor(color: UIColor.white)
@@ -208,12 +208,17 @@ class LoginVC: BaseVC {
                     
                     if loginResponse.status == "200" {
                         UserDefaults.standard.set(self.tfPassword.text!, forKey: StringConstants.KEY_PASSWORD)
+                        UserDefaults.standard.set(self.tfMobile.text!, forKey: StringConstants.KEY_USER_NAME)
+                        
                         if let encoded = try? JSONEncoder().encode(loginResponse) {
                             UserDefaults.standard.set(encoded, forKey: StringConstants.KEY_LOGIN_DATA)
                         }
                         
                         UserDefaults.standard.set("1", forKey: StringConstants.KEY_LOGIN)
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "idHomeNavController") as! SWRevealViewController
+                        
+                        
+                        
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "idRevealViewController") as! UINavigationController
                         self.present(vc, animated: true, completion: nil)
                     }else {
 //                        UserDefaults.standard.set("0", forKey: StringConstants.KEY_LOGIN)

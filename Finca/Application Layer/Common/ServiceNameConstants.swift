@@ -42,6 +42,16 @@ public struct ServiceNameConstants {
     public static let getMyFacilityController = "get_my_facility_controller.php"
     public static let   user_notification_controller = "user_notification_controller.php"
     
+    public static let buildingDetailsController = "buildingDetails_controller.php"
+    public static let emergencyNumberController = "emergency_numbber_list_controller.php"
+    public static let balanceSheetController  = "balancesheet_controller.php"
+    public static let getSOS_events_controller  = "getSOS_events_controller.php"
+    public static let feedback_mail_controller  = "feedback_mail_controller.php"
+    public static let version_controller  = "version_controller_ios.php"
+    public static let check_login_status  = "check_login_status.php"
+    
+    
+    
     
     
 };

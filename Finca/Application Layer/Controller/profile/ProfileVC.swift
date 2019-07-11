@@ -221,6 +221,11 @@ class ProfileVC: BaseVC ,UIImagePickerControllerDelegate,UINavigationControllerD
         return view.endEditing(true)
     }
     
+    @IBAction func onClickCahngePassword(_ sender: Any) {
+        let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idChangePasswordVC") as! ChangePasswordVC
+        self.navigationController?.pushViewController(destiController, animated: true)
+        
+    }
     @IBAction func onClickSave(_ sender: Any) {
         doSubmitData()
     }

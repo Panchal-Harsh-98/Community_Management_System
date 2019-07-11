@@ -28,6 +28,17 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="parking" translatesAutoresizingMaskIntoConstraints="NO" id="pmJ-hR-3uB">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="207"/>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GJ 01 DP 1007" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKz-CT-f1C">
+                                        <rect key="frame" x="25" y="28" width="100" height="21"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="D5W-gL-t3n"/>
+                                            <constraint firstAttribute="height" constant="21" id="HPa-Me-nRB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlQ-5S-5VY">
                                         <rect key="frame" x="8" y="157" width="134" height="50"/>
                                         <subviews>
@@ -52,6 +63,8 @@
                                     <constraint firstItem="pmJ-hR-3uB" firstAttribute="leading" secondItem="Ryz-5M-4Jj" secondAttribute="leading" id="7L4-aV-kUl"/>
                                     <constraint firstAttribute="trailing" secondItem="pmJ-hR-3uB" secondAttribute="trailing" id="HQ2-YH-aoI"/>
                                     <constraint firstItem="pmJ-hR-3uB" firstAttribute="top" secondItem="Ryz-5M-4Jj" secondAttribute="top" id="Jaj-9D-Xsq"/>
+                                    <constraint firstItem="VKz-CT-f1C" firstAttribute="top" secondItem="Ryz-5M-4Jj" secondAttribute="top" constant="28" id="Kv3-OJ-AWu"/>
+                                    <constraint firstItem="VKz-CT-f1C" firstAttribute="centerX" secondItem="Ryz-5M-4Jj" secondAttribute="centerX" id="Muk-qF-Gb6"/>
                                     <constraint firstAttribute="bottom" secondItem="tlQ-5S-5VY" secondAttribute="bottom" id="aIZ-L4-AlR"/>
                                     <constraint firstAttribute="trailing" secondItem="tlQ-5S-5VY" secondAttribute="trailing" constant="8" id="ajg-E2-b1V"/>
                                     <constraint firstItem="tlQ-5S-5VY" firstAttribute="leading" secondItem="Ryz-5M-4Jj" secondAttribute="leading" constant="8" id="cpA-9w-de7"/>
@@ -79,6 +92,7 @@
             <size key="customSize" width="270" height="207"/>
             <connections>
                 <outlet property="lbAllocate" destination="WKG-eQ-snf" id="xKF-eE-tqs"/>
+                <outlet property="lbVehicleNumber" destination="VKz-CT-f1C" id="mei-Yx-8QH"/>
             </connections>
             <point key="canvasLocation" x="289.85507246376812" y="157.03125"/>
         </collectionViewCell>

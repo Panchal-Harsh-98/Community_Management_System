@@ -195,6 +195,9 @@ class ChatVC: BaseVC {
                 do {
                     let response = try JSONDecoder().decode(ResponseChat.self, from:json!)
                     
+                 //   UserDefaults.standard.set(response.chat_status, forKey: StringConstants.CHAT_STATUS)
+                  //  UserDefaults.standard.set(response.read_status, forKey: StringConstants.READ_STATUS)
+                    
                     
                     if response.status == "200" {
                         self.lbNoData.isHidden = true
