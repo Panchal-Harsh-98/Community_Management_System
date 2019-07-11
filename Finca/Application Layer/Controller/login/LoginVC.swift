@@ -213,8 +213,8 @@ class LoginVC: BaseVC {
                         }
                         
                         UserDefaults.standard.set("1", forKey: StringConstants.KEY_LOGIN)
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "idHomeNavController") as! SWRevealViewController
-                        self.present(vc, animated: true, completion: nil)
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: StringConstants.HOME_NAV_CONTROLLER) as! SWRevealViewController
+                        self.navigationController?.pushViewController(vc, animated: true)
                     }else {
 //                        UserDefaults.standard.set("0", forKey: StringConstants.KEY_LOGIN)
                         self.showAlertMessage(title: "Alert", msg: loginResponse.message)

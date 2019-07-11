@@ -62,7 +62,7 @@ class HomeNavigationMenuController: BaseVC {
         menuData.append(menuCell(title: StringConstants.MENU_ELECTION,image: "vote",isSelectd: false))
         menuData.append(menuCell(title: StringConstants.MENU_BUILDING_DETAILS,image: "building",isSelectd: false))
         menuData.append(menuCell(title: StringConstants.MENU_PROFILE,image: "user",isSelectd: false))
-        menuData.append(menuCell(title: StringConstants.MENU_EMERGANCY,image: "ambulance-1",isSelectd: false))
+        menuData.append(menuCell(title: StringConstants.MENU_EMERGENCY,image: "ambulance-1",isSelectd: false))
         menuData.append(menuCell(title: StringConstants.MENU_SOS,image: "sos-menu",isSelectd: false))
         menuData.append(menuCell(title: StringConstants.MENU_GALLRY,image: "gallery-2",isSelectd: false))
         menuData.append(menuCell(title: StringConstants.MENU_DOCUMENT,image: "documnet",isSelectd: false))
@@ -84,8 +84,25 @@ class HomeNavigationMenuController: BaseVC {
             let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idHomeVC") as! HomeVC
             let newFrontViewController = UINavigationController.init(rootViewController: destiController)
             newFrontViewController.isNavigationBarHidden = true
-          //  self.navigationController?.pushViewController(destiController, animated: true)
+//            self.navigationController?.pushViewController(destiController, animated: true)
            revealViewController().pushFrontViewController(newFrontViewController, animated: true)
+        }
+        else if menuData[index].title == StringConstants.MENU_FUNDBILL {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idBillsAndFundsVC") as! BillsAndFundsVC
+            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
+            newFrontViewController.isNavigationBarHidden = true
+            revealViewController().pushFrontViewController(destiController, animated: true)
+            
+        }
+        else if menuData[index].title == StringConstants.MENU_MEMBERS {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idMemberVC") as! MemberVC
+            
+            revealViewController().pushFrontViewController(destiController, animated: true)
+        }
+        else if menuData[index].title == StringConstants.MENU_VEHICALS {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idVehicleMainTabVC") as! VehicleMainTabVC
+            
+            revealViewController().pushFrontViewController(destiController, animated: true)
         }
         else if menuData[index].title == StringConstants.MENU_VISITORS {
             let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idVisitorVC") as! VisitorVC
@@ -94,12 +111,11 @@ class HomeNavigationMenuController: BaseVC {
             revealViewController().pushFrontViewController(destiController, animated: true)
 
         }
-        else if menuData[index].title == StringConstants.MENU_FUNDBILL {
-            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idBillsAndFundsVC") as! BillsAndFundsVC
+        else if menuData[index].title == StringConstants.MENU_STAFF {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idResourcesVC") as! ResourcesVC
             let newFrontViewController = UINavigationController.init(rootViewController: destiController)
             newFrontViewController.isNavigationBarHidden = true
             revealViewController().pushFrontViewController(destiController, animated: true)
-        
         }
         else if menuData[index].title == StringConstants.MENU_EVENT {
             let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idEventsVC") as! EventsVC
@@ -113,37 +129,63 @@ class HomeNavigationMenuController: BaseVC {
             let newFrontViewController = UINavigationController.init(rootViewController: destiController)
             newFrontViewController.isNavigationBarHidden = true
             revealViewController().pushFrontViewController(destiController, animated: true)
-            
-        }  else if menuData[index].title == StringConstants.MENU_COMPLAINTS {
+        }
+        else if menuData[index].title == StringConstants.MENU_COMPLAINTS {
             let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idComplaintsVC") as! ComplaintsVC
             let newFrontViewController = UINavigationController.init(rootViewController: destiController)
             newFrontViewController.isNavigationBarHidden = true
             revealViewController().pushFrontViewController(destiController, animated: true)
-            
-        }else if menuData[index].title == StringConstants.MENU_ELECTION {
+        }
+        else if menuData[index].title == StringConstants.MENU_POLL {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idPollingVc") as! PollingVc
+            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
+            newFrontViewController.isNavigationBarHidden = true
+            revealViewController().pushFrontViewController(destiController, animated: true)
+        }
+        else if menuData[index].title == StringConstants.MENU_ELECTION {
             let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idElectionVC") as! ElectionVC
             let newFrontViewController = UINavigationController.init(rootViewController: destiController)
             newFrontViewController.isNavigationBarHidden = true
             revealViewController().pushFrontViewController(destiController, animated: true)
-            
+        }
+        else if menuData[index].title == StringConstants.MENU_BUILDING_DETAILS {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idBuildingDetailsVC") as! BuildingDetailsVC
+            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
+            newFrontViewController.isNavigationBarHidden = true
+            revealViewController().pushFrontViewController(destiController, animated: true)
         }
         else if menuData[index].title == StringConstants.MENU_PROFILE {
             let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idProfileVC") as! ProfileVC
             let newFrontViewController = UINavigationController.init(rootViewController: destiController)
             newFrontViewController.isNavigationBarHidden = true
             revealViewController().pushFrontViewController(destiController, animated: true)
-            
         }
-        else if menuData[index].title == StringConstants.MENU_MEMBERS {
-            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idMemberVC") as! MemberVC
-        
-          revealViewController().pushFrontViewController(destiController, animated: true)
-        }
-        else if menuData[index].title == StringConstants.MENU_VEHICALS {
-            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idVehicleMainTabVC") as! VehicleMainTabVC
-            
+        else if menuData[index].title == StringConstants.MENU_EMERGENCY {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idEmergencyContactsVC") as! EmergencyContactsVC
+            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
+            newFrontViewController.isNavigationBarHidden = true
             revealViewController().pushFrontViewController(destiController, animated: true)
         }
+        else if menuData[index].title == StringConstants.MENU_GALLRY {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idGalleryVC") as! GalleryVC
+            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
+            newFrontViewController.isNavigationBarHidden = true
+            revealViewController().pushFrontViewController(destiController, animated: true)
+        }
+        else if menuData[index].title == StringConstants.MENU_DOCUMENT {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idDocumentsVC") as! DocumentsVC
+            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
+            newFrontViewController.isNavigationBarHidden = true
+            revealViewController().pushFrontViewController(destiController, animated: true)
+        }
+        else if menuData[index].title == StringConstants.MENU_BALANCE_SHEET {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idBalanceSheetVc") as! BalanceSheetVc
+            let newFrontViewController = UINavigationController.init(rootViewController: destiController)
+            newFrontViewController.isNavigationBarHidden = true
+            revealViewController().pushFrontViewController(destiController, animated: true)
+        }
+       
+       
         
         
         

@@ -26,7 +26,7 @@ struct StringConstants {
     static let MENU_PROFILE = "Profile"
     static let MENU_NOTIFICATION = "Notification"
     static let MENU_BALANCE_SHEET = "Balance Sheet"
-    static let MENU_EMERGANCY = "Emergency Number"
+    static let MENU_EMERGENCY = "Emergency Number"
     static let MENU_SOS = "SOS to Guard"
      static let MENU_GALLRY = "Gallery"
     static let MENU_DOCUMENT = "Document"

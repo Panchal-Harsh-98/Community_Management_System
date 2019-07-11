@@ -8,26 +8,57 @@
 
 import UIKit
 import XLPagerTabStrip
+import EzPopup
+
+
 class BillFragmentVC: BaseVC{
  
     
     @IBOutlet weak var tbvBill: UITableView!
     let itemCell = "FundCell"
-    var Bill_list = [Bill_Model]()
+    var billList = [Bill_Model]()
+    var month : String!
+    var year : String!
+    var due = 0.0
+    var paid = 0.0
+    @IBOutlet weak var lblPaidAmt: UILabel!
+    @IBOutlet weak var lblDueAmt: UILabel!
+    
+    let date = Date()
     override func viewDidLoad() {
+      
         super.viewDidLoad()
+        let date = Date()
+        let calendar = Calendar.current
+       
+        year = String(calendar.component(.year, from: date))
+         month = "All"
+        
+        addRefreshControlTo(tableView: tbvBill)
         let nib = UINib(nibName: itemCell, bundle: nil)
         tbvBill.register(nib, forCellReuseIdentifier: itemCell)
         tbvBill.delegate = self
         tbvBill.dataSource = self
+        
         NotificationCenter.default.addObserver(self, selector: #selector(refreshData(_:)), name: Notification.Name(rawValue:StringConstants.NOTI_UPDATE_CONTENT), object: nil)
         
+        
     }
+    
+    override func fetchNewDataOnRefresh() {
+        refreshControl.beginRefreshing()
+        billList.removeAll()
+        doCallBillApi(month: month, year: year)
+        paid = 0.0
+        due = 0.0
+        refreshControl.endRefreshing()
+    }
+    
     @objc func refreshData(_ notification: Notification) {
 
         let month =  notification.userInfo?["month"] as! String
         let year = notification.userInfo?["year"]!as! String
-        Bill_list.removeAll()
+        billList.removeAll()
         doCallBillApi(month: month,year: year)
         print(month)
         print(year)
@@ -54,8 +85,9 @@ class BillFragmentVC: BaseVC{
                 do {
                         let response = try JSONDecoder().decode(BillResponse.self, from:json!)
                         if response.status == "200" {
-                            self.Bill_list.append(contentsOf: response.bill)
+                            self.billList.append(contentsOf: response.bill)
                             self.tbvBill.reloadData()
+                            self.setDueAndPaidLabels()
                         }else {
     
                         }
@@ -65,6 +97,34 @@ class BillFragmentVC: BaseVC{
                 }
             }
         }
+    }
+    func setDueAndPaidLabels(){
+        for item in billList{
+            let strAmount = Double(item.billAmount!)!
+            print(strAmount)
+            
+            if item.receiveBillStatus == "0"{
+                
+                self.due = self.due + strAmount
+                
+            }else if item.receiveBillStatus == "1"{
+                
+                 self.paid = self.paid + strAmount
+                
+            }else if item.receiveBillStatus == "2"{
+                
+                self.due = self.due + strAmount
+                
+            }else{
+                self.paid = self.paid + strAmount
+            }
+        }
+        
+        self.lblPaidAmt.text = "Paid : "+StringConstants.RUPEE_SYMBOL+"\(String(describing: paid))"
+        self.lblPaidAmt.textColor = ColorConstant.green600
+        self.lblDueAmt.textColor = ColorConstant.red500
+        self.lblDueAmt.text = "Due : "+StringConstants.RUPEE_SYMBOL+"\(String(describing: due))"
+        
     }
 }
 extension BillFragmentVC : IndicatorInfoProvider{
@@ -76,22 +136,36 @@ extension BillFragmentVC : IndicatorInfoProvider{
 extension BillFragmentVC : UITableViewDataSource,UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Bill_list.count
+        return billList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tbvBill.dequeueReusableCell(withIdentifier: itemCell, for: indexPath)as! FundCell
-        cell.lblDate.text = Bill_list[indexPath.row].billGenrateDate
-        cell.lblTitle.text = Bill_list[indexPath.row].billName
-        cell.lblExpense.text = Bill_list[indexPath.row].billAmount
+        cell.lblDate.text = billList[indexPath.row].billGenrateDate
+        cell.lblTitle.text = billList[indexPath.row].billName
+        if billList[indexPath.row].billAmount == "0"{
+            cell.lblExpense.text = billList[indexPath.row].billAmount
+            
+        }
+        
         return cell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let screenwidth = UIScreen.main.bounds.width
+        let screenheight = UIScreen.main.bounds.height
+        let destiController = self.storyboard?.instantiateViewController(withIdentifier: "idAddNoOfUnitDialog") as! AddNoOfUnitDialog
+        
+        destiController.billDetail = billList[indexPath.row]
+        let popupVC = PopupViewController(contentController: destiController, popupWidth: screenwidth - 50, popupHeight: screenheight-300)
+        popupVC.backgroundAlpha = 0.5
+        popupVC.backgroundColor = .black
+        popupVC.shadowEnabled = true
+        popupVC.canTapOutsideToDismiss = true
+        present(popupVC, animated: true)
+    }
 
 }

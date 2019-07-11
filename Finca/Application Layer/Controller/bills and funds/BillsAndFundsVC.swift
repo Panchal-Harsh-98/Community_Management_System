@@ -44,6 +44,7 @@ class BillsAndFundsVC:ButtonBarPagerTabStripViewController, UIGestureRecognizerD
         settings.style.buttonBarLeftContentInset = 0
         settings.style.buttonBarRightContentInset = 0
         super.viewDidLoad()
+      
         
         loadSlideMenu()
         month = ["All","January","February","March","April","May","June","July","August","September","October","November","December"]
@@ -85,10 +86,7 @@ class BillsAndFundsVC:ButtonBarPagerTabStripViewController, UIGestureRecognizerD
         return true
     }
     
-    @IBAction func btnbackPressed(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-        
-    }
+ 
     
     @IBAction func btnHidePicker(_ sender: UIButton) {
         PickerViewContainer.isHidden = true

@@ -13,25 +13,44 @@ class FundFragmentVC: BaseVC {
     @IBOutlet weak var tbvFunds: UITableView!
     let itemCell = "FundCell"
     var maintainance_list = [Maintenance_Model]()
+    var month: String!
+    var year : String!
+    var due  = 0.0
+    var paid = 0.0
+    @IBOutlet weak var lblDueAmt: UILabel!
+    @IBOutlet weak var lblPaidAmt: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        addRefreshControlTo(tableView: tbvFunds)
         let nib = UINib(nibName: itemCell, bundle: nil)
         tbvFunds.register(nib, forCellReuseIdentifier: itemCell)
         tbvFunds.dataSource = self
         tbvFunds.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(refreshData(_:)), name: Notification.Name(rawValue:StringConstants.NOTI_UPDATE_CONTENT), object: nil)
     }
+    
+    override func fetchNewDataOnRefresh() {
+        refreshControl.beginRefreshing()
+        maintainance_list.removeAll()
+        doCallmaintainanceApi(month: month, year: year)
+        due = 0
+        paid = 0
+        refreshControl.endRefreshing()
+    }
+    
     @objc func refreshData(_ notification: Notification) {
         
-        let month =  notification.userInfo?["month"] as! String
-        let year = notification.userInfo?["year"]!as! String
+        month =  notification.userInfo?["month"] as! String
+        year = notification.userInfo?["year"]!as! String
         maintainance_list.removeAll()
         doCallmaintainanceApi(month: month,year: year)
         print(month)
         print(year)
     }
     
-    
+
     func doCallmaintainanceApi(month:String,year:String) {
         showProgress()
         
@@ -53,7 +72,9 @@ class FundFragmentVC: BaseVC {
                 do {
                     let response = try JSONDecoder().decode(MaintainanceResponse.self, from:json!)
                     if response.status == "200" {
+                        
                         self.maintainance_list.append(contentsOf: response.maintenance)
+                        self.setDueAndPaidLabels()
                         self.tbvFunds.reloadData()
                     }else {
                         
@@ -64,6 +85,27 @@ class FundFragmentVC: BaseVC {
                 }
             }
         }
+    }
+    
+    func setDueAndPaidLabels(){
+        for item in maintainance_list{
+            let strAmount = Double(item.maintenceAmount!)!
+            print(strAmount)
+            
+            if item.receiveMaintenanceStatus == "0"{
+
+                self.due = self.due + strAmount
+
+            }else{
+                self.paid = self.paid + strAmount
+            }
+        }
+        
+        self.lblPaidAmt.text = "Paid : "+StringConstants.RUPEE_SYMBOL+"\(String(describing: paid))"
+        self.lblPaidAmt.textColor = ColorConstant.green600
+        self.lblDueAmt.textColor = ColorConstant.red500
+        self.lblDueAmt.text = "Due : "+StringConstants.RUPEE_SYMBOL+"\(String(describing: due))"
+        
     }
 }
 extension FundFragmentVC : IndicatorInfoProvider{

@@ -176,6 +176,7 @@
 		2BBCBC3122B13B0B000EB023 /* FundFragmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBCBC3022B13B0B000EB023 /* FundFragmentVC.swift */; };
 		2BC48F6222B234D4006BF433 /* FundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC48F6022B234D4006BF433 /* FundCell.swift */; };
 		2BC48F6322B234D4006BF433 /* FundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BC48F6122B234D4006BF433 /* FundCell.xib */; };
+		2BD53AEC22D71C4400B8BFE2 /* AddNoOfUnitDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD53AEB22D71C4400B8BFE2 /* AddNoOfUnitDialog.swift */; };
 		2BE4C32322CB230D008E0CA5 /* ComplainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4C32122CB230D008E0CA5 /* ComplainCell.swift */; };
 		2BE4C32422CB230D008E0CA5 /* ComplainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BE4C32222CB230D008E0CA5 /* ComplainCell.xib */; };
 		2BE4C32722CB8747008E0CA5 /* PollingVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4C32622CB8747008E0CA5 /* PollingVc.swift */; };
@@ -373,6 +374,7 @@
 		2BBCBC3022B13B0B000EB023 /* FundFragmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundFragmentVC.swift; sourceTree = "<group>"; };
 		2BC48F6022B234D4006BF433 /* FundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundCell.swift; sourceTree = "<group>"; };
 		2BC48F6122B234D4006BF433 /* FundCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FundCell.xib; sourceTree = "<group>"; };
+		2BD53AEB22D71C4400B8BFE2 /* AddNoOfUnitDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoOfUnitDialog.swift; sourceTree = "<group>"; };
 		2BE4C32122CB230D008E0CA5 /* ComplainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplainCell.swift; sourceTree = "<group>"; };
 		2BE4C32222CB230D008E0CA5 /* ComplainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComplainCell.xib; sourceTree = "<group>"; };
 		2BE4C32622CB8747008E0CA5 /* PollingVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingVc.swift; sourceTree = "<group>"; };
@@ -548,7 +550,6 @@
 			children = (
 				2BEBDF3F22D44FEF006AE21F /* balance sheet  */,
 				25E039FE22D0BCF3006BE961 /* notification */,
-				2B7D47C622D3230800B791B5 /* balance sheet  */,
 				2BEFACF022D0C44A00B4B983 /* emergency contacts */,
 				2BEFACEF22D0C43B00B4B983 /* building details */,
 				25E039EB22D05373006BE961 /* facility */,
@@ -1088,6 +1089,7 @@
 				2BBCBC2A22B11BDC000EB023 /* BillsAndFundsVC.swift */,
 				2BBCBC2E22B13AF5000EB023 /* BillFragmentVC.swift */,
 				2BBCBC3022B13B0B000EB023 /* FundFragmentVC.swift */,
+				2BD53AEB22D71C4400B8BFE2 /* AddNoOfUnitDialog.swift */,
 			);
 			path = "bills and funds";
 			sourceTree = "<group>";
@@ -1259,7 +1261,6 @@
 				2BBA56C422B7D9410031A0A6 /* VisitorArrivedCell.xib in Resources */,
 				2B5208FE22AF817E003B6662 /* InfoFamalyMemberCell.xib in Resources */,
 				25E039F722D0715C006BE961 /* AllFacilityCell.xib in Resources */,
-				2B62122222C0D7D400FE8AF9 /* GallerySliderCell.xib in Resources */,
 				2B52090522AFA4D3003B6662 /* HomeScreenCvCell.xib in Resources */,
 				2562475122BA54870032DB4B /* GateKeeperCell.xib in Resources */,
 				2B401E4922C3758D005E1A16 /* ElectionCell.xib in Resources */,
@@ -1388,6 +1389,7 @@
 				2BE4C32D22CB95AF008E0CA5 /* PollingCell.swift in Sources */,
 				25C983A222980CE600F2DF3A /* NVActivityIndicatorAnimationBallPulse.swift in Sources */,
 				2B284CF722B9F79400CF1AE0 /* MyVehicleNumberCell.swift in Sources */,
+				2BD53AEC22D71C4400B8BFE2 /* AddNoOfUnitDialog.swift in Sources */,
 				2B27588C22B3671800E0DC2E /* BillAndFundDetailsVC.swift in Sources */,
 				2BE4C32722CB8747008E0CA5 /* PollingVc.swift in Sources */,
 				2B52090122AF817E003B6662 /* SocietyRegistrationCell.swift in Sources */,

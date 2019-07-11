@@ -34,11 +34,15 @@ class BillAndFundDetailsVC: BaseVC {
         lblDueDate.text = maintainanceList.endDate
         lblPaymentDate.text = maintainanceList.receiveMaintenanceDate
         lblDescription.text = maintainanceList.maintenanceDescription
-        
+        lblAmount.text = maintainanceList.maintenceAmount
     }
     
+    @IBAction func btnBackPressed(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+        
+    }
     @IBAction func btnPay(_ sender: UIButton) {
         
-        
+        self.toast(message: "Admin will contact you soon!!!!", type: 0)
     }
 }
