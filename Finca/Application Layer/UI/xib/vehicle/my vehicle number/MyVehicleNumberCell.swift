@@ -9,8 +9,10 @@
 import UIKit
 
 class MyVehicleNumberCell: UICollectionViewCell {
-
+    
+    @IBOutlet weak var lbParkingSlot: UILabel!
     @IBOutlet weak var lbNumber: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

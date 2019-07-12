@@ -202,6 +202,19 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AJh-O9-K3T">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
                                                 <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat" translatesAutoresizingMaskIntoConstraints="NO" id="CcX-yl-760">
+                                                        <rect key="frame" x="10" y="5" width="30" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="G84-zf-BLJ"/>
+                                                            <constraint firstAttribute="width" constant="30" id="wLR-vs-nGo"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVL-Dt-i3f">
+                                                        <rect key="frame" x="5" y="0.0" width="40" height="40"/>
+                                                        <connections>
+                                                            <action selector="onClickChat:" destination="nRJ-VZ-1Lf" eventType="touchUpInside" id="3T8-U3-ghj"/>
+                                                        </connections>
+                                                    </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Abb-qR-128" userLabel="view count msg">
                                                         <rect key="frame" x="25" y="0.0" width="20" height="20"/>
                                                         <subviews>
@@ -227,19 +240,6 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat" translatesAutoresizingMaskIntoConstraints="NO" id="CcX-yl-760">
-                                                        <rect key="frame" x="10" y="5" width="30" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="G84-zf-BLJ"/>
-                                                            <constraint firstAttribute="width" constant="30" id="wLR-vs-nGo"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVL-Dt-i3f">
-                                                        <rect key="frame" x="5" y="0.0" width="40" height="40"/>
-                                                        <connections>
-                                                            <action selector="onClickChat:" destination="nRJ-VZ-1Lf" eventType="touchUpInside" id="3T8-U3-ghj"/>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="BVL-Dt-i3f" secondAttribute="bottom" id="9Xz-Tu-qcB"/>
@@ -255,6 +255,19 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZb-aC-QDe">
                                                 <rect key="frame" x="50" y="0.0" width="50" height="40"/>
                                                 <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notification" translatesAutoresizingMaskIntoConstraints="NO" id="XlI-vw-SFb">
+                                                        <rect key="frame" x="10" y="5" width="30" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="30" id="OaS-uo-Goo"/>
+                                                            <constraint firstAttribute="height" constant="30" id="aRC-De-FEy"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4o-FF-jTP">
+                                                        <rect key="frame" x="5" y="0.0" width="40" height="40"/>
+                                                        <connections>
+                                                            <action selector="onClickNotification:" destination="nRJ-VZ-1Lf" eventType="touchUpInside" id="m8V-8w-lwF"/>
+                                                        </connections>
+                                                    </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aqg-jh-wQN" userLabel="view count noti">
                                                         <rect key="frame" x="25" y="0.0" width="20" height="20"/>
                                                         <subviews>
@@ -280,19 +293,6 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notification" translatesAutoresizingMaskIntoConstraints="NO" id="XlI-vw-SFb">
-                                                        <rect key="frame" x="10" y="5" width="30" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="30" id="OaS-uo-Goo"/>
-                                                            <constraint firstAttribute="height" constant="30" id="aRC-De-FEy"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4o-FF-jTP">
-                                                        <rect key="frame" x="5" y="0.0" width="40" height="40"/>
-                                                        <connections>
-                                                            <action selector="onClickNotification:" destination="nRJ-VZ-1Lf" eventType="touchUpInside" id="m8V-8w-lwF"/>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="XlI-vw-SFb" firstAttribute="centerY" secondItem="hZb-aC-QDe" secondAttribute="centerY" id="3KI-8l-c7W"/>
@@ -458,7 +458,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9WO-UB-fzi">
-                                <rect key="frame" x="8" y="28" width="398" height="60"/>
+                                <rect key="frame" x="8" y="61" width="398" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="zk5-kA-oFa"/>
@@ -472,7 +472,7 @@
                                 <cells/>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iYe-lk-e79">
-                                <rect key="frame" x="8" y="96" width="398" height="632"/>
+                                <rect key="frame" x="8" y="129" width="398" height="599"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MUM-Md-39H">
                                     <size key="itemSize" width="50" height="50"/>
@@ -482,14 +482,46 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4n-0e-tyv">
+                                <rect key="frame" x="8" y="8" width="398" height="45"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yr0-rm-qj9">
+                                        <rect key="frame" x="0.0" y="44" width="398" height="1"/>
+                                        <color key="backgroundColor" name="grey_60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="IfQ-7r-7CN"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search vehicle number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8FC-pQ-cke">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="44"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="8FC-pQ-cke" secondAttribute="trailing" id="5cY-uC-7bn"/>
+                                    <constraint firstItem="8FC-pQ-cke" firstAttribute="leading" secondItem="e4n-0e-tyv" secondAttribute="leading" id="A6T-x3-Rre"/>
+                                    <constraint firstAttribute="bottom" secondItem="yr0-rm-qj9" secondAttribute="bottom" id="JFY-4y-prA"/>
+                                    <constraint firstItem="yr0-rm-qj9" firstAttribute="top" secondItem="8FC-pQ-cke" secondAttribute="bottom" id="O6y-Tu-RA5"/>
+                                    <constraint firstAttribute="height" constant="45" id="OY3-zU-g8M"/>
+                                    <constraint firstAttribute="trailing" secondItem="yr0-rm-qj9" secondAttribute="trailing" id="SbQ-FW-rjg"/>
+                                    <constraint firstItem="8FC-pQ-cke" firstAttribute="top" secondItem="e4n-0e-tyv" secondAttribute="top" id="xHX-Oe-crv"/>
+                                    <constraint firstItem="yr0-rm-qj9" firstAttribute="leading" secondItem="e4n-0e-tyv" secondAttribute="leading" id="yAM-RP-hnX"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="gray10"/>
                         <constraints>
                             <constraint firstItem="iYe-lk-e79" firstAttribute="top" secondItem="9WO-UB-fzi" secondAttribute="bottom" constant="8" id="Ciw-GG-4GU"/>
+                            <constraint firstItem="e4n-0e-tyv" firstAttribute="leading" secondItem="x9l-jQ-aGa" secondAttribute="leading" constant="8" id="FFo-wI-CBR"/>
                             <constraint firstItem="x9l-jQ-aGa" firstAttribute="bottom" secondItem="iYe-lk-e79" secondAttribute="bottom" constant="8" id="TEV-Tz-IMx"/>
                             <constraint firstItem="iYe-lk-e79" firstAttribute="leading" secondItem="x9l-jQ-aGa" secondAttribute="leading" constant="8" id="Ui1-Br-XmA"/>
                             <constraint firstItem="x9l-jQ-aGa" firstAttribute="trailing" secondItem="9WO-UB-fzi" secondAttribute="trailing" constant="8" id="aCD-QR-q0T"/>
-                            <constraint firstItem="9WO-UB-fzi" firstAttribute="top" secondItem="x9l-jQ-aGa" secondAttribute="top" constant="8" id="d7m-ml-yN4"/>
+                            <constraint firstItem="9WO-UB-fzi" firstAttribute="top" secondItem="e4n-0e-tyv" secondAttribute="bottom" constant="8" id="hr6-JF-q1N"/>
+                            <constraint firstItem="e4n-0e-tyv" firstAttribute="top" secondItem="TOO-B3-wLX" secondAttribute="top" constant="8" id="m7M-hd-3xp"/>
+                            <constraint firstItem="x9l-jQ-aGa" firstAttribute="trailing" secondItem="e4n-0e-tyv" secondAttribute="trailing" constant="8" id="tEp-wv-m96"/>
                             <constraint firstItem="x9l-jQ-aGa" firstAttribute="trailing" secondItem="iYe-lk-e79" secondAttribute="trailing" constant="8" id="vHc-au-zac"/>
                             <constraint firstItem="9WO-UB-fzi" firstAttribute="leading" secondItem="x9l-jQ-aGa" secondAttribute="leading" constant="8" id="vTP-um-7dU"/>
                         </constraints>
@@ -498,6 +530,7 @@
                     <connections>
                         <outlet property="cvBlock" destination="9WO-UB-fzi" id="Mz1-PD-dsL"/>
                         <outlet property="cvUnits" destination="iYe-lk-e79" id="w11-fs-nMh"/>
+                        <outlet property="tfSearch" destination="8FC-pQ-cke" id="mfe-nv-kQZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ikG-88-nXF" userLabel="First Responder" sceneMemberID="firstResponder"/>

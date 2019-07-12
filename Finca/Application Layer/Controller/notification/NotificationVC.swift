@@ -57,8 +57,8 @@ class NotificationVC: BaseVC {
                     if response.status == "200" {
                         
                         
-                        UserDefaults.standard.set(response.chat_status, forKey: StringConstants.CHAT_STATUS)
-                        UserDefaults.standard.set(response.read_status, forKey: StringConstants.READ_STATUS)
+                      //  UserDefaults.standard.set(response.chat_status, forKey: StringConstants.CHAT_STATUS)
+                       // UserDefaults.standard.set(response.read_status, forKey: StringConstants.READ_STATUS)
                         
                         if self.notifications.count > 0 {
                             self.notifications.removeAll()

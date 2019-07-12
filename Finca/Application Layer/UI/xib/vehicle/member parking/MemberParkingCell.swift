@@ -46,7 +46,12 @@ extension  MemberParkingCell :   UICollectionViewDelegate , UICollectionViewData
        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: itemCell, for: indexPath) as! MyVehicleNumberCell
         
-        cell.lbNumber.text =  myParking[indexPath.row].vehicle_no
+        let splitString = myParking[indexPath.row].vehicle_no.split{$0 == "~"}.map(String.init)
+        
+        
+        cell.lbNumber.text =  splitString[1].uppercased()
+        cell.lbParkingSlot.text = splitString[0]
+        
         return  cell
     }
     
@@ -62,7 +67,7 @@ extension  MemberParkingCell :   UICollectionViewDelegate , UICollectionViewData
         
        // let yourWidth = collectionView.bounds.width - 90
          let yourWidth = collectionView.bounds.width  / 2
-        return CGSize(width: yourWidth - 5, height: 30)
+        return CGSize(width: yourWidth - 5, height: 50)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

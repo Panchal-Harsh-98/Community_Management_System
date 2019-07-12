@@ -15,11 +15,15 @@ class TabMemberVC: BaseVC {
     let itemCell = "BlockMemberCell"
     var blocks = [BlockModelMember]()
     var  units = [UnitModelMember]()
+     var  filterUnits = [UnitModelMember]()
     var isFirstTime = true
     @IBOutlet weak var cvBlock: UICollectionView!
     @IBOutlet weak var cvUnits: UICollectionView!
+    @IBOutlet weak var tfSearch: UITextField!
     
     let itemCellParkingMember = "MemberParkingCell"
+    var isSearch = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,17 +42,48 @@ class TabMemberVC: BaseVC {
         let inbUnit = UINib(nibName: itemCellParkingMember, bundle: nil)
         cvUnits.register(inbUnit, forCellWithReuseIdentifier: itemCellParkingMember)
         
-        
+        tfSearch.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: UIControl.Event.editingChanged)
+        tfSearch.delegate = self
         doGetMemberParking()
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return view.endEditing(true)
+    }
     
-
+    @objc func textFieldDidChange(textField: UITextField) {
+        
+       
+        
+        //your code
+      
+            
+            
+          /*  filterUnits = textField.text!.isEmpty ? units : units.filter({ (item:UnitModelMember) -> Bool in
+                
+                if item.myParking != nil {
+                    for subItem in item.myParking {
+                        
+                        return subItem.vehicle_no.range(of: textField.text!, options: .caseInsensitive, range: nil, locale: nil) != nil
+                    }
+                }
+             
+                
+                return Bool()
+            })*/
+ 
+ 
+ 
+            
+            cvUnits.reloadData()
+     
+    }
     func setDataUtnit(blockModelMember:BlockModelMember) {
         
         if self.units.count > 0 {
             self.units.removeAll()
             cvUnits.reloadData()
         }
+      
         
         for floor in blockModelMember.floors {
          //  print("flor blod id " , floor.block_id )
@@ -67,6 +102,8 @@ class TabMemberVC: BaseVC {
                     }
                     //units.append(contentsOf: floor.units)
                 }
+                
+              
                 
             }
             
@@ -199,8 +236,23 @@ extension TabMemberVC :  UICollectionViewDelegate , UICollectionViewDataSource ,
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
        if collectionView == cvUnits {
+         var height = 70.0
+        
+        if units[indexPath.row].myParking != nil {
+            let count = units[indexPath.row].myParking.count
+            if   count % 2 == 0 {
+                let subcount = count / 2
+                print("sub",subcount)
+                height = height +   (55.0 * Double(subcount))
+            } else {
+                let subcount = count / 2
+                height =  (55.0 * Double(subcount)) + 50.0 + height
+            }
+        }
+        /*self.heightConstVehicle.constant = CGFloat(count/2) * 35.0 + 30*/
+        
             let yourWidth = collectionView.bounds.width
-            return CGSize(width: yourWidth-4, height: 150)
+            return CGSize(width: yourWidth-4, height: CGFloat(height))
         }
         
         return CGSize(width: 80, height: 60)

@@ -133,7 +133,7 @@ extension  TabMyVC :   UICollectionViewDelegate , UICollectionViewDataSource , U
             
             cell.lbAllocate.text = myParkings[indexPath.row].parking_name +  "  " + myParkings[indexPath.row].socieaty_parking_name
             
-             cell.lbVehicleNumber.text =  myParkings[indexPath.row].vehicle_no
+             cell.lbVehicleNumber.text =  myParkings[indexPath.row].vehicle_no.uppercased()
             
             return  cell
             
