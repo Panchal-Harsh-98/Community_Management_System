@@ -12,7 +12,7 @@ import EzPopup
 
 
 class BillFragmentVC: BaseVC{
- 
+    
     
     @IBOutlet weak var tbvBill: UITableView!
     let itemCell = "FundCell"
@@ -26,13 +26,13 @@ class BillFragmentVC: BaseVC{
     
     let date = Date()
     override func viewDidLoad() {
-      
+        
         super.viewDidLoad()
         let date = Date()
         let calendar = Calendar.current
-       
+        
         year = String(calendar.component(.year, from: date))
-         month = "All"
+        month = "All"
         
         addRefreshControlTo(tableView: tbvBill)
         let nib = UINib(nibName: itemCell, bundle: nil)
@@ -55,7 +55,7 @@ class BillFragmentVC: BaseVC{
     }
     
     @objc func refreshData(_ notification: Notification) {
-
+        
         let month =  notification.userInfo?["month"] as! String
         let year = notification.userInfo?["year"]!as! String
         billList.removeAll()
@@ -83,14 +83,14 @@ class BillFragmentVC: BaseVC{
             if json != nil {
                 
                 do {
-                        let response = try JSONDecoder().decode(BillResponse.self, from:json!)
-                        if response.status == "200" {
-                            self.billList.append(contentsOf: response.bill)
-                            self.tbvBill.reloadData()
-                            self.setDueAndPaidLabels()
-                        }else {
-    
-                        }
+                    let response = try JSONDecoder().decode(BillResponse.self, from:json!)
+                    if response.status == "200" {
+                        self.billList.append(contentsOf: response.bill)
+                        self.tbvBill.reloadData()
+                        self.setDueAndPaidLabels()
+                    }else {
+                        
+                    }
                     print(json as Any)
                 } catch {
                     print("parse error")
@@ -109,7 +109,7 @@ class BillFragmentVC: BaseVC{
                 
             }else if item.receiveBillStatus == "1"{
                 
-                 self.paid = self.paid + strAmount
+                self.paid = self.paid + strAmount
                 
             }else if item.receiveBillStatus == "2"{
                 
@@ -134,38 +134,61 @@ extension BillFragmentVC : IndicatorInfoProvider{
     }
 }
 extension BillFragmentVC : UITableViewDataSource,UITableViewDelegate{
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return billList.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tbvBill.dequeueReusableCell(withIdentifier: itemCell, for: indexPath)as! FundCell
         cell.lblDate.text = billList[indexPath.row].billGenrateDate
         cell.lblTitle.text = billList[indexPath.row].billName
-        if billList[indexPath.row].billAmount == "0"{
-            cell.lblExpense.text = billList[indexPath.row].billAmount
-            
-        }
         
+        if billList[indexPath.row].receiveBillStatus == "0"{
+            cell.lblExpense.textColor = ColorConstant.red400
+            cell.lblExpense.text = "Add Bill Units"
+            cell.lblExpense.minimumScaleFactor = 0.5
+            cell.lblExpense.adjustsFontSizeToFitWidth = true;
+        }else if billList[indexPath.row].receiveBillStatus == "1"{
+            cell.lblExpense.textColor = ColorConstant.yellow400
+            cell.lblExpense.text = "pending"
+        }else if billList[indexPath.row].receiveBillStatus == "2" {
+            cell.lblExpense.textColor = ColorConstant.red400
+            cell.lblExpense.text = StringConstants.RUPEE_SYMBOL + billList[indexPath.row].billAmount
+        }else{
+            cell.lblExpense.textColor = ColorConstant.yellow400
+            cell.lblExpense.text = "Paid"
+        }
+        cell.selectionStyle = .none
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let screenwidth = UIScreen.main.bounds.width
-        let screenheight = UIScreen.main.bounds.height
-        let destiController = self.storyboard?.instantiateViewController(withIdentifier: "idAddNoOfUnitDialog") as! AddNoOfUnitDialog
-        
-        destiController.billDetail = billList[indexPath.row]
-        let popupVC = PopupViewController(contentController: destiController, popupWidth: screenwidth - 50, popupHeight: screenheight-300)
-        popupVC.backgroundAlpha = 0.5
-        popupVC.backgroundColor = .black
-        popupVC.shadowEnabled = true
-        popupVC.canTapOutsideToDismiss = true
-        present(popupVC, animated: true)
+        if billList[indexPath.row].receiveBillStatus == "0"{
+            
+            let screenwidth = UIScreen.main.bounds.width
+            let screenheight = UIScreen.main.bounds.height
+            let destiController = self.storyboard?.instantiateViewController(withIdentifier: "idAddNoOfUnitDialog") as! AddNoOfUnitDialog
+            
+            destiController.billDetail = billList[indexPath.row]
+            
+            let popupVC = PopupViewController(contentController: destiController, popupWidth: screenwidth - 50, popupHeight: screenheight-300)
+            popupVC.backgroundAlpha = 0.5
+            popupVC.backgroundColor = .black
+            popupVC.shadowEnabled = true
+            popupVC.canTapOutsideToDismiss = true
+            present(popupVC, animated: true)
+            
+        }
+        else if billList[indexPath.row].receiveBillStatus == "2"{
+            let nextVc = self.storyboard?.instantiateViewController(withIdentifier: "idBillAndFundDetailsVC") as! BillAndFundDetailsVC
+            nextVc.isBillList = true
+            nextVc.billList = billList[indexPath.row]
+            self.navigationController?.pushViewController(nextVc, animated: true)
+        }
     }
-
+    
 }

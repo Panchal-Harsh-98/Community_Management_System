@@ -11,6 +11,7 @@ import UIKit
 class BillAndFundDetailsVC: BaseVC {
     var maintainanceList : Maintenance_Model!
     var billList : Bill_Model!
+    var isBillList = false
     @IBOutlet weak var lblBillHolderName: UILabel!
     @IBOutlet weak var lblBillHolderEmail: UILabel!
     @IBOutlet weak var lblpaymentStatus: UILabel!
@@ -27,14 +28,27 @@ class BillAndFundDetailsVC: BaseVC {
         lblpaymentStatus.layer.masksToBounds = true
         lblAmount.layer.masksToBounds = true
         lblAmount.layer.cornerRadius = 20
-        lblBillHolderName.text = doGetLocalDataUser().user_full_name!
-        lblBillHolderEmail.text = doGetLocalDataUser().user_email!
-        lblMaintenanceFor.text = maintainanceList.maintenanceName
-        lblMaintenanceDate.text = maintainanceList.createdDate
-        lblDueDate.text = maintainanceList.endDate
-        lblPaymentDate.text = maintainanceList.receiveMaintenanceDate
-        lblDescription.text = maintainanceList.maintenanceDescription
-        lblAmount.text = maintainanceList.maintenceAmount
+        if isBillList {
+            lblBillHolderName.text = doGetLocalDataUser().user_full_name!
+            lblBillHolderEmail.text = doGetLocalDataUser().user_email!
+            lblMaintenanceFor.text = billList.billName
+            lblMaintenanceDate.text = billList.billGenrateDate
+            lblDueDate.text = billList.billEndDate
+            lblPaymentDate.text = billList.billPaymentDate
+            lblDescription.text = billList.billDescription
+            lblAmount.text = billList.billAmount
+        }else{
+         
+            lblBillHolderName.text = doGetLocalDataUser().user_full_name!
+            lblBillHolderEmail.text = doGetLocalDataUser().user_email!
+            lblMaintenanceFor.text = maintainanceList.maintenanceName
+            lblMaintenanceDate.text = maintainanceList.createdDate
+            lblDueDate.text = maintainanceList.endDate
+            lblPaymentDate.text = maintainanceList.receiveMaintenanceDate
+            lblDescription.text = maintainanceList.maintenanceDescription
+            lblAmount.text = maintainanceList.maintenceAmount
+        }
+       
     }
     
     @IBAction func btnBackPressed(_ sender: UIButton) {

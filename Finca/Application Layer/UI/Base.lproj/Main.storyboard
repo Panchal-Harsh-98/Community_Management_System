@@ -1530,7 +1530,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="24n-ZR-0jc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4568" y="29"/>
+            <point key="canvasLocation" x="4038" y="38"/>
         </scene>
         <!--MemberVC-->
         <scene sceneID="8Pc-76-5Er">
@@ -5247,7 +5247,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c6Y-3s-upv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3913" y="29"/>
+            <point key="canvasLocation" x="3383" y="38"/>
         </scene>
         <!--Home Navigation Menu Controller-->
         <scene sceneID="DQ3-XU-0WP">
@@ -5350,7 +5350,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tpm-8W-XN4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3912" y="-660"/>
+            <point key="canvasLocation" x="3383" y="-651"/>
         </scene>
         <!--NotificationVC-->
         <scene sceneID="prx-Ys-d3E">
@@ -6410,6 +6410,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
                                         <connections>
                                             <action selector="btnChooseImage:" destination="NFt-Qm-i6D" eventType="touchUpInside" id="7rf-FR-gid"/>
+                                            <action selector="btnChooseImage:" destination="Val-zX-7mV" eventType="touchUpInside" id="TsZ-yC-f1x"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -6508,6 +6509,7 @@
                         <viewLayoutGuide key="safeArea" id="9IU-nq-dKD"/>
                     </view>
                     <connections>
+                        <outlet property="imgUnit" destination="qMk-3b-P8e" id="IDm-F4-SXs"/>
                         <outlet property="lblUnitPrice" destination="FIH-P7-Qaf" id="T2O-hc-0XK"/>
                         <outlet property="tfTextField" destination="ogF-w5-k0M" id="JDo-Tk-YGc"/>
                     </connections>
