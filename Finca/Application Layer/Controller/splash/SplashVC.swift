@@ -44,21 +44,21 @@ class SplashVC: BaseVC {
     @objc func callback() {
         if !isKeyPresentInUserDefaults(key: StringConstants.KEY_LOGIN) {
             
-           // let loginVc = self.storyboard?.instantiateViewController(withIdentifier: "idLoginVC")as! LoginVC
+            // let loginVc = self.storyboard?.instantiateViewController(withIdentifier: "idLoginVC")as! LoginVC
             let loginVc = self.storyboard?.instantiateViewController(withIdentifier: "idNavLocation")as! UINavigationController
             self.present(loginVc, animated: true, completion: nil)
             
         } else {
-        let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "idHomeNavController")as! SWRevealViewController
+            let homeVC = self.storyboard?.instantiateViewController(withIdentifier: StringConstants.HOME_NAV_CONTROLLER)as! SWRevealViewController
+//
+//            let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "idNavMainHome")as! UINavigationController
+//
+//
+//            let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "idNavMain")as! UINavigationController
+//
+//            self.present(homeVC, animated: true, completion: nil)
             
-          ///  let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "idNavMainHome")as! UINavigationController
-            
-            
-             //  let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "idNavMain")as! UINavigationController
-            
-           // self.present(homeVC, animated: true, completion: nil)
-            
-          self.self.navigationController?.pushViewController(homeVC, animated: true)
+           self.navigationController?.pushViewController(homeVC, animated: true)    
         }
         
     }

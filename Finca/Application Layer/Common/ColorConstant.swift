@@ -27,6 +27,12 @@ struct ColorConstant {
     
     static let colorGray90 =   UIColor(red: 102.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1.0)// #666666
     static let colorGray10 =   UIColor(red: 230.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, alpha: 1.0)// #E6E6E6
- 
+    static let red400 = #colorLiteral(red: 0.937254902, green: 0.3254901961, blue: 0.3137254902, alpha: 1)
+    static let red500 = #colorLiteral(red: 0.9568627451, green: 0.262745098, blue: 0.2117647059, alpha: 1)
+    
+    static let green = #colorLiteral(red: 0.4, green: 0.7333333333, blue: 0.4156862745, alpha: 1)
+    static let green600 = #colorLiteral(red: 0.262745098, green: 0.6274509804, blue: 0.2784313725, alpha: 1)
+    
+    static let yellow400 = #colorLiteral(red: 1, green: 0.9333333333, blue: 0.3450980392, alpha: 1)
     
 }

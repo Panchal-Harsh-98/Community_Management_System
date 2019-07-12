@@ -293,8 +293,7 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollect
             break;
         case 3:
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idVisitorVC")as! VisitorVC
-          //  self.present(nextVC, animated: true, completion: nil)
-             revealViewController().pushFrontViewController(nextVC, animated: true)
+            self.navigationController?.pushViewController(nextVC, animated: true )
             break
         case 4:
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idResourcesVC")as! ResourcesVC
