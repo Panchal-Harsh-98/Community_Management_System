@@ -313,7 +313,8 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollect
         case 8:
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idFacilityMainTabVC")as! FacilityMainTabVC
            // self.navigationController?.pushViewController(nextVC, animated: true )
-             revealViewController().pushFrontViewController(nextVC, animated: true)
+           //  revealViewController().pushFrontViewController(nextVC, animated: true)
+            self.navigationController?.pushViewController(nextVC, animated: true )
             break;
         case 9:
             let nextvc = self.storyboard?.instantiateViewController(withIdentifier: "idComplaintsVC")as! ComplaintsVC
@@ -340,6 +341,8 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollect
             self.navigationController?.pushViewController(nextVC, animated: true )
             break;
         case 15:
+            let nextVC = self.storyboard!.instantiateViewController(withIdentifier: "idSOSVC") as! SOSVC
+             self.navigationController?.pushViewController(nextVC, animated: true )
             break;
         case 16:
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "idGalleryVC")as! GalleryVC

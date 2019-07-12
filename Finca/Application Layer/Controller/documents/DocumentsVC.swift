@@ -104,6 +104,9 @@ class DocumentsVC: BaseVC {
     @IBOutlet weak var viewNotiCount: UIView!
     @IBOutlet weak var lbNotiCount: UILabel!
     
+    override func viewWillAppear(_ animated: Bool) {
+        loadNoti()
+    }
     func loadNoti() {
         let vc = BaseVC()
         if vc.getChatCount() !=  "0" {

@@ -189,7 +189,7 @@ class HomeNavigationMenuController: BaseVC {
        
        
             
-        }
+        
         else if menuData[index].title == StringConstants.MENU_MEMBERS {
             let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idMemberVC") as! MemberVC
         
@@ -222,6 +222,13 @@ class HomeNavigationMenuController: BaseVC {
             let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idContactUsVC") as! ContactUsVC
             
             revealViewController().pushFrontViewController(destiController, animated: true)
+        }
+        else if menuData[index].title == StringConstants.MENU_FACILITY {
+            let destiController = self.storyboard!.instantiateViewController(withIdentifier: "idFacilityMainTabVC") as! FacilityMainTabVC
+            
+            revealViewController().pushFrontViewController(destiController, animated: true)
+            
+            
         }
         
         

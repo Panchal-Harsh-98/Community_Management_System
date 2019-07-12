@@ -16,6 +16,8 @@ class TabMemberVC: BaseVC {
     var blocks = [BlockModelMember]()
     var  units = [UnitModelMember]()
      var  filterUnits = [UnitModelMember]()
+    var  allUnits = [UnitModelMember]()
+    
     var isFirstTime = true
     @IBOutlet weak var cvBlock: UICollectionView!
     @IBOutlet weak var cvUnits: UICollectionView!
@@ -54,6 +56,38 @@ class TabMemberVC: BaseVC {
         
        
         
+        
+        if tfSearch.text != "" {
+            
+            isSearch = false
+            
+            filterUnits.removeAll()
+            
+            
+            for i in (0..<allUnits.count) {
+                
+                for j in (0..<allUnits[i].myParking.count) {
+                   
+                    
+                    if allUnits[i].myParking[j].vehicle_no.contains(textField.text!) {
+                        
+                        filterUnits.append(allUnits[i])
+                        
+                         isSearch = true
+                    }
+                    
+                    
+                }
+                
+                
+            }
+            cvUnits.reloadData()
+            
+            
+        } else {
+            isSearch = false
+             cvUnits.reloadData()
+        }
         //your code
       
             
@@ -123,12 +157,22 @@ class TabMemberVC: BaseVC {
     }
     
     
+    func allUnit() {
+        for  block in (0..<blocks.count)  {
+            
+            for flor in (0..<blocks[block].floors.count) {
+                
+               self.allUnits.append(contentsOf: blocks[block].floors[flor].units)
+             }
+         }
+        
+    }
     
     func selectItem(index:Int) {
         
         //blocks
         
-        for i in (0..<blocks.count).reversed() {
+        for i in (0..<blocks.count) {
             if i == index {
                 blocks[i].isSelect = true
             } else {
@@ -174,6 +218,8 @@ class TabMemberVC: BaseVC {
                         
                         self.setDataUtnit(blockModelMember: self.blocks[0])
                          self.selectItem(index: 0)
+                        self.allUnit()
+                        
                     }else {
                         self.showAlertMessage(title: "Alert", msg: response.message)
                     }
@@ -196,7 +242,12 @@ extension TabMemberVC : IndicatorInfoProvider {
 extension TabMemberVC :  UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == cvUnits {
-            return  units.count
+            if  isSearch {
+               return filterUnits.count
+            } else {
+                  return  units.count
+            }
+          
         }
         
         return  blocks.count
@@ -206,10 +257,19 @@ extension TabMemberVC :  UICollectionViewDelegate , UICollectionViewDataSource ,
         
         if collectionView == cvUnits {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: itemCellParkingMember, for: indexPath) as! MemberParkingCell
+            if isSearch {
+                cell.lbName.text = filterUnits[indexPath.row].user_full_name
+                cell.tvUnit.text = filterUnits[indexPath.row].unit_name
+                cell.doSetData(myParking: filterUnits[indexPath.row].myParking)
+                
+            } else {
+                cell.lbName.text = units[indexPath.row].user_full_name
+                cell.tvUnit.text = units[indexPath.row].unit_name
+                cell.doSetData(myParking: units[indexPath.row].myParking)
+                
+            }
             
-            cell.lbName.text = units[indexPath.row].user_full_name
-            cell.tvUnit.text = units[indexPath.row].unit_name
-            cell.doSetData(myParking: units[indexPath.row].myParking)
+            
             return cell
         }
         
@@ -238,17 +298,32 @@ extension TabMemberVC :  UICollectionViewDelegate , UICollectionViewDataSource ,
        if collectionView == cvUnits {
          var height = 70.0
         
-        if units[indexPath.row].myParking != nil {
-            let count = units[indexPath.row].myParking.count
-            if   count % 2 == 0 {
-                let subcount = count / 2
-                print("sub",subcount)
-                height = height +   (55.0 * Double(subcount))
-            } else {
-                let subcount = count / 2
-                height =  (55.0 * Double(subcount)) + 50.0 + height
+        if isSearch {
+            if filterUnits[indexPath.row].myParking != nil {
+                let count = filterUnits[indexPath.row].myParking.count
+                if   count % 2 == 0 {
+                    let subcount = count / 2
+                    print("sub",subcount)
+                    height = height +   (55.0 * Double(subcount))
+                } else {
+                    let subcount = count / 2
+                    height =  (55.0 * Double(subcount)) + 50.0 + height
+                }
+            }
+        } else {
+            if units[indexPath.row].myParking != nil {
+                let count = units[indexPath.row].myParking.count
+                if   count % 2 == 0 {
+                    let subcount = count / 2
+                    print("sub",subcount)
+                    height = height +   (55.0 * Double(subcount))
+                } else {
+                    let subcount = count / 2
+                    height =  (55.0 * Double(subcount)) + 50.0 + height
+                }
             }
         }
+       
         /*self.heightConstVehicle.constant = CGFloat(count/2) * 35.0 + 30*/
         
             let yourWidth = collectionView.bounds.width

@@ -16,6 +16,10 @@ class ComplaintsVC: BaseVC {
     @IBOutlet weak var tbvComplain: UITableView!
     let itemCell = "ComplainCell"
     var ComplainList = [ComplainModel]()
+    @IBOutlet weak var viewChatCount: UIView!
+    @IBOutlet weak var lbChatCount: UILabel!
+    @IBOutlet weak var viewNotiCount: UIView!
+    @IBOutlet weak var lbNotiCount: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +40,7 @@ class ComplaintsVC: BaseVC {
     }
     
     
-    @IBOutlet weak var viewChatCount: UIView!
-    @IBOutlet weak var lbChatCount: UILabel!
-    @IBOutlet weak var viewNotiCount: UIView!
-    @IBOutlet weak var lbNotiCount: UILabel!
-    
+   
     func loadNoti() {
         let vc = BaseVC()
         if vc.getChatCount() !=  "0" {
@@ -88,6 +88,7 @@ class ComplaintsVC: BaseVC {
             ComplainList.removeAll()
             doCallGetComplainApi()
         }
+    loadNoti()
     }
     
     func doCallGetComplainApi(){

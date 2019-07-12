@@ -10,6 +10,15 @@ import UIKit
 
 class BalanceSheetVc: BaseVC {
     
+    
+    @IBOutlet weak var bMenu: UIButton!
+    @IBOutlet weak var viewChatCount: UIView!
+    @IBOutlet weak var lbChatCount: UILabel!
+    
+    @IBOutlet weak var viewNotiCount: UIView!
+    @IBOutlet weak var lbNotiCount: UILabel!
+    
+    
     @IBOutlet weak var lblBalanceSheetTotal: UILabel!
     
     @IBOutlet weak var tbvbalanceSheet: UITableView!
@@ -27,6 +36,7 @@ class BalanceSheetVc: BaseVC {
         tbvbalanceSheet.delegate = self
         tbvbalanceSheet.dataSource = self
         addRefreshControlTo(tableView: tbvbalanceSheet)
+        doInintialRevelController(bMenu: bMenu)
     }
     
     override func fetchNewDataOnRefresh() {
@@ -65,6 +75,39 @@ class BalanceSheetVc: BaseVC {
                 }
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadNoti()
+    }
+    func loadNoti() {
+        
+        if getChatCount() !=  "0" {
+            self.viewChatCount.isHidden =  false
+            self.lbChatCount.text = getChatCount()
+            
+        } else {
+            self.viewChatCount.isHidden =  true
+        }
+        if getNotiCount() !=  "0" {
+            self.viewNotiCount.isHidden =  false
+            self.lbNotiCount.text = getNotiCount()
+            
+        } else {
+            self.viewNotiCount.isHidden =  true
+        }
+    }
+    
+    @IBAction func onClickNotification(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "idNotificationVC") as! NotificationVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    @IBAction func onClickChat(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "idTabCarversionVC") as! TabCarversionVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
 }

@@ -25,7 +25,9 @@ class NoticeVC: BaseVC ,WKNavigationDelegate {
         
         doInintialRevelController(bMenu: bMenu)
         
-        let strUrl = doGetLocalDataUser().base_url + "apAdmin/noticeForAndroid.php?society_id=" + doGetLocalDataUser().society_id
+        let strUrl = UserDefaults.standard.string(forKey: StringConstants.KEY_BASE_URL)! + "apAdmin/noticeForAndroid.php?society_id=" + doGetLocalDataUser().society_id
+        
+        print("url" , strUrl)
         let url = URL(string: strUrl)
         let myRequest = URLRequest(url: url!)
         

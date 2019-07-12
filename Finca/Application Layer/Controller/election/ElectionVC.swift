@@ -40,6 +40,7 @@ class ElectionVC: BaseVC {
             election_list.removeAll()
             doGetElectionData()
         }
+        loadNoti()
     }
     
     func doGetElectionData(){

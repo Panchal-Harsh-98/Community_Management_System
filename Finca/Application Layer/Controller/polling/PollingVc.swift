@@ -41,6 +41,7 @@ class PollingVc: BaseVC {
             pollingQuesList.removeAll()
             doGetPollingQuestions()
         }
+        loadNoti()
     }
     
     func doGetPollingQuestions(){

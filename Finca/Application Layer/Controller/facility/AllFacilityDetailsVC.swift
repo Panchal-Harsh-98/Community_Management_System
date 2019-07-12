@@ -96,5 +96,8 @@ class AllFacilityDetailsVC: BaseVC {
     }
 
     
-
+    @IBAction func onClickBack(_ sender: Any) {
+        doPopBAck()
+    }
+    
 }

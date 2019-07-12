@@ -52,6 +52,9 @@ class ResourcesVC: BaseVC {
         doInintialRevelController(bMenu: bMenu)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        loadNoti()
+    }
     func doGetEmployes() {
         showProgress()
         //let device_token = UserDefaults.standard.string(forKey: ConstantString.KEY_DEVICE_TOKEN)
